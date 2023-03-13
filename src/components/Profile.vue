@@ -2,6 +2,7 @@
 import { ref, computed } from 'vue'
 import Catagories from './Catagories.vue';
 import Itemlist from './Itemlist.vue'
+import { readUser, createUser, findUser, deleteUser, setUser, checkUser } from '../assets/js/accountManagement'
 const props = defineProps(['theme'])
 const themes = computed(() => props.theme)
 const user = ref({name:"chanathip", type:'user',image:'https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg'})
