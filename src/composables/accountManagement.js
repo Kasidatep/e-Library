@@ -1,4 +1,4 @@
-import userList from '../../../data/db.json'
+import userList from '../../data/db.json'
 let user = userList.users
 
 const readUser = () =>{
@@ -55,14 +55,14 @@ const checkUser = (username, password) =>{
     return 'username or password is incorrect'
 }
 
-console.log(checkUser('permm',''))
-console.log(findUser('permm'))
-console.log(findUser('kkk'))
-console.log(createUser('Tester','test','Test@mail.com','123456','test'))
-console.log(deleteUser('test'))
-console.log(setUser('Bret', 'KAITOON', 'kaitoon', '', '', ''))
-console.log(setUser('permm', 'Perm', 'L5139', '', '', ''))
-console.log(readUser())
+// console.log(checkUser('permm',''))
+// console.log(findUser('permm'))
+// console.log(findUser('kkk'))
+// console.log(createUser('Tester','test','Test@mail.com','123456','test'))
+// console.log(deleteUser('test'))
+// console.log(setUser('Bret', 'KAITOON', 'kaitoon', '', '', ''))
+// console.log(setUser('permm', 'Perm', 'L5139', '', '', ''))
+// console.log(readUser())
 
 
 export {readUser,createUser,findUser,deleteUser,setUser,checkUser}

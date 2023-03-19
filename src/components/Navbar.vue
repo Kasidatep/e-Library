@@ -23,13 +23,13 @@ const nextTheme = ()=>{
 </script>
  
 <template>
-    <div class="w-full h-20 flex items-center border-b-1 fixed z-50" :class="themes.bgnav">
+    <div class="w-full h-20 flex items-center border-b-1 fixed z-50" :class="themes.nav">
         <!-- logo -->
         <div class="w-[10%] flex justify-center items-center" :class="themes.text">
             <img src="../assets/image/logo.png" class="w-[70px] brightness-200" >
         </div>
         <!-- catagory -->
-        <div class="w-[45%] grid grid-cols-4 pl-4 text-2xl font-medium "  :class="themes.text">
+        <div class="w-[45%] grid grid-cols-4 pl-4 text-2xl font-medium "  :class="themes.nav">
             <div @click="checkTheme" class="grid justify-self-center cursor-pointer">
                 หมวดหมู่
             </div>

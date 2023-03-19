@@ -1,6 +1,6 @@
 <script setup>
 import { ref,computed } from 'vue'
-import { findByCatagory } from '../assets/js/bookFunction'
+import { findByCatagory } from '../composables/bookFunction'
 import PhHeartFill from './icons/PhHeartFill.vue';
 import PhHeartLight from './icons/PhHeartLight.vue';
 const like = ref(true)

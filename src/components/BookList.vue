@@ -1,6 +1,7 @@
 <script setup>
 import {computed} from 'vue'
 import Catagories from './Catagories.vue';
+import PostList from './PostList.vue';
 const addBorrowBook = ($event)=>{
     console.log($event)
 }
@@ -11,6 +12,8 @@ const themes = computed(() => props.theme)
 <template>
     <div class="flex justify-center w-full pt-24 test">
         <div class="w-[70%]  test ">
+            <PostList :theme="themes" />
+            
             <h1 class="flex justify-center font-bold text-4xl"  :class="themes.textheader"> หนังสือทั้งหมด </h1>
             <div class="grid grid-flow-row">
                 <!-- Romance -->

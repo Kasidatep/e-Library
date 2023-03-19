@@ -1,4 +1,4 @@
-import bookList from '../../../data/db.json'
+import bookList from '../../data/db.json'
 const books = bookList.books
 console.log(books)
 const findByCatagory = (catagory) => {
