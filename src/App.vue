@@ -8,7 +8,6 @@ import {getPosts, fetchPost} from './composables/announcementAndPosts'
 const theme = ref(getTheme())
 const updateTheme = (e) => { theme.value=themeUpdate(e)}
 const isHomePage = ref(false)
-fetchPost().then(() =>console.log(getPosts()))
 </script>
  
 <template>

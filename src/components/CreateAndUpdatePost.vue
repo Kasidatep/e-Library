@@ -1,6 +1,6 @@
 <script setup>
 import { getPosts, createPost, updatePostById, deletePostById } from '../composables/announcementAndPosts';
-import { computed, ref } from 'vue';
+import { computed, ref, onMounted, onUpdated} from 'vue';
 const props = defineProps(['theme'])
 const themes = computed(() => props.theme)
 const posts = ref([])
@@ -11,7 +11,6 @@ const description = ref(null)
 const customUrl = ref(null)
 const isPublic = ref(true)
 const isAdvance = ref(false)
-const showNotification = ref(true)
 const notifications = ref([])
 const user = ref({ id: "kasidatep" })
 const createPostObj = () => {
@@ -19,6 +18,7 @@ const createPostObj = () => {
     if (imgUrl.value == null) createNotification("warning","Please provide image url.",2500)
     if (title.value == null) createNotification("warning","Please provide title.",2500)
     if (description.value == null)  createNotification("warning","Please provide description.",2500)
+    
     else {
         const data = {
                 img: imgUrl.value,
@@ -28,11 +28,24 @@ const createPostObj = () => {
                 visible: isPublic.value ? 1 : 2,
                 userId: user.value.id,
             }
-        const status = createPost(data)
-        if(status==200) createNotification("success","Create Post successfully.",10000)
-        if(status==200) posts.value.push(data)
+        let status 
+        console.log(posts.value)
+        const isUpdatedObj = posts.value.find(p => p.id == customUrl.value)
+        console.log(isUpdatedObj)
+        if(isUpdatedObj!==undefined&&customUrl.value!==null)  {
+            status = updatePostById(isUpdatedObj.id,data)
+            if(status==200) createNotification("success","Update Post successfully.",10000)
+            if(status==200) posts.value.splice(posts.value.findIndex(p => p.id==isUpdatedObj.id),1,data)
+        }
+        else{
+            status = createPost(data)
+            if(status==201) createNotification("success","Create Post successfully.",10000)
+            if(status==201) posts.value.push(data)
+        }
+        
     }
 }
+
 const createNotification = (type,message,timeout)=>{
     let theme = ["bg-black", "text-white"] 
     if(type=="warning") theme = ["bg-yellow-500", "text-black"]
@@ -66,11 +79,17 @@ const deletePost = async (id) => {
     if(status==200) posts.value = posts.value.filter(i => i.id!==id)
 }
 
-if(posts.value.length>0) posts.value = getPosts()
+const getData = async () => {
+    posts.value = await getPosts()
+}
+
+onMounted(async ()  => {
+    posts.value = await getPosts()
+})
 </script>
 <template>
    
-    <div v-if="showNotification" class="fixed w-96 right-5 left-auto z-0">
+    <div class="fixed w-96 right-5 left-auto z-0">
         <div class="flex-col h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
             v-for="notification in notifications">
             <div class="text-xl font-extrabold mx-5 mt-2 pt-2 ">{{ notification.type }}</div>
@@ -80,7 +99,7 @@ if(posts.value.length>0) posts.value = getPosts()
     </div>
 
     <div class="flex flex-col m-5 z-10"> 
-        
+        <div class="bg-green-300 text-black rounded p-1 w-fit" @click="getData">get Post Data</div>
         <div v-for="post in posts" class="text-white flex">
         <div> {{ post.title }}</div>
         <div class="px-5 text-yellow-500 cursor-pointer" @click="updatePost(post.id)"> edit </div>

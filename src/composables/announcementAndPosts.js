@@ -5,7 +5,7 @@ const fetchPost = async () => {
         //http://localhost:5000/posts?_expand=user
         const res = await fetch('http://localhost:5000/posts')
         if (res.status === 200) {
-            posts = await res.json()
+            return await res.json()
         }
         else console.log(res.status)
     }
@@ -23,6 +23,7 @@ const createPost = async (data) => {
             },
             body: JSON.stringify(data)
         })
+        console.log("created post "+ id)
         return res.status
     }
     catch (err) {
@@ -39,6 +40,7 @@ const updatePostById = async (id, data) => {
             },
             body: JSON.stringify(data)
         })
+        console.log("updated post"+ id)
         return res.status
     }
     catch (err) {
@@ -58,5 +60,8 @@ const deletePostById = async (id) => {
     }
 }
 
-const getPosts = () => posts
+const getPosts = async () =>{
+ const  postdata = await fetchPost() 
+ return  postdata 
+}
 export { fetchPost, getPosts, createPost, updatePostById, deletePostById }
