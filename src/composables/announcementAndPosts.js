@@ -15,6 +15,8 @@ const fetchPost = async () => {
 }
 
 const createPost = async (data) => {
+    data.postDate = new Date(Date.now())
+    console.log(data.postDate)
     try {
         const res = await fetch('http://localhost:5000/posts', {
             method: 'POST',

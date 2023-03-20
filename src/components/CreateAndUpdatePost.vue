@@ -1,6 +1,6 @@
 <script setup>
 import { getPosts, createPost, updatePostById, deletePostById } from '../composables/announcementAndPosts';
-import { computed, ref, onMounted, onUpdated} from 'vue';
+import { computed, ref, onMounted } from 'vue';
 const props = defineProps(['theme'])
 const themes = computed(() => props.theme)
 const posts = ref([])
@@ -13,82 +13,86 @@ const isPublic = ref(true)
 const isAdvance = ref(false)
 const notifications = ref([])
 const user = ref({ id: "kasidatep" })
+const isCreatePost = ref(true)
+
 const createPostObj = () => {
+    isCreatePost.value = true
     console.log("Creating/update post...")
-    if (imgUrl.value == null) createNotification("warning","Please provide image url.",2500)
-    if (title.value == null) createNotification("warning","Please provide title.",2500)
-    if (description.value == null)  createNotification("warning","Please provide description.",2500)
-    
+    if (imgUrl.value == null) createNotification("warning", "Please provide image url.", 2500)
+    if (title.value == null) createNotification("warning", "Please provide title.", 2500)
+    if (description.value == null) createNotification("warning", "Please provide description.", 2500)
+
     else {
         const data = {
-                img: imgUrl.value,
-                title: title.value,
-                description: description.value,
-                id: customUrl.value == null ? null : customUrl.value,
-                visible: isPublic.value ? 1 : 2,
-                userId: user.value.id,
-            }
-        let status 
-        console.log(posts.value)
+            id: customUrl.value == null ? null : customUrl.value,
+            title: title.value,
+            description: description.value,
+            img: imgUrl.value,
+            visible: isPublic.value ? 1 : 2,
+            userId: user.value.id
+        }
+        let status
         const isUpdatedObj = posts.value.find(p => p.id == customUrl.value)
         console.log(isUpdatedObj)
-        if(isUpdatedObj!==undefined&&customUrl.value!==null)  {
-            status = updatePostById(isUpdatedObj.id,data)
-            if(status==200) createNotification("success","Update Post successfully.",10000)
-            if(status==200) posts.value.splice(posts.value.findIndex(p => p.id==isUpdatedObj.id),1,data)
+        if (isUpdatedObj !== undefined && customUrl.value !== null) {
+            data.postDate = isUpdatedObj.postDate
+            status = updatePostById(isUpdatedObj.id, data)
+            if (status == 200) {
+                createNotification("success", "Update Post successfully.", 10000)
+                posts.value.splice(posts.value.findIndex(p => p.id == isUpdatedObj.id), 1, data)
+            }
         }
-        else{
+        else {
             status = createPost(data)
-            if(status==201) createNotification("success","Create Post successfully.",10000)
-            if(status==201) posts.value.push(data)
+            if (status == 201) {
+                createNotification("success", "Create Post successfully.", 10000)
+                if (status == 201) posts.value.push(data)
+            }
+
         }
-        
+
     }
 }
 
-const createNotification = (type,message,timeout)=>{
-    let theme = ["bg-black", "text-white"] 
-    if(type=="warning") theme = ["bg-yellow-500", "text-black"]
-    if(type=="success") theme = ["bg-green-500", "text-black"]
-    if(type=="danger") theme = ["bg-red-500", "text-white"]
-    notifications.value.push({ type: type, message: message, theme: theme })
-    setTimeout(removeNoti, timeout)
-}
-const removeNoti = () => {
-    notifications.value.shift()
-}
-
 const updatePost = (id) => {
-    console.log("Updating post..."+id)
+    isCreatePost.value = false
+    console.log("Updating post..." + id)
     const post = posts.value.find(e => e.id == id)
-    if(post==undefined) createNotification("warning","Something wrong, cannot find post id: "+id,5000)
+    if (post == undefined) createNotification("warning", "Something wrong, cannot find post id: " + id, 5000)
     else {
         customUrl.value = post.id
         title.value = post.title
         description.value = post.description
-        isPublic.value = post.visible==1
+        isPublic.value = post.visible == 1
         imgUrl.value = post.img
     }
 }
 
 const deletePost = async (id) => {
-    console.log("Delete post..."+id)
+    console.log("Delete post..." + id)
     const status = await deletePostById(id)
-    console.log("Status: " + status)
-    if(status==200)  createNotification("success","Delete Post successfully.",100000)
-    if(status==200) posts.value = posts.value.filter(i => i.id!==id)
+    if (status == 200) createNotification("success", "Delete Post successfully.", 100000)
+    if (status == 200) posts.value = posts.value.filter(i => i.id !== id)
 }
 
-const getData = async () => {
-    posts.value = await getPosts()
+const createNotification = (type, message, timeout) => {
+    let theme = ["bg-black", "text-white"]
+    if (type == "warning") theme = ["bg-yellow-500", "text-black"]
+    if (type == "success") theme = ["bg-green-500", "text-black"]
+    if (type == "danger") theme = ["bg-red-500", "text-white"]
+    notifications.value.push({ type: type, message: message, theme: theme })
+    setTimeout(removeNotification, timeout)
 }
 
-onMounted(async ()  => {
+const removeNotification = () => {
+    notifications.value.shift()
+}
+
+onMounted(async () => {
     posts.value = await getPosts()
 })
 </script>
 <template>
-   
     <div class="fixed w-96 right-5 left-auto z-0">
         <div class="flex-col h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
             v-for="notification in notifications">
@@ -98,12 +102,11 @@ onMounted(async ()  => {
         </div>
     </div>
 
-    <div class="flex flex-col m-5 z-10"> 
-        <div class="bg-green-300 text-black rounded p-1 w-fit" @click="getData">get Post Data</div>
-        <div v-for="post in posts" class="text-white flex">
-        <div> {{ post.title }}</div>
-        <div class="px-5 text-yellow-500 cursor-pointer" @click="updatePost(post.id)"> edit </div>
-        <div class=" text-red-500 cursor-pointer" @click="deletePost(post.id)"> delete </div>
+    <div class="flex flex-col m-5 z-10">
+        <div v-for="(post,index) in posts" class="text-white flex m-1 w-fit px-1 rounded-full pl-3" :class="themes.bgblock">
+            <div :class="themes.text">{{ index+1 }}.  {{ post.title }}</div>
+            <div class="px-5 text-yellow-500 cursor-pointer" @click="updatePost(post.id)"> edit </div>
+            <div class=" text-red-500 cursor-pointer pr-2" @click="deletePost(post.id)"> delete </div>
         </div>
 
 
@@ -123,8 +126,9 @@ onMounted(async ()  => {
         <hr class="opacity-30">
         <div v-if="isAdvance">
             <div class="flex mt-12 h-12 ">
-                <div class="text-2xl font-bold px-5 pt-2 w-72" :class="theme.text">Custom URL post</div>
-                <input type="text" class="w-full rounded-lg pl-5" v-model="customUrl" :class="themes.input">
+                <div class="text-2xl font-bold px-5 pt-2 w-72" :class="theme.text">Custom URLs post</div>
+                <input type="text" class="w-full rounded-lg pl-5" v-model="customUrl" :class="themes.input"
+                    :disabled="!isCreatePost">
             </div>
             <div class="flex mt-12 h-12 w-full">
                 <div class="text-2xl font-bold px-5 pt-2 w-72" :class="theme.text">Visible Status</div>
