@@ -1,20 +1,18 @@
-const data = {id:25, title:"Hello World", userId:"kasidatep", description:"KasP_Dev", visable:2} 
-let posts = [];
-const fetchPost = async () => {
-    try {
-        const res = await fetch('http://localhost:5000/posts?_expand=user')
-        if (res.status === 200) {
-            return await res.json()
-        }
-        else console.log(res.status)
-    }
-    catch (err) {
-        console.log(err)
-    }
-}
+const getBooks = async () => {
+  try {
+    const res = await fetch("http://localhost:5000/books");
+    if (res.ok) {
+      return await res.json();
+    } 
+    else throw new Error('Error, cannot get book data');
+  } 
+  catch (err) {
+    console.log(err);
+  }
+};
 
-const createPost = async (data) => {
-    data.postDate = new Date(Date.now())
+
+const createBook = async (data) => {
     console.log(data.postDate)
     try {
         const res = await fetch('http://localhost:5000/posts', {
@@ -31,7 +29,7 @@ const createPost = async (data) => {
     }
 }
 
-const updatePostById = async (id, data) => {
+const updateBookById = async (id, data) => {
     try {
         const res = await fetch('http://localhost:5000/posts/'+id, {
             method: 'PUT',
@@ -48,9 +46,9 @@ const updatePostById = async (id, data) => {
     }
 }
 
-const deletePostById = async (id) => {
+const deleteBookById = async (deleteId) => {
     try {
-        const res = await fetch('http://localhost:5000/posts/'+id, {
+        const res = await fetch(`http://localhost:5000/posts/${deleteId}`, {
             method: 'DELETE'
         })
         return res.status
@@ -60,8 +58,4 @@ const deletePostById = async (id) => {
     }
 }
 
-const getPosts = async () =>{
- const  postdata = await fetchPost() 
- return  postdata 
-}
-export { fetchPost, getPosts, createPost, updatePostById, deletePostById }
+export { getBooks,deleteBookById,createBook,updateBookById };

@@ -1,0 +1,232 @@
+{
+    "users": [
+      {
+        "id": "Bret",
+        "name": "Leanne Graham",
+        "username": "Bret",
+        "email": "Sincere@april.biz",
+        "phone": "1-770-736-8031 x56442",
+        "type": "librarian",
+        "password": ""
+      },
+      {
+        "id": "kasidatep",
+        "name": "KASIDATE PHLAIPHUEAK",
+        "email": "bank@kasidate.me",
+        "phone": "0123214542",
+        "type": "librarian",
+        "password": "kasidate"
+      },
+      {
+        "id": "jrpond",
+        "name": "JIRAPONG RATIWAT",
+        "username": "jrpond",
+        "email": "pkungpond@gmail.com",
+        "phone": null,
+        "type": "user",
+        "password": ""
+      },
+      {
+        "id": "L5139",
+        "name": "CHANATHIP BUPPANHASAMAI",
+        "username": "L5139",
+        "email": "chanathip.L5139@mail.kmutt.ac.th",
+        "phone": null,
+        "type": "user",
+        "password": ""
+      },
+      {
+        "id": "permm",
+        "name": "NAWAT SRISAARD",
+        "username": "permm",
+        "email": "nawatsrisaard039@gmail.com",
+        "phone": null,
+        "type": "user",
+        "password": "1234"
+      }
+    ],
+    "books": [
+      {
+        "id": "9781593279509",
+        "title": "ปกรณัมการเขียนโค้ด เล่ม 1",
+        "author": "Marijn Haverbeke",
+        "published": "2018-12-04T00:00:00.000Z",
+        "publisher": "No Starch Press",
+        "pages": 472,
+        "maincatagory": "romance",
+        "subcatagory": [
+          "cta1",
+          "test2"
+        ],
+        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
+        "booklink": "http://eloquentjavascript.net/",
+        "img": ""
+      },
+      {
+        "id": "97815932795010",
+        "title": "ปกรณัมการเขียนโค้ด",
+        "author": "Marijn Haverbeke",
+        "published": "2018-12-04T00:00:00.000Z",
+        "publisher": "No Starch Press",
+        "pages": 472,
+        "maincatagory": "dramatic",
+        "subcatagory": [
+          "",
+          ""
+        ],
+        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
+        "booklink": "http://eloquentjavascript.net/",
+        "img": ""
+      },
+      {
+        "id": "97815932795011",
+        "title": "ปกรณัมการเขียนโค้ด",
+        "author": "Marijn Haverbeke",
+        "published": "2018-12-04T00:00:00.000Z",
+        "publisher": "No Starch Press",
+        "pages": 472,
+        "maincatagory": "boylove",
+        "subcatagory": [
+          "",
+          ""
+        ],
+        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
+        "booklink": "http://eloquentjavascript.net/",
+        "img": ""
+      },
+      {
+        "id": "97815932795000",
+        "title": "ดาวบริวาร",
+        "author": "Jirapong Ratiwat",
+        "published": "2018-12-04T00:00:00.000Z",
+        "publisher": "No Starch Press",
+        "pages": 472,
+        "maincatagory": "girllove",
+        "subcatagory": [
+          "แฟนตาซี",
+          "เทพนิยาย",
+          "ดราม่า",
+          "อบอุ่นหัวใจ"
+        ],
+        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
+        "booklink": "http://eloquentjavascript.net/",
+        "img": "book/image/girllove/Girl_love_2.png"
+      },
+      {
+        "id": "97815932795011",
+        "title": "ปกรณัมการเขียนโค้ด",
+        "author": "Marijn Haverbeke",
+        "published": "2018-12-04T00:00:00.000Z",
+        "publisher": "No Starch Press",
+        "pages": 472,
+        "maincatagory": "documentary",
+        "subcatagory": [
+          "",
+          ""
+        ],
+        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
+        "booklink": "http://eloquentjavascript.net/",
+        "img": ""
+      },
+      {
+        "id": "97815932795011",
+        "title": "ปกรณัมการเขียนโค้ด",
+        "author": "Marijn Haverbeke",
+        "published": "2018-12-04T00:00:00.000Z",
+        "publisher": "No Starch Press",
+        "pages": 472,
+        "maincatagory": "comedy",
+        "subcatagory": [
+          "",
+          ""
+        ],
+        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
+        "booklink": "http://eloquentjavascript.net/",
+        "img": ""
+      },
+      {
+        "id": "97815932795011",
+        "title": "ปกรณัมการเขียนโค้ด",
+        "author": "Marijn Haverbeke",
+        "published": "2018-12-04T00:00:00.000Z",
+        "publisher": "No Starch Press",
+        "pages": 472,
+        "maincatagory": "horror",
+        "subcatagory": [
+          "",
+          ""
+        ],
+        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
+        "booklink": "http://eloquentjavascript.net/",
+        "img": ""
+      }
+    ],
+    "borrows": [],
+    "announcement": {
+      "status": 1,
+      "title": "ประกาศการเข้าใช้บริการ",
+      "description": "สามารถเข้าใช้บริการบริการต่าง ๆ ได้ที่เว็บไซต์คณะ",
+      "type": "info",
+      "link": "https://sit.kmutt.ac.th"
+    },
+    "posts": [
+      {
+        "id": 52,
+        "title": "bcvbnbvcxvbn",
+        "description": "nddd",
+        "img": " cvbnb vcbv ",
+        "visible": 1,
+        "userId": "kasidatep"
+      },
+      {
+        "img": "s",
+        "title": "s",
+        "description": "s",
+        "id": 71,
+        "visible": 1,
+        "userId": "kasidatep"
+      },
+      {
+        "img": "zxc",
+        "title": "zxcv",
+        "description": "zxcv",
+        "id": 72,
+        "visible": 1,
+        "userId": "kasidatep"
+      },
+      {
+        "img": "p",
+        "title": "p",
+        "description": "p",
+        "id": 73,
+        "visible": 1,
+        "userId": "kasidatep"
+      },
+      {
+        "img": "sdfghjk",
+        "title": "sdfghj",
+        "description": "dfghjk",
+        "id": 76,
+        "visible": 1,
+        "userId": "kasidatep"
+      },
+      {
+        "id": 77,
+        "title": "asdf",
+        "description": "as",
+        "img": "s",
+        "visible": 1,
+        "userId": "kasidatep"
+      },
+      {
+        "id": "createnewpostcustomurl",
+        "title": "Test2",
+        "description": "สร้างโพสต์ใหม่",
+        "img": "https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg",
+        "visible": 2,
+        "userId": "kasidatep",
+        "postDate": "2023-03-20T08:03:36.390Z"
+      }
+    ]
+}
+  

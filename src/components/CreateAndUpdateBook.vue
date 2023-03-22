@@ -1,32 +1,18 @@
 <script setup>
-
 import { getPosts, createPost, updatePostById, deletePostById } from '../composables/announcementAndPosts';
-import { computed, ref, onMounted, inject , onUpdated} from 'vue';
-const emits = defineEmits(['createPost'])
-const user = ref({ id: "kasidatep" })
+import { computed, ref, onMounted, inject } from 'vue';
 const theme = inject('theme')
-const props = defineProps(['post'])
-
-const vs = ref(1)
+const props = defineProps(['posts'])
+const books = ref([])
 const imgUrl = ref(null)
 const title = ref(null)
 const description = ref(null)
 const customUrl = ref(null)
-const isPublic = ref(true)
-const isAdvance = ref(false)
 const notifications = ref([])
-const post = ref(null)
-const isCreatePost = ref(true)
-const postEdit = ref({
-    id: customUrl.value == null ? null : customUrl.value,
-    title: title.value,
-    description: description.value,
-    img: imgUrl.value,
-    visible: isPublic.value ? 1 : 2
-})
+const user = ref({ id: "kasidatep" })
+const isCreateBook = ref(true)
 
-const createPostObj = () => {
-
+const createBookObj = () => {
     isCreatePost.value = true
     console.log("Creating/update post...")
     if (imgUrl.value == null) createNotification("warning", "Please provide image url.", 2500)
@@ -65,8 +51,6 @@ const createPostObj = () => {
     }
 }
 
-
-
 const updatePost = (id) => {
     isCreatePost.value = false
     console.log("Updating post..." + id)
@@ -81,6 +65,12 @@ const updatePost = (id) => {
     }
 }
 
+const deletePost = async (id) => {
+    console.log("Delete post..." + id)
+    const status = await deletePostById(id)
+    if (status == 200) createNotification("success", "Delete Post successfully.", 3000)
+    if (status == 200) posts.value = posts.value.filter(i => i.id !== id)
+}
 
 const createNotification = (type, message, timeout) => {
     let theme = ["bg-black", "text-white"]
@@ -95,34 +85,9 @@ const removeNotification = () => {
     notifications.value.shift()
 }
 
-const mapInput = () => {
-    if (props.post !== undefined) {
-        customUrl.value = props.post.id
-        title.value = props.post.title
-        description.value = props.post.description
-        isPublic.value = props.post.visible == 1
-        imgUrl.value = props.post.img
-    }
-}
-
-
-
 onMounted(() => {
-    post.value = props.post
-    mapInput()
+    books.value = props.books
 })
-
-onUpdated(()=>{
-    postEdit.value = {
-    id: customUrl.value == null ? null : customUrl.value,
-    title: title.value,
-    description: description.value,
-    img: imgUrl.value,
-    visible: isPublic.value ? 1 : 2
-
-    }
-})
-console.log(props.post)
 </script>
 <template>
     <div class="fixed w-96 right-5 left-auto z-0">
@@ -135,9 +100,32 @@ console.log(props.post)
     </div>
 
     <div class="flex flex-col m-5 z-10">
-
+        <div class="flex mt-12 h-12 ">
+            <div class="text-xl font-bold px-5 pt-2 w-48" :class="theme.text">ISBN</div>
+            <input type="text" placeholder="กรุณากรอกรหัสหนังสือ 11 หรือ 13 หลัก" v-model="title" class="w-full rounded-lg pl-5" :class="theme.input">
+        </div>
+        <div class="flex mt-12 h-12 ">
+            <div class="text-xl font-bold px-5 pt-2 w-48" :class="theme.text">Author</div>
+            <input type="text" placeholder="กรุณากรอกชื่อผู้แต่งหลักเพียงคนเดียว" v-model="title" class="w-full rounded-lg pl-5" :class="theme.input">
+        </div>
         <div class="flex mt-12 h-12 ">
             <div class="text-xl font-bold px-5 pt-2 w-48" :class="theme.text">Title</div>
+            <input type="text" placeholder="กรุณากรอกชื่อหนังสือ" v-model="title" class="w-full rounded-lg pl-5" :class="theme.input">
+        </div>
+        <div class="flex mt-12 h-12">
+            <div class="text-xl font-bold px-5 pt-2 w-48 flex items-center" :class="theme.text">Main Catagory</div>
+            <select name="maincatagory" id="maincatagory" class="w-full rounded-lg pl-5" :class="theme.input">
+                <option value="romance" selected>Romance / รักโรแมนติก</option>
+                <option value="dramatic">Dramatic / ดราม่า</option>
+                <option value="boylove">Boy Love / ชายรักชาย</option>
+                <option value="girllove">Girl Love / หญิงรักหญิง</option>
+                <option value="horror">Horror / สยองขวัญ</option>
+                <option value="comedy">Comedy / คอมเมดี้</option>
+                <option value="documentary">Documentary / สารคดี</option>
+            </select>
+        </div>
+        <div class="flex mt-12 h-12 ">
+            <div class="text-xl font-bold px-5 pt-2 w-48" :class="theme.text">Sub Catagory</div>
             <input type="text" v-model="title" class="w-full rounded-lg pl-5" :class="theme.input">
         </div>
         <div class="flex mt-12 h-min">
@@ -150,31 +138,8 @@ console.log(props.post)
             <input type="url" class="w-full rounded-lg pl-5" v-model="imgUrl" :class="theme.input">
         </div>
         <hr class="opacity-30">
-        <div v-if="isAdvance">
-            <div class="flex mt-12 h-12 ">
-                <div class="text-xl font-bold px-5 pt-2 w-72" :class="theme.text">Custom URLs post</div>
-                <input type="text" class="w-full rounded-lg pl-5" v-model="customUrl" :class="theme.input"
-                    :disabled="!isCreatePost">
-            </div>
-            <div class="flex mt-12 h-12 w-full">
-                <div class="text-xl font-bold px-5 pt-2 w-72" :class="theme.text">Visible Status</div>
-                <label for="vs_public" class="text-xl mr-5 pt-2 px-3 rounded-lg w-fit"
-                    :style="isPublic ? 'border-color: yellow; border-width: 2px;' : ''" @click="isPublic = true"
-                    :class="theme.input">ALL USER</label>
-                <label for="vs_private" class="text-xl pt-2 px-3 rounded-lg"
-                    :style="isPublic ? '' : 'border-color: yellow; border-width: 2px;'" @click="isPublic = false"
-                    :class="theme.input">ONLY SIGN IN USER</label>
-                <input type="radio" id="vs_public" value="1" class="hidden" v-model="vs" :class="theme.input">
-                <input type="radio" id="vs_private" value="2" class="hidden" v-model="vs" :class="theme.input">
-            </div>
-        </div>
-        <div class="flex justify-center">
-            <div class="w-fit text-center mt-8 px-16 border-2 p-2 rounded-full font-bold cursor-pointer"
-                :class="theme.primarybutton" @click="isAdvance = !isAdvance">{{ isAdvance ? 'Hide' : 'Show' }} Advance
-                Option</div>
-        </div>
         <div class="flex mt-8 justify-end cursor-pointer">
-            <button class="px-8 py-3 rounded-lg text-2xl cursor-pointer hover:drop-shadow-xl z-20" @click="$emit('createPost',postEdit)"
+            <button class="px-8 py-3 rounded-lg text-2xl cursor-pointer hover:drop-shadow-xl z-20" @click="createPostObj"
                 :class="theme.primarybutton">SAVE</button>
         </div>
     </div>

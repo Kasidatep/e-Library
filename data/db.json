@@ -42,7 +42,16 @@
       "email": "nawatsrisaard039@gmail.com",
       "phone": null,
       "type": "user",
-      "password": ""
+      "password": "1234"
+    },
+    {
+      "id": "Test",
+      "name": "test99",
+      "username": "username",
+      "email": "Test@mail.com",
+      "phone": "123456",
+      "type": "user",
+      "password": "test"
     }
   ],
   "books": [
@@ -171,70 +180,22 @@
   },
   "posts": [
     {
-      "id": 52,
-      "title": "bcvbnbvcxvbn",
-      "description": "nddd",
-      "img": " cvbnb vcbv ",
-      "visible": 1,
-      "userId": "kasidatep"
-    },
-    {
-      "img": "s",
-      "title": "s",
-      "description": "s",
-      "id": 71,
-      "visible": 1,
-      "userId": "kasidatep"
-    },
-    {
-      "img": "zxc",
-      "title": "zxcv",
-      "description": "zxcv",
-      "id": 72,
-      "visible": 1,
-      "userId": "kasidatep"
-    },
-    {
-      "img": "p",
-      "title": "p",
-      "description": "p",
-      "id": 73,
-      "visible": 1,
-      "userId": "kasidatep"
-    },
-    {
-      "img": "sdfghjk",
-      "title": "sdfghj",
-      "description": "dfghjk",
-      "id": 76,
-      "visible": 1,
-      "userId": "kasidatep"
-    },
-    {
-      "img": "s",
-      "title": "asdf",
-      "description": "as",
-      "id": 77,
-      "visible": 1,
-      "userId": "kasidatep"
-    },
-    {
-      "id": "testpost001",
-      "title": "ทดสอบ 2",
-      "description": "ทดสอบระบบ",
-      "img": "https://media.sproutsocial.com/uploads/2017/01/Instagram-Post-Ideas.png",
+      "id": 1,
+      "title": "ทดสอบ",
+      "description": "ทดสอบการสร้าง POST",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSukYTxzh_jgPTw8X_JNr-DkSuEaXOioy5_UQ&usqp=CAU",
       "visible": 2,
       "userId": "kasidatep",
-      "postDate": "2023-03-20T07:56:57.347Z"
+      "postDate": "2023-03-22T17:39:44.900Z"
     },
     {
-      "id": "createnewpostcustomurl",
-      "title": "สร้างโพสต์ใหม่",
-      "description": "สร้างโพสต์ใหม่",
-      "img": "https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg",
+      "id": "welcome",
+      "title": "welcome to E-Library",
+      "description": "Tester @0.2.1",
+      "img": "https://spiderimg.amarujala.com/image/original/results.amarujala.com/2013/03/13/e-library-51400fd874d17.jpg",
       "visible": 2,
       "userId": "kasidatep",
-      "postDate": "2023-03-20T08:03:36.390Z"
+      "postDate": "2023-03-22T17:44:41.836Z"
     }
   ]
 }
