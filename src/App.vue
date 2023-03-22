@@ -12,18 +12,27 @@ const posts = ref()
 provide('theme', theme)
 const updateTheme = (e) => { theme.value=themeUpdate(e)}
 const isHomePage = ref(false)
-// PoST Fetch ---------------------------------------------------------------------------------------------
 
 // Book Fetch ---------------------------------------------------------------------------------------------
 const books = ref([])
-
-
 onMounted(async () => {
   books.value = await getBooks(),
   posts.value = await getPosts()
 })
 
+// Notification -----------------------------------------------------------------------------------
+const createNotification = (type, message, timeout) => {
+    let theme = ["bg-black", "text-white"]
+    if (type == "warning") theme = ["bg-yellow-500", "text-black"]
+    if (type == "success") theme = ["bg-green-500", "text-black"]
+    if (type == "danger") theme = ["bg-red-500", "text-white"]
+    notifications.value.push({ type: type, message: message, theme: theme })
+    setTimeout(removeNotification, timeout)
+}
 
+const removeNotification = () => {
+    notifications.value.shift()
+}
 </script>
  
 <template>

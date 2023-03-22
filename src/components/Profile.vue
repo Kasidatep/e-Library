@@ -8,7 +8,7 @@ import LogIn from './LogIn.vue';
 import CreateAndUpdateBook from './CreateAndUpdateBook.vue';
 import { getPosts, createPost, updatePostById, deletePostById } from '../composables/announcementAndPosts'
 
-
+const notifications = ref([])
 const theme = inject('theme')
 const user = ref({ id: "kasidatep" ,name: "kasidatep.", type: 'a', image: 'https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg' })
 const isUser = computed(() => user.value.type == 'user')
@@ -29,6 +29,9 @@ const editpost = async (data, isUpdate) => {
         if (status == 200) {
             console.log(status)
             posts.value.splice(posts.value.findIndex(p => p.id == isUpdatedObj.id), 1, data)
+            
+            
+            createNotification("success", "Update POST "+data.title+" successfully.", 2500)
             isEditPost.value = false
         }
     }
@@ -37,7 +40,9 @@ const editpost = async (data, isUpdate) => {
         console.log(data)
         status = await createPost(data)
         if (status == 201) {
-            if (status == 201) posts.value = await getPosts()
+             posts.value = await getPosts()
+            createNotification("success", "Create POST "+data.title+" successfully.", 2500)
+
         }
     }
 }
@@ -48,23 +53,46 @@ const editPostById = async(postId) => {
     if(posts.value.length==0) posts.value = await getPosts()
     postEditItem.value = await posts.value.find(apost => apost.id==postId) 
     if(postEditItem.value==-undefined) return false
-    console.log(postEditItem.value)
     isEditPost.value=true
 }
 
 const deletePost = async (id) => {
     console.log("Delete post..." + id)
     const status = await deletePostById(id)
-    if (status == 200) posts.value = posts.value.filter(i => i.id !== id)
+    if (status == 200) {
+        posts.value = posts.value.filter(i => i.id !== id)
+        createNotification("success", "Delete POST "+id+" successfully.", 2500)
+    }
 }
 
 onMounted(async () => {
     posts.value = await getPosts()
 })
 
+// Notification -----------------------------------------------------------------------------------
+const createNotification = (type, message, timeout) => {
+    let theme = ["bg-black", "text-white"]
+    if (type == "warning") theme = ["bg-yellow-500", "text-black"]
+    if (type == "success") theme = ["bg-green-500", "text-black"]
+    if (type == "danger") theme = ["bg-red-500", "text-white"]
+    notifications.value.push({ type: type, message: message, theme: theme })
+    setTimeout(removeNotification, timeout)
+}
+
+const removeNotification = () => {
+    notifications.value.shift()
+}
 </script>
  
 <template>
+    <div class="fixed w-96 right-5 left-auto z-0 mt-24">
+        <div class="flex-col min-h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
+            v-for="notification in notifications">
+            <div class="text-xl font-extrabold mx-5 mt-2 pt-2 ">{{ notification.type }}</div>
+            <hr class="mx-5 mt-2 opacity-20">
+            <div class="text-lg pl-5 pt-1">{{ notification.message }}</div>
+        </div>
+    </div>
     <div class="w-full h-full pt-20 test flex">
         <div class="w-[25%] h-full fixed bg-opacity-40" :class="theme.bgblock">
             <div class="flex flex-col">
@@ -111,7 +139,7 @@ onMounted(async () => {
                 <Itemlist :books="books" />
             </div>
             <div class="pl-8 w-full" v-if="1">
-                <h1 class=" font-bold text-4xl pt-16" :class="theme.textheader">รายการทั้งหมด </h1>
+                <h1 class=" font-bold text-4xl pt-16" :class="theme.textheader">รายการโพสต์ทั้งหมด </h1>
                 <PostList :posts="posts"  @editPostById="editPostById" @deletePostById="deletePost"/>
             </div>
             <div class="pl-8 w-full" v-if="1">

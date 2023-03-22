@@ -125,7 +125,7 @@ onUpdated(()=>{
 console.log(props.post)
 </script>
 <template>
-    <div class="fixed w-96 right-5 left-auto z-0">
+    <div class="fixed w-96 right-5 left-auto z-0 mt-24">
         <div class="flex-col h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
             v-for="notification in notifications">
             <div class="text-xl font-extrabold mx-5 mt-2 pt-2 ">{{ notification.type }}</div>
