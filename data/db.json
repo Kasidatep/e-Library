@@ -170,7 +170,57 @@
       "img": ""
     }
   ],
-  "borrows": [],
+  "borrows": [
+    {
+      "id": "9781593279509",
+      "title": "ปกรณัมการเขียนโค้ด เล่ม 1",
+      "author": "Marijn Haverbeke",
+      "published": "2018-12-04T00:00:00.000Z",
+      "publisher": "No Starch Press",
+      "pages": 472,
+      "maincatagory": "romance",
+      "subcatagory": [
+        "cta1",
+        "test2"
+      ],
+      "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
+      "booklink": "http://eloquentjavascript.net/",
+      "img": ""
+    },
+    {
+      "id": "97815932795010",
+      "title": "ปกรณัมการเขียนโค้ด",
+      "author": "Marijn Haverbeke",
+      "published": "2018-12-04T00:00:00.000Z",
+      "publisher": "No Starch Press",
+      "pages": 472,
+      "maincatagory": "dramatic",
+      "subcatagory": [
+        "",
+        ""
+      ],
+      "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
+      "booklink": "http://eloquentjavascript.net/",
+      "img": ""
+    },
+    {
+      "id": "97815932795011",
+      "title": "ปกรณัมการเขียนโค้ด",
+      "author": "Marijn Haverbeke",
+      "published": "2018-12-04T00:00:00.000Z",
+      "publisher": "No Starch Press",
+      "pages": 472,
+      "maincatagory": "boylove",
+      "subcatagory": [
+        "",
+        ""
+      ],
+      "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
+      "booklink": "http://eloquentjavascript.net/",
+      "img": ""
+    }
+  ],
+  
   "announcement": {
     "status": 1,
     "title": "ประกาศการเข้าใช้บริการ",

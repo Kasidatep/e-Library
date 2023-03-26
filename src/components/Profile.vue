@@ -7,6 +7,7 @@ import PostList from './PostList.vue';
 import LogIn from './LogIn.vue';
 import CreateAndUpdateBook from './CreateAndUpdateBook.vue';
 import { getPosts, createPost, updatePostById, deletePostById } from '../composables/announcementAndPosts'
+import BorrowBookList from './BorrowBookList.vue';
 
 const notifications = ref([])
 const theme = inject('theme')
@@ -14,6 +15,7 @@ const user = ref({ id: "kasidatep" ,name: "kasidatep.", type: 'a', image: 'https
 const isUser = computed(() => user.value.type == 'user')
 const props = defineProps(['books'])
 const posts = ref([])
+
 
 const editpost = async (data, isUpdate) => {
     console.log(data)
@@ -150,7 +152,14 @@ const removeNotification = () => {
             <h1 class=" font-bold text-4xl pt-16" :class="theme.textheader">Log In </h1>
             <LogIn />
         </div>
+
+        <div class="pl-8 w-full" v-if="1">
+                <h1 class=" font-bold text-4xl pt-16" :class="theme.textheader">Borrow Book List </h1>
+                <BorrowBookList />
+            </div>
     </div>
-</div></template>
+</div>
+
+</template>
  
 <style scoped></style>
