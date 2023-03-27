@@ -1,26 +1,25 @@
 const getBooks = async () => {
-  try {
-    const res = await fetch("http://localhost:5000/books");
-    if (res.ok) {
-      return await res.json();
-    } 
-    else throw new Error('Error, cannot get book data');
-  } 
-  catch (err) {
-    console.log(err);
-  }
+    try {
+        const res = await fetch("http://localhost:5000/books");
+        if (res.ok) {
+            return await res.json();
+        }
+        else throw new Error('Error, cannot get book data');
+    }
+    catch (err) {
+        console.log(err);
+    }
 };
 
 
-const createBook = async (data) => {
-    console.log(data.postDate)
+const createBook = async (newBook) => {
     try {
-        const res = await fetch('http://localhost:5000/posts', {
+        const res = await fetch('http://localhost:5000/books', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(newBook)
         })
         return res.status
     }
@@ -29,16 +28,15 @@ const createBook = async (data) => {
     }
 }
 
-const updateBookById = async (id, data) => {
+const updateBookById = async (updateBook) => {
     try {
-        const res = await fetch('http://localhost:5000/posts/'+id, {
+        const res = await fetch(`http://localhost:5000/books/${updateBook.id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(updateBook)
         })
-        console.log("updated post"+ id)
         return res.status
     }
     catch (err) {
@@ -48,7 +46,7 @@ const updateBookById = async (id, data) => {
 
 const deleteBookById = async (deleteId) => {
     try {
-        const res = await fetch(`http://localhost:5000/posts/${deleteId}`, {
+        const res = await fetch(`http://localhost:5000/books/${deleteId}`, {
             method: 'DELETE'
         })
         return res.status
@@ -58,4 +56,4 @@ const deleteBookById = async (deleteId) => {
     }
 }
 
-export { getBooks,deleteBookById,createBook,updateBookById };
+export { getBooks, deleteBookById, createBook, updateBookById };

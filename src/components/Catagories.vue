@@ -44,7 +44,7 @@ const themes = computed(() => props.theme)
                         <PhHeartLight v-show="like"/>
                         <PhHeartFill v-show="!like"/>
                     </div>
-                    <button @click="$emit('borrow', data.isbn)"
+                    <button @click="$emit('borrow', data.id)"
                         class="box h-10 w-fit px-3 rounded font-semibold" :class="theme.button">
                         ยืมหนังสือ
                     </button>

@@ -52,6 +52,42 @@
       "phone": "123456",
       "type": "user",
       "password": "test"
+    },
+    {
+      "id": "Pizcom",
+      "name": "pizza",
+      "username": "pizza",
+      "email": "pizza@mail.com",
+      "phone": "1112",
+      "type": "user",
+      "password": "1112"
+    },
+    {
+      "name": "pizza",
+      "username": "pizza2",
+      "email": "pizza@mail.com",
+      "phone": "1112",
+      "type": "user",
+      "password": "1112",
+      "id": "GVLs4-C"
+    },
+    {
+      "id": "pizza",
+      "name": "pizza",
+      "email": "pizza@mail.com",
+      "phone": "1112",
+      "type": "user",
+      "password": "1112",
+      "image": "piz"
+    },
+    {
+      "id": "pizz",
+      "name": "pizza",
+      "email": "pizza@mail.com",
+      "phone": "1112",
+      "type": "user",
+      "password": "1112",
+      "image": "https://postimgs.org/apple-touch-icon.png"
     }
   ],
   "books": [
@@ -59,64 +95,53 @@
       "id": "9781593279509",
       "title": "ปกรณัมการเขียนโค้ด เล่ม 1",
       "author": "Marijn Haverbeke",
-      "published": "2018-12-04T00:00:00.000Z",
       "publisher": "No Starch Press",
-      "pages": 472,
       "maincatagory": "romance",
       "subcatagory": [
         "cta1",
-        "test2"
+        " test2"
       ],
       "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
       "booklink": "http://eloquentjavascript.net/",
-      "img": ""
-    },
-    {
-      "id": "97815932795010",
-      "title": "ปกรณัมการเขียนโค้ด",
-      "author": "Marijn Haverbeke",
-      "published": "2018-12-04T00:00:00.000Z",
-      "publisher": "No Starch Press",
-      "pages": 472,
-      "maincatagory": "dramatic",
-      "subcatagory": [
-        "",
-        ""
-      ],
-      "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-      "booklink": "http://eloquentjavascript.net/",
-      "img": ""
+      "img": "22"
     },
     {
       "id": "97815932795011",
-      "title": "ปกรณัมการเขียนโค้ด",
+      "title": "ปกรณัมการเขียนโค้ด g]j, 3",
       "author": "Marijn Haverbeke",
-      "published": "2018-12-04T00:00:00.000Z",
       "publisher": "No Starch Press",
-      "pages": 472,
       "maincatagory": "boylove",
       "subcatagory": [
-        "",
-        ""
+        "dl",
+        " dlg",
+        " e",
+        " 545"
       ],
       "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
       "booklink": "http://eloquentjavascript.net/",
-      "img": ""
+      "img": "ee"
+    },
+    {
+      "id": "97815932795010",
+      "title": "ปกรณัมการเขียนโค้ด เล่ม 2",
+      "author": "Marijn Haverbeke",
+      "publisher": "No Starch Press",
+      "maincatagory": "dramatic",
+      "subcatagory": [
+        "",
+        " "
+      ],
+      "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
+      "booklink": "http://eloquentjavascript.net/",
+      "img": "fgh"
     },
     {
       "id": "97815932795000",
       "title": "ดาวบริวาร",
       "author": "Jirapong Ratiwat",
-      "published": "2018-12-04T00:00:00.000Z",
       "publisher": "No Starch Press",
-      "pages": 472,
       "maincatagory": "girllove",
-      "subcatagory": [
-        "แฟนตาซี",
-        "เทพนิยาย",
-        "ดราม่า",
-        "อบอุ่นหัวใจ"
-      ],
+      "subcatagory": "แฟนตาซี, เทพนิยาย, ดราม่า, อบอุ่นหัวใจ",
       "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
       "booklink": "http://eloquentjavascript.net/",
       "img": "book/image/girllove/Girl_love_2.png"
@@ -125,9 +150,7 @@
       "id": "97815932795011",
       "title": "ปกรณัมการเขียนโค้ด",
       "author": "Marijn Haverbeke",
-      "published": "2018-12-04T00:00:00.000Z",
       "publisher": "No Starch Press",
-      "pages": 472,
       "maincatagory": "documentary",
       "subcatagory": [
         "",
@@ -141,9 +164,7 @@
       "id": "97815932795011",
       "title": "ปกรณัมการเขียนโค้ด",
       "author": "Marijn Haverbeke",
-      "published": "2018-12-04T00:00:00.000Z",
       "publisher": "No Starch Press",
-      "pages": 472,
       "maincatagory": "comedy",
       "subcatagory": [
         "",
@@ -157,9 +178,7 @@
       "id": "97815932795011",
       "title": "ปกรณัมการเขียนโค้ด",
       "author": "Marijn Haverbeke",
-      "published": "2018-12-04T00:00:00.000Z",
       "publisher": "No Starch Press",
-      "pages": 472,
       "maincatagory": "horror",
       "subcatagory": [
         "",
@@ -168,56 +187,125 @@
       "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
       "booklink": "http://eloquentjavascript.net/",
       "img": ""
+    },
+    {
+      "id": "12123121201",
+      "title": "ลำนำบ้องข้าวหลาม",
+      "author": "L5139",
+      "publisher": "ไกซ์คุง",
+      "maincatagory": "dramatic",
+      "subcatagory": "อาหาร,  วัฒนธรรม,  การศึกษา",
+      "description": "รออัพเดต",
+      "booklink": "https://google.com",
+      "img": "https://incrediblewinestore.com/wp-content/uploads/2022/03/%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%A7%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A1%E0%B8%AB%E0%B8%99%E0%B8%AD%E0%B8%87%E0%B8%A1%E0%B8%99-1024x768.jpg"
+    },
+    {
+      "id": "d",
+      "title": "d",
+      "author": "d",
+      "publisher": "d",
+      "maincatagory": "comedy",
+      "subcatagory": [
+        ""
+      ],
+      "description": "d",
+      "booklink": "d",
+      "img": "d"
+    },
+    {
+      "id": "kjPSDTZ",
+      "title": "",
+      "author": "",
+      "publisher": "",
+      "maincatagory": "",
+      "subcatagory": [
+        "ed",
+        "rf"
+      ],
+      "description": "",
+      "booklink": "",
+      "img": ""
+    },
+    {
+      "id": "ertyui",
+      "title": "",
+      "author": "",
+      "publisher": "",
+      "maincatagory": "",
+      "subcatagory": [],
+      "description": "",
+      "booklink": "",
+      "img": ""
+    },
+    {
+      "id": "b6C3Lcy",
+      "title": "555",
+      "author": "",
+      "publisher": "",
+      "maincatagory": "",
+      "subcatagory": [
+        "ed",
+        "rt"
+      ],
+      "description": "",
+      "booklink": "",
+      "img": ""
+    },
+    {
+      "id": "iaL0s2o",
+      "title": "",
+      "author": "",
+      "publisher": "",
+      "maincatagory": "",
+      "subcatagory": [
+        "sd",
+        "asd",
+        "sd"
+      ],
+      "description": "",
+      "booklink": "",
+      "img": ""
+    },
+    {
+      "id": "78544528514",
+      "title": "แมวน้ำสีส้ม",
+      "author": "แมว",
+      "publisher": "สีส้ม, wiki",
+      "maincatagory": "comedy",
+      "subcatagory": [
+        "สัตว์โลก",
+        "    wiki"
+      ],
+      "description": "",
+      "booklink": "https://en.wikipedia.org/wiki/Cat",
+      "img": "https://www.daysoftheyear.com/wp-content/uploads/international-cat-day1-scaled.jpg"
     }
   ],
   "borrows": [
     {
-      "id": "9781593279509",
-      "title": "ปกรณัมการเขียนโค้ด เล่ม 1",
-      "author": "Marijn Haverbeke",
-      "published": "2018-12-04T00:00:00.000Z",
-      "publisher": "No Starch Press",
-      "pages": 472,
-      "maincatagory": "romance",
-      "subcatagory": [
-        "cta1",
-        "test2"
-      ],
-      "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-      "booklink": "http://eloquentjavascript.net/",
-      "img": ""
+      "bookId": "12123121201",
+      "borrowdate": "2023-03-27T15:22:20.702Z",
+      "returndate": null,
+      "duedate": "2023-04-03T15:22:20.702Z",
+      "status": 1,
+      "id": 30
     },
     {
-      "id": "97815932795010",
-      "title": "ปกรณัมการเขียนโค้ด",
-      "author": "Marijn Haverbeke",
-      "published": "2018-12-04T00:00:00.000Z",
-      "publisher": "No Starch Press",
-      "pages": 472,
-      "maincatagory": "dramatic",
-      "subcatagory": [
-        "",
-        ""
-      ],
-      "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-      "booklink": "http://eloquentjavascript.net/",
-      "img": ""
+      "bookId": "12123121201",
+      "borrowdate": "2023-03-27T15:22:22.386Z",
+      "returndate": null,
+      "duedate": "2023-04-03T15:22:22.386Z",
+      "status": 1,
+      "id": 31
     },
     {
-      "id": "97815932795011",
-      "title": "ปกรณัมการเขียนโค้ด",
-      "author": "Marijn Haverbeke",
-      "published": "2018-12-04T00:00:00.000Z",
-      "publisher": "No Starch Press",
-      "pages": 472,
-      "maincatagory": "boylove",
-      "subcatagory": [
-        "",
-        ""
-      ],
-      "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-      "booklink": "http://eloquentjavascript.net/",
-      "img": ""
+      "bookId": "12123121201",
+      "userId": "permm",
+      "borrowdate": "2023-03-27T15:22:47.974Z",
+      "returndate": null,
+      "duedate": "2023-04-03T15:22:47.974Z",
+      "status": 1,
+      "id": 32
     }
   ],
   "announcement": {
@@ -253,15 +341,6 @@
       "img": "https://i0.wp.com/sirichaiwatt.com/wp-content/uploads/2022/09/%E0%B8%95%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%A5%E0%B8%B8%E0%B8%81%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%84%E0%B8%A7.jpg?w=1201&ssl=1",
       "visible": 2,
       "postDate": "2023-03-22T18:01:51.685Z",
-      "userId": "kasidatep"
-    },
-    {
-      "id": 4,
-      "title": "เรื่องย่อ จิ้งจกหางขาด เล่ม 2",
-      "description": "หางจิ้งจกขาดได้ มันไม่ตาย ไม่เรียกว่าพิการ บางสิ่งในชีวิตคนเราก็เช่นกัน เราขาดมันได้ ไม่ตาย แต่หากเมื่อใดที่เรายึดติดไม่ยอมปล่อยไป ก็คงคล้ายเมื่อถึงเวลาสำคัญ แล้วจิ้งจกนั้นไม่ยอมตัดหางตัวเอง…\n\nคงเคยเห็นกัน บางครั้งที่จิ้งจก หรือสัตว์เลื้อยคลานประเภทกิ้งก่า มันไปไหนมาไหนโดยไม่มีหาง หลายคนทราบดีว่านี่มันอาจเพิ่งรอดตายมา เพราะสัตว์เหล่านี้มีความสามารถพิเศษในการเอาตัวรอดจากสัตว์นักล่าอื่น ๆ ด้วยการสลัดหางทิ้งไว้เพื่อเบี่ยงเบนความสนใจ\n\nอันที่จริงแม้หางจะงอกได้ใหม่ แต่ก็ใช่ว่าจะเหมือนเดิมเสียทีเดียว เพราะนอกจากต้องใช้เวลาแล้ว ยังมีผลต่อการเจริญเติบโต รวมถึงมีผลทางร่างกายบางอย่างที่แตกต่างกันไป แต่มันคงเล็กน้อยเมื่อเทียบกับต้องเสียชีวิตไปเลย…\n\nมนุษย์แม้ไม่มีหางที่งอกใหม่ได้ แต่กลับยึดติดหลายสิ่งยิ่งกว่าหางของจิ้งจกเสียอีก ทั้งที่อาจไม่ใช่ส่วนสำคัญของชีวิต อีกทั้งบางสิ่งที่ต้องเสียไปนั้น หากยังมีชีวิต เราอาจสร้างสิ่งนั้นได้ดีกว่าเดิมด้วยซ้ำ\n\nไม่ว่าจะเสียแฟน, เสียเงิน, เสียงาน, เสียศักดิ์ศรี แม้กระทั่งเสียเวลา เหล่านี้เราสร้างได้ เปลี่ยนได้ หาใหม่ได้ และเริ่มใหม่ ที่อาจดีกว่าเดิมได้ทั้งสิ้น…\n\nเพียงแต่หลายคนไม่ยอมตัด ไม่ยอมปล่อย ยึดไว้ ลากไป แบกไปจนตาย ทั้งที่มันไม่ใช่อวัยวะ หรือส่วนหนึ่งของเราตอนเกิดมาแท้ ๆ\n\nบางทีคนเราจะอยากมีหางที่มองไม่เห็น แล้วหลุดไม่ได้ ตัดไม่ได้ไปทำไมกัน?",
-      "img": "https://i0.wp.com/sirichaiwatt.com/wp-content/uploads/2021/11/%E0%B8%88%E0%B8%B4%E0%B9%89%E0%B8%87%E0%B8%88%E0%B8%81%E0%B8%AB%E0%B8%B2%E0%B8%87%E0%B8%82%E0%B8%B2%E0%B8%94-01.jpg?w=1201&ssl=1",
-      "visible": 1,
-      "postDate": "2023-03-22T18:04:02.203Z",
       "userId": "kasidatep"
     },
     {

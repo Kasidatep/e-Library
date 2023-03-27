@@ -2,11 +2,11 @@
 import MaterialSymbolsSearchSharp from './icons/MaterialSymbolsSearchSharp.vue';
 import IcBaselineLightMode from './icons/IcBaselineLightMode.vue';
 import GgProfile from './icons/GgProfile.vue';
-import {ref, computed} from 'vue'
+import {inject, ref, computed} from 'vue'
 const showSearch = ref(false)
 defineEmits(['changeTheme','goProfile'])
 const selectedtheme = ref('dark')
-const user = ref({type:'user',image:'https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg'})
+const user = inject('user')
 const props = defineProps(['theme'])
 const themes = computed(() => props.theme)
 const allTheme = ['dark','bright','sepia','night']
@@ -26,7 +26,7 @@ const nextTheme = ()=>{
     <div class="w-full h-20 flex items-center border-b-1 fixed z-50" :class="themes.nav">
         <!-- logo -->
         <div class="w-[10%] flex justify-center items-center" :class="themes.text">
-            <img src="../assets/image/logo.png" class="w-[70px] brightness-200" >
+            <img src="../assets/image/logo.png" class="w-[65px] brightness-200" >
         </div>
         <!-- catagory -->
         <div class="w-[45%] grid grid-cols-4 pl-4 text-2xl font-medium "  :class="themes.nav">
@@ -37,10 +37,10 @@ const nextTheme = ()=>{
                 ประเภทหนังสือ
             </div>
             <div class="grid justify-self-center cursor-pointer">
-                สำนักพิมพ์
+                รายการหนังสือ
             </div>
             <div class="grid justify-self-center cursor-pointer">
-                รายการหนังสือ
+                โพสต์
             </div>
         </div>
         <!-- search -->
@@ -61,8 +61,19 @@ const nextTheme = ()=>{
             </select>
            
         </div>
-        <!-- profile -->
-        <img :src="user.image" class="w-16 h-16 rounded-full text-3xl" @click="$emit('goProfile')">
+        <div class="w-48 mr-10 border-2 border-black rounded-lg flex">
+            <div class="p-2 w-16">
+               <img :src="user.image??'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Windows_10_Default_Profile_Picture.svg/1200px-Windows_10_Default_Profile_Picture.svg.png'"
+         class="w-12 h-12 rounded-full text-3xl" @click="$emit('goProfile')"> 
+            </div>
+<!-- profile -->
+        <div class="my-auto ">
+            <div class="text-lg font-bold"> My profile</div>
+            <div class="text-sm truncate"> {{user.name??'Log In'}}</div>
+        </div>
+        
+
+        </div>
         
     </div>
 </template>

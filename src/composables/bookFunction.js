@@ -4,4 +4,9 @@ const findByCatagory = (catagory,books) => {
 }
 
 
+const getDateFormat = (date) => {
+    return date
+}
+
+
 export {findByCatagory}
