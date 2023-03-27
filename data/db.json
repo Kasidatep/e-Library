@@ -37,10 +37,10 @@
     },
     {
       "id": "permm",
-      "name": "NAWAT SRISAARD",
+      "name": "Nawat",
       "username": "permm",
-      "email": "nawatsrisaard039@gmail.com",
-      "phone": null,
+      "email": "Test@mail.com",
+      "phone": "123456",
       "type": "user",
       "password": "1234"
     },
@@ -220,7 +220,6 @@
       "img": ""
     }
   ],
-  
   "announcement": {
     "status": 1,
     "title": "ประกาศการเข้าใช้บริการ",
