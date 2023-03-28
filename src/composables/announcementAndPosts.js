@@ -60,8 +60,21 @@ const deletePostById = async (id) => {
     }
 }
 
+const getPostById = async (id) => {
+    try {
+        const res = await fetch('http://localhost:5000/posts/'+id+'?_expand=user')
+        if (res.status === 200) {
+            return await res.json()
+        }
+        else console.log(res.status)
+    }
+    catch (err) {
+        console.log(err)
+    }
+}
+
 const getPosts = async () =>{
  const  postdata = await fetchPost() 
  return  postdata 
 }
-export { fetchPost, getPosts, createPost, updatePostById, deletePostById }
+export { fetchPost, getPosts, createPost, updatePostById, deletePostById, getPostById }

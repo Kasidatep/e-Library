@@ -23,15 +23,18 @@ const datas = computed(() => {
     return findByCatagory(props.catagory,props.books)
 })
 defineEmits(['borrow'])
-const themes = computed(() => props.theme)
 </script>
  
 <template>
     <div class="pt-16 w-full ">
         <div class="text-2xl font-semibold" :class="theme.textheader">{{ title }}</div>
-        <div class="w-fit grid grid-cols-5 grid-row-2 pt-6">
-            <div v-for="data in datas" class=" m-1 w-72 grid overflow-hidden rounded-[20px] cursor-pointer hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300" :class="theme.bgblock">
-                <div class="overflow-hidden w-full h-36 justify-center"><img :src=data.img></div>
+        <div class="w-fit grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 grid-row-2 pt-6">
+            <div v-for="data in datas" class=" m-3 w-88 grid overflow-hidden rounded-[20px] cursor-pointer hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300" :class="theme.bgblock">
+                <RouterLink :to="{ name: 'onebook', params: { id: data.id ?? 'notfound' } }">
+                    <div class="overflow-hidden w-full h-48 justify-center" >
+                    <img :src="(data.img.length<2)?'../default/notfound.png':data.img" class="w-fit mx-auto justify-center flex items-center">
+                </div>
+            </RouterLink>
                 <div class="m-2 font-bold text-xl w-full" :class="theme.text">{{ data.title }}</div>
                 <div class="mt-1 ml-1 flex overflow-hidden ">
                     <div v-for="catagory in data.subcatagory"

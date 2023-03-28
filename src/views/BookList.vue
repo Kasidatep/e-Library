@@ -1,22 +1,19 @@
 
 <script setup>
 import { ref, onMounted, inject } from 'vue'
-import Catagories from './Catagories.vue';
-import PostList from './PostList.vue';
+import Catagories from '../components/Catagories.vue';
 import {getBooks} from '../composables/booksFetch.js'
 import { addBrBook } from '../composables/borrowBook.js'
 
 const user = inject('user')
 
-// const brBooks = ref([])
-// brBooks=addBorrowBook()
 const checkUser=()=>{
     console.log(user)
     if(user.value.id===undefined){
         console.log(user.value)
         createNotification("warning", "Cannot Borrow book please Log In first!! ", 2500)
     }else{
-        createNotification("success", "login succuess ready to add book by "+user.value.id, 2500)
+       
     }
 } 
 
@@ -32,6 +29,7 @@ const addBorrowBook = ($event) => {
     "status": 1
     }
     addBrBook(brBooks)
+    createNotification("success", "Congrats, "+ $event+ " Added!", 2500)
 }
 
 const props = defineProps(['books'])
@@ -41,7 +39,6 @@ onMounted(async () => {
   books.value = await getBooks()
  
 })
-// booksList Prop -----
 // Notification -----------------------------------------------------------------------------------
 const notifications = ref([])
 const createNotification = (type, message, timeout) => {
@@ -59,7 +56,7 @@ const removeNotification = () => {
 </script>
  
 <template>
-      <div class="fixed w-96 right-5 left-auto z-0 mt-24">
+      <div class="fixed w-96 right-5 left-auto z-50 mt-24">
         <div class="flex-col min-h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
             v-for="notification in notifications">
             <div class="text-xl font-extrabold mx-5 mt-2 pt-2 ">{{ notification.type }}</div>
@@ -67,8 +64,8 @@ const removeNotification = () => {
             <div class="text-lg pl-5 pt-1">{{ notification.message }}</div>
         </div>
     </div>
-    <div class="flex justify-center w-full pt-24 test">
-        <div class="w-[70%]  test ">
+    <div class="flex justify-center w-full pt-32">
+        <div class="w-[70%]  ">
 
             <h1 class="flex justify-center font-bold text-4xl" :class="theme.textheader"> หนังสือทั้งหมด </h1>
             <div class="grid grid-flow-row">

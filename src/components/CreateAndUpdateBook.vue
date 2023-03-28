@@ -6,7 +6,7 @@ const books = ref([])
 const emits = defineEmits(['createBook'])
 
 // create and update
-const isbn = ref('')
+const isbn = ref('9781593279578')
 const title = ref('')
 const author = ref('')
 const description = ref('')
@@ -68,19 +68,13 @@ onUpdated(() => {
 
 </script>
 <template>
-    <div class="fixed w-96 right-5 left-auto z-0">
-        <div class="flex-col h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
-            v-for="notification in notifications">
-            <div class="text-xl font-extrabold mx-5 mt-2 pt-2 ">{{ notification.type }}</div>
-            <hr class="mx-5 mt-2 opacity-20">
-            <div class="text-lg pl-5 pt-1">{{ notification.message }}</div>
-        </div>
-    </div>
+    
 
     <div class="flex flex-col m-5 z-10">
+        <h1 class=" font-bold text-4xl pt-16" :class="theme.textheader"> {{ isUpdate?'แก้ไขข้อมูลหนังสือ':'เพิ่มหนังสือใหม่' }} </h1>
         <div class="flex mt-12 h-12 ">
             <div class="text-xl font-bold px-5 pt-2 w-48" :class="theme.text">ISBN</div>
-            <input type="text" placeholder="กรุณากรอกรหัสหนังสือ 11 หรือ 13 หลัก" v-model="isbn" :disabled="props.isUpdate === true"
+            <input type="text" placeholder="กรุณากรอกรหัสหนังสือ 11 หรือ 13 หลัก" v-model="isbn" :disabled="props.isUpdate === true" maxlength="13"
                 class="w-full rounded-lg pl-5" :class="theme.input">
         </div>
         <div class="flex mt-12 h-12 ">

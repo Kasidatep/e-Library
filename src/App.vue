@@ -1,15 +1,14 @@
 <script setup>
 import { ref, computed, provide, onMounted } from 'vue'
 import Navbar from './components/Navbar.vue';
-import BookList from './components/BookList.vue';
-import AllPost from './components/AllPost.vue';
-import Profile from './components/Profile.vue'
+import {RouterView} from 'vue-router'
 import { themeUpdate, getTheme } from './composables/theme'
 import { getPosts } from './composables/announcementAndPosts'
 import { getBooks } from './composables/booksFetch.js'
 import LogIn from './components/LogIn.vue';
 import Register from './components/Register.vue';
-import { readUser, createUser, findUser, deleteUser, updateUser, checkUser } from '../src/composables/accountManagement.js'
+import Edituser from './components/Edituser.vue';
+import { readUser, createUser, findUser, deleteUser, updateUser, checkUser, clearUser } from '../src/composables/accountManagement.js'
 
 const theme = ref(getTheme())
 const posts = ref()
@@ -17,9 +16,33 @@ const user = ref({})
 const showLogIn = ref(false)
 const showRegister = ref(false)
 console.log(user)
+console.log(user.value)
 const login = async (userlogin) => {
+  const usr = await userlogin
+  if(await usr?.id===undefined) {
+    createNotification("warning", "Something wrong", 2500) 
+    user.value = {}
+  }
+  else {createNotification("success", "Login Success from App", 2500)
   user.value = await userlogin
-  showLogIn.value = false
+  showLogIn.value = false}
+}
+const logout = async (userlogout) => {
+  createNotification("warning", "Logout Success", 2500)
+  user.value = await userlogout
+}
+const updateuser = async (userupdated) => {
+  console.log(userupdated)
+  user = await userupdated
+}
+const register = async (e)=>{
+  const usr = await e
+  if(await usr?.id===undefined) {
+    createNotification("warning", "Something wrong", 2500)
+}
+  else{ createNotification("success", "Register Success from App", 2500)
+  showLogIn.value=true
+  showRegister.value=false}
 }
 provide('theme', theme)
 const updateTheme = (e) => { theme.value = themeUpdate(e) }
@@ -38,6 +61,7 @@ onMounted(async () => {
 })
 provide('user', user)
 // Notification -----------------------------------------------------------------------------------
+let notifications = ref([])
 const createNotification = (type, message, timeout) => {
   let theme = ["bg-black", "text-white"]
   if (type == "warning") theme = ["bg-yellow-500", "text-black"]
@@ -51,39 +75,48 @@ const removeNotification = () => {
   notifications.value.shift()
 }
 
-
-
+const showProfile = () => {
+  if (user.value?.id === undefined) {
+    showLogIn.value = true
+  } 
+}
 </script>
  
 <template>
+
   <div :class="theme.bgbase">
-    <div>
-      <Navbar @changeTheme="updateTheme($event)" @goProfile="isHomePage = !isHomePage" :theme="theme" />
-      <div class="flex absolute left-auto right-0">
-        <div class="bg-white text-black p-24" @click="showLogIn = !showLogIn, showRegister = false">Log In</div>
-      <div class="bg-yellow-300 text-black p-24" @click="showRegister = !showRegister, showLogIn = false">Register</div>
+    <div class="fixed w-96 right-5 left-auto z-50 mt-24">
+        <div class="flex-col min-h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
+            v-for="notification in notifications">
+            <div class="text-xl font-extrabold mx-5 mt-2 pt-2 ">{{ notification.type }}</div>
+            <hr class="mx-5 mt-2 opacity-20">
+            <div class="text-lg pl-5 mb-2 pr-2">{{ notification.message }}</div>
         </div>
-      
     </div>
-
-    <div class="fixed w-2/3 mx-auto h-2/3 rounded-xl z-20 bg-opacity-90 bg-blur overflow-auto p-5" :class="theme.bgblock"
-      v-if="showLogIn">
-      <h1 class=" font-bold text-4xl pt-16" :class="theme.textheader">Log In </h1>
-      <LogIn @login="login" />
-    </div>
-    <div class="fixed w-2/3 mx-auto h-2/3 rounded-xl z-20 bg-opacity-90 bg-blur overflow-auto p-5" :class="theme.bgblock"
-      v-if="showRegister">
-      <h1 class=" font-bold text-4xl pt-16" :class="theme.textheader">Register In </h1>
-      <Register @register="register" />
-    </div>
-    <AllPost :posts="posts" v-if="0" />
+    <Navbar @changeTheme="updateTheme($event)" @goProfile="showProfile" />
     <div>
-      <BookList :theme="theme" v-if="isHomePage" :books="books" />
 
-      <Profile :theme="theme" v-if="!isHomePage" :posts="posts" />
+      <!--Pop Up -->
+      <div class="w-screen h-screen bg-opacity-70 fixed bg-blur pt-24 z-30" :class="theme.bgbase"
+        v-if="showLogIn || showRegister">
+        <div
+          class="w-4/5 md:w-2/3 flex-col h-3/5 bg-opacity-90 justify-center mx-auto mt-auto mb-auto rounded-xl z-20  overflow-auto p-5"
+          :class="theme.bgblock">
+          <div class="flex justify-between">
+            <h1 class="font-bold text-4xl pt-5" :class="theme.textheader"> {{ showLogIn ? 'Log In' : 'Register' }} </h1>
+            <div class="cursor-pointer border-2 h-fit p-2 rounded-full" :class="theme.text"
+              @click="() => { showLogIn = false, showRegister = false }">ClOSE</div>
+          </div>
 
+          <LogIn @login="login" @toRegister="() => { showRegister = !showRegister, showLogIn = false }"
+            v-if="showLogIn" />
+          <Register @register="register"  v-if="showRegister" />
+          <Profile />
+        </div>
+      </div>
+     
+      <RouterView @logout="logout" />
     </div>
-
 
   </div>
 </template>

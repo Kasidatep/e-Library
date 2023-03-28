@@ -26,7 +26,7 @@ const createUser = async (newUser) => {
     users.some(
       (user) =>
         user.id === newUser.username ||
-        newUser.password !== newUser.confpassword
+        newUser.password != newUser.confpassword
     )
   ) {
     console.log(
@@ -42,6 +42,7 @@ const createUser = async (newUser) => {
         },
         body: JSON.stringify({
           id: newUser.username,
+          username: newUser.username,
           name: newUser.name,
           email: newUser.email,
           phone: newUser.phone,
@@ -82,11 +83,16 @@ const findUser = async (inputusername) => {
 const deleteUser = async (userid) => {
   if (findUser(userid)) {
     try {
-      const res = await fetch(`http://localhost:5000/users/${userid}`, {
-        method: 'DELETE'
-      })
+              const res = await fetch(
+                `http://localhost:5000/users/${userid}`,
+                {
+                  method: "DELETE",
+                }
+              );
       if (res.ok) {
         console.log('delete successfully')
+        return {}
+
       } else {
         console.log('cannot delete data!')
       }
@@ -105,24 +111,29 @@ const updateUser = async (updateUser) => {
       console.log(`User with username ${updateUser.username} not found`)
     }
     else {
-      const res = await fetch(`http://localhost:5000/users/${updateUser.id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: newUser.username,
-          name: newUser.name,
-          email: newUser.email,
-          phone: newUser.phone,
-          type: newUser.type,
-          password: newUser.password,
-          image: newUser.image,
-        }),
-      });
+      const res = await fetch(
+        `http://localhost:5000/users/${updateUser.username}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            id: updateUser.username,
+            username: updateUser.username,
+            name: updateUser.name,
+            email: updateUser.email,
+            phone: updateUser.phone,
+            type: updateUser.type,
+            password: updateUser.password,
+            image: updateUser.image,
+          }),
+        }
+      );
       if (res.status === 200) {
-        console.log(`update user ${updateUser.id} successfully`)
+        console.log(`update user ${updateUser.username} successfully`);
         const updated = await res.json();
+        console.log(updated);
         return updated;
       }
     }
@@ -137,7 +148,9 @@ const checkUser = async (id, password) => {
   const checkuser = users.find(user => user.id === id && user.password === password)
   try {
     const res = await fetch(`http://localhost:5000/users/${id}`)
-
+    // if(res.status === 404){
+    //   console.log("username or password is incorrect")
+    // }
     if (checkuser !== undefined && res.ok) {
       console.log('login successfully')
       const ress = await res.json()
@@ -151,5 +164,17 @@ const checkUser = async (id, password) => {
     console.log(error)
   }
 }
+const clearUser =()=>{
+  console.log('logout!')
+  return {}
+}
 
-export { readUser, createUser, deleteUser, findUser, checkUser, updateUser };
+export {
+  readUser,
+  createUser,
+  deleteUser,
+  findUser,
+  checkUser,
+  updateUser,
+  clearUser,
+};

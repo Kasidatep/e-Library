@@ -11,6 +11,19 @@ const getBooks = async () => {
     }
 };
 
+const getBookById = async (id) => {
+    try {
+        const res = await fetch("http://localhost:5000/books/"+id);
+        if (res.ok) {
+            return await res.json();
+        }
+        else throw new Error('Error, cannot get book data');
+    }
+    catch (err) {
+        console.log(err);
+    }
+};
+
 
 const createBook = async (newBook) => {
     try {
@@ -56,4 +69,4 @@ const deleteBookById = async (deleteId) => {
     }
 }
 
-export { getBooks, deleteBookById, createBook, updateBookById };
+export { getBooks, deleteBookById, createBook, updateBookById, getBookById};
