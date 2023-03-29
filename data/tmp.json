@@ -1,232 +1,717 @@
 {
-    "users": [
-      {
-        "id": "Bret",
-        "name": "Leanne Graham",
-        "username": "Bret",
-        "email": "Sincere@april.biz",
-        "phone": "1-770-736-8031 x56442",
-        "type": "librarian",
-        "password": ""
-      },
-      {
-        "id": "kasidatep",
-        "name": "KASIDATE PHLAIPHUEAK",
-        "email": "bank@kasidate.me",
-        "phone": "0123214542",
-        "type": "librarian",
-        "password": "kasidate"
-      },
-      {
-        "id": "jrpond",
-        "name": "JIRAPONG RATIWAT",
-        "username": "jrpond",
-        "email": "pkungpond@gmail.com",
-        "phone": null,
-        "type": "user",
-        "password": ""
-      },
-      {
-        "id": "L5139",
-        "name": "CHANATHIP BUPPANHASAMAI",
-        "username": "L5139",
-        "email": "chanathip.L5139@mail.kmutt.ac.th",
-        "phone": null,
-        "type": "user",
-        "password": ""
-      },
-      {
-        "id": "permm",
-        "name": "NAWAT SRISAARD",
-        "username": "permm",
-        "email": "nawatsrisaard039@gmail.com",
-        "phone": null,
-        "type": "user",
-        "password": "1234"
-      }
-    ],
-    "books": [
-      {
-        "id": "9781593279509",
-        "title": "ปกรณัมการเขียนโค้ด เล่ม 1",
-        "author": "Marijn Haverbeke",
-        "published": "2018-12-04T00:00:00.000Z",
-        "publisher": "No Starch Press",
-        "pages": 472,
-        "maincatagory": "romance",
-        "subcatagory": [
-          "cta1",
-          "test2"
-        ],
-        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-        "booklink": "http://eloquentjavascript.net/",
-        "img": ""
-      },
-      {
-        "id": "97815932795010",
-        "title": "ปกรณัมการเขียนโค้ด",
-        "author": "Marijn Haverbeke",
-        "published": "2018-12-04T00:00:00.000Z",
-        "publisher": "No Starch Press",
-        "pages": 472,
-        "maincatagory": "dramatic",
-        "subcatagory": [
-          "",
-          ""
-        ],
-        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-        "booklink": "http://eloquentjavascript.net/",
-        "img": ""
-      },
-      {
-        "id": "97815932795011",
-        "title": "ปกรณัมการเขียนโค้ด",
-        "author": "Marijn Haverbeke",
-        "published": "2018-12-04T00:00:00.000Z",
-        "publisher": "No Starch Press",
-        "pages": 472,
-        "maincatagory": "boylove",
-        "subcatagory": [
-          "",
-          ""
-        ],
-        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-        "booklink": "http://eloquentjavascript.net/",
-        "img": ""
-      },
-      {
-        "id": "97815932795000",
-        "title": "ดาวบริวาร",
-        "author": "Jirapong Ratiwat",
-        "published": "2018-12-04T00:00:00.000Z",
-        "publisher": "No Starch Press",
-        "pages": 472,
-        "maincatagory": "girllove",
-        "subcatagory": [
-          "แฟนตาซี",
-          "เทพนิยาย",
-          "ดราม่า",
-          "อบอุ่นหัวใจ"
-        ],
-        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-        "booklink": "http://eloquentjavascript.net/",
-        "img": "book/image/girllove/Girl_love_2.png"
-      },
-      {
-        "id": "97815932795011",
-        "title": "ปกรณัมการเขียนโค้ด",
-        "author": "Marijn Haverbeke",
-        "published": "2018-12-04T00:00:00.000Z",
-        "publisher": "No Starch Press",
-        "pages": 472,
-        "maincatagory": "documentary",
-        "subcatagory": [
-          "",
-          ""
-        ],
-        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-        "booklink": "http://eloquentjavascript.net/",
-        "img": ""
-      },
-      {
-        "id": "97815932795011",
-        "title": "ปกรณัมการเขียนโค้ด",
-        "author": "Marijn Haverbeke",
-        "published": "2018-12-04T00:00:00.000Z",
-        "publisher": "No Starch Press",
-        "pages": 472,
-        "maincatagory": "comedy",
-        "subcatagory": [
-          "",
-          ""
-        ],
-        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-        "booklink": "http://eloquentjavascript.net/",
-        "img": ""
-      },
-      {
-        "id": "97815932795011",
-        "title": "ปกรณัมการเขียนโค้ด",
-        "author": "Marijn Haverbeke",
-        "published": "2018-12-04T00:00:00.000Z",
-        "publisher": "No Starch Press",
-        "pages": 472,
-        "maincatagory": "horror",
-        "subcatagory": [
-          "",
-          ""
-        ],
-        "description": "JavaScript lies at the heart of almost every modern web application, from social apps like Twitter to browser-based game frameworks like Phaser and Babylon. Though simple for beginners to pick up and play with, JavaScript is a flexible, complex language that you can use to build full-scale applications.",
-        "booklink": "http://eloquentjavascript.net/",
-        "img": ""
-      }
-    ],
-    "borrows": [],
-    "announcement": {
-      "status": 1,
-      "title": "ประกาศการเข้าใช้บริการ",
-      "description": "สามารถเข้าใช้บริการบริการต่าง ๆ ได้ที่เว็บไซต์คณะ",
-      "type": "info",
-      "link": "https://sit.kmutt.ac.th"
+  "users": [
+    {
+      "id": "Bret",
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "phone": "1-770-736-8031 x56442",
+      "type": "librarian",
+      "password": ""
     },
-    "posts": [
-      {
-        "id": 52,
-        "title": "bcvbnbvcxvbn",
-        "description": "nddd",
-        "img": " cvbnb vcbv ",
-        "visible": 1,
-        "userId": "kasidatep"
-      },
-      {
-        "img": "s",
-        "title": "s",
-        "description": "s",
-        "id": 71,
-        "visible": 1,
-        "userId": "kasidatep"
-      },
-      {
-        "img": "zxc",
-        "title": "zxcv",
-        "description": "zxcv",
-        "id": 72,
-        "visible": 1,
-        "userId": "kasidatep"
-      },
-      {
-        "img": "p",
-        "title": "p",
-        "description": "p",
-        "id": 73,
-        "visible": 1,
-        "userId": "kasidatep"
-      },
-      {
-        "img": "sdfghjk",
-        "title": "sdfghj",
-        "description": "dfghjk",
-        "id": 76,
-        "visible": 1,
-        "userId": "kasidatep"
-      },
-      {
-        "id": 77,
-        "title": "asdf",
-        "description": "as",
-        "img": "s",
-        "visible": 1,
-        "userId": "kasidatep"
-      },
-      {
-        "id": "createnewpostcustomurl",
-        "title": "Test2",
-        "description": "สร้างโพสต์ใหม่",
-        "img": "https://pub-static.fotor.com/assets/projects/pages/d5bdd0513a0740a8a38752dbc32586d0/fotor-03d1a91a0cec4542927f53c87e0599f6.jpg",
-        "visible": 2,
-        "userId": "kasidatep",
-        "postDate": "2023-03-20T08:03:36.390Z"
-      }
-    ]
+    {
+      "id": "kasidatep",
+      "username": "kasidatep",
+      "name": "KASIDATE PHLAIPHUEAK",
+      "email": "bank@kasidate.me",
+      "phone": "0123214542",
+      "type": "librarian",
+      "password": "kasidate"
+    },
+    {
+      "id": "jrpond",
+      "name": "JIRAPONG RATIWAT",
+      "username": "jrpond",
+      "email": "pkungpond@gmail.com",
+      "phone": null,
+      "type": "user",
+      "password": ""
+    },
+    {
+      "id": "L5139",
+      "name": "CHANATHIP BUPPANHASAMAI",
+      "username": "L5139",
+      "email": "chanathip.L5139@mail.kmutt.ac.th",
+      "phone": null,
+      "type": "user",
+      "password": ""
+    },
+    {
+      "id": "permm",
+      "username": "permm",
+      "name": "Nawat04",
+      "email": "Test@mail.com",
+      "phone": "123456",
+      "type": "user",
+      "password": "1234"
+    },
+    {
+      "id": "Test",
+      "name": "test99",
+      "username": "username",
+      "email": "Test@mail.com",
+      "phone": "123456",
+      "type": "user",
+      "password": "test"
+    },
+    {
+      "id": "pizz",
+      "name": "pizza",
+      "email": "pizza@mail.com",
+      "phone": "1112",
+      "type": "user",
+      "password": "1112",
+      "image": "https://postimgs.org/apple-touch-icon.png"
+    },
+    {
+      "id": "pizza",
+      "username": "pizza",
+      "name": "pizza",
+      "email": "",
+      "phone": "1112",
+      "type": "user",
+      "password": "1112",
+      "image": "piz"
+    },
+    {
+      "id": "dev001",
+      "username": "dev001",
+      "name": "BOI Dev",
+      "email": "dev@mail.com",
+      "phone": "-",
+      "type": "user",
+      "password": "cat",
+      "image": ""
+    },
+    {
+      "id": "meow",
+      "username": "meow",
+      "name": "Meow",
+      "email": "cat@mail.com",
+      "phone": "meow",
+      "type": "user",
+      "password": "cat",
+      "image": "https://demofc003.trustthemes.net/wp-content/uploads/2017/03/brithshothaircat.jpg"
+    }
+  ],
+  "books": [
+    {
+      "id": "9781593279000",
+      "title": "รักอื่นหมื่นแสน เล่ม 1",
+      "author": "วาฬน้อยแสนสวย",
+      "publisher": "Siam One Comic",
+      "maincatagory": "romance",
+      "subcatagory": [
+        "เศร้า",
+        "ตลก",
+        "ต่างวัย"
+      ],
+      "description": "เรื่องราวความรักของเราสองคน ที่มีความต่างของวัยเป็นอุปสรรค",
+      "booklink": "",
+      "img": "https://images6.alphacoders.com/736/736227.png"
+    },
+    {
+      "id": "9781593279001",
+      "title": "รักอื่นหมื่นแสน เล่ม 2",
+      "author": "วาฬน้อยแสนสวย",
+      "publisher": "Siam One Comic",
+      "maincatagory": "romance",
+      "subcatagory": [
+        "เศร้า",
+        "ตลก",
+        "ต่างวัย"
+      ],
+      "description": "เรื่องราวภาคต่อของรักอื่นหมื่นแสน",
+      "booklink": "",
+      "img": "https://image.winudf.com/v2/image1/Y29tLmJydWhwcm9kLndhbGxwYXBlcnJvbWFuY2Vfc2NyZWVuXzEyXzE2MDc0MzczMTZfMDk2/screen-6.jpg?fakeurl=1&type=.jpg"
+    },
+    {
+      "id": "9781593279003",
+      "title": "รักอื่นหมื่นแสน เล่ม 4",
+      "author": "วาฬน้อยแสนสวย",
+      "publisher": "Siam One Comic",
+      "maincatagory": "romance",
+      "subcatagory": [
+        "เศร้า",
+        "ตลก",
+        "ต่างวัย"
+      ],
+      "description": "เรื่องราวภาคต่อของรักอื่นหมื่นแสน",
+      "booklink": "",
+      "img": "https://i.pinimg.com/736x/36/63/1d/36631d8bfddd82b1b9e1f1c273f91ed7.jpg"
+    },
+    {
+      "id": "9781593279004",
+      "title": "รักอื่นหมื่นแสน เล่ม 5",
+      "author": "วาฬน้อยแสนสวย",
+      "publisher": "Siam One Comic",
+      "maincatagory": "romance",
+      "subcatagory": [
+        "เศร้า",
+        "ตลก",
+        "ต่างวัย"
+      ],
+      "description": "เรื่องราวภาคต่อของรักอื่นหมื่นแสน",
+      "booklink": "",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTu5SwlcwKSSUe65NSrNcYaSkFm8Fxi-tYWUA&usqp=CAU"
+    },
+    {
+      "id": "9781593279005",
+      "title": "รักอื่นหมื่นแสน เล่ม 6 (เล่มจบ)",
+      "author": "วาฬน้อยแสนสวย",
+      "publisher": "Siam One Comic",
+      "maincatagory": "romance",
+      "subcatagory": [
+        "เศร้า",
+        "ตลก",
+        "ต่างวัย"
+      ],
+      "description": "เรื่องราวภาคต่อของรักอื่นหมื่นแสน และยังเป็นภาคจบอีกด้วย",
+      "booklink": "",
+      "img": "https://picstatio.com/download/1152x864/18d138/cute-anime-couple-meadow-love.jpg"
+    },
+    {
+      "id": "9781593279006",
+      "title": "Parallel Love (รักคู่ขนาน) เล่ม 1",
+      "author": "ศรีฟ้า",
+      "publisher": "Bangkok Book",
+      "maincatagory": "dramatic",
+      "subcatagory": [
+        "เส้นขนาน",
+        "รักผิดจังหวะ",
+        "เศร้า"
+      ],
+      "description": "เรื่องราวความรักแบบเส้นขนานของคนสองคน ที่ช่วงเวลาไม่เคยอวยพรพวกเขาเลย เมื่อคนนึงพบรัก อีกคนดันโสด จังหวะที่ไม่เหมาะสมพาพวกเขาเข้าสู่วงเวียนแห่งความเสียใจ ที่ดูจะไม่มีทางรักกันได้เลย...",
+      "booklink": "",
+      "img": "https://1417094351.rsc.cdn77.org/articles/4613/4612285/thumbnail/large.gif?1"
+    },
+    {
+      "id": "9781593279007",
+      "title": "Parallel Love (รักคู่ขนาน) เล่ม 2",
+      "author": "ศรีฟ้า",
+      "publisher": "Bangkok Book",
+      "maincatagory": "dramatic",
+      "subcatagory": [
+        "เส้นขนาน",
+        "รักผิดจังหวะ",
+        "เศร้า"
+      ],
+      "description": "เรื่องราวความรักแบบเส้นขนานของคนสองคน ที่ช่วงเวลาไม่เคยอวยพรพวกเขาเลย เมื่อคนนึงพบรัก อีกคนดันโสด จังหวะที่ไม่เหมาะสมพาพวกเขาเข้าสู่วงเวียนแห่งความเสียใจ ที่ดูจะไม่มีทางรักกันได้เลย...",
+      "booklink": "",
+      "img": "https://i.pinimg.com/originals/dd/81/6c/dd816c3e5a79e8af8b2eba50224f6728.jpg"
+    },
+    {
+      "id": "9781593279008",
+      "title": "Parallel Love (รักคู่ขนาน) เล่ม 3",
+      "author": "ศรีฟ้า",
+      "publisher": "Bangkok Book",
+      "maincatagory": "dramatic",
+      "subcatagory": [
+        "เส้นขนาน",
+        "รักผิดจังหวะ",
+        "เศร้า"
+      ],
+      "description": "เรื่องราวความรักแบบเส้นขนานของคนสองคน ที่ช่วงเวลาไม่เคยอวยพรพวกเขาเลย เมื่อคนนึงพบรัก อีกคนดันโสด จังหวะที่ไม่เหมาะสมพาพวกเขาเข้าสู่วงเวียนแห่งความเสียใจ ที่ดูจะไม่มีทางรักกันได้เลย...",
+      "booklink": "",
+      "img": "https://iyoubeauty.com/wp-content/uploads/2021/08/1-1.jpg"
+    },
+    {
+      "id": "9781593279009",
+      "title": "Parallel Love (รักคู่ขนาน) เล่ม 4",
+      "author": "ศรีฟ้า",
+      "publisher": "Bangkok Book",
+      "maincatagory": "dramatic",
+      "subcatagory": [
+        "เส้นขนาน",
+        "รักผิดจังหวะ",
+        "เศร้า"
+      ],
+      "description": "เรื่องราวความรักแบบเส้นขนานของคนสองคน ที่ช่วงเวลาไม่เคยอวยพรพวกเขาเลย เมื่อคนนึงพบรัก อีกคนดันโสด จังหวะที่ไม่เหมาะสมพาพวกเขาเข้าสู่วงเวียนแห่งความเสียใจ ที่ดูจะไม่มีทางรักกันได้เลย...",
+      "booklink": "",
+      "img": "https://i.pinimg.com/736x/ff/c1/3d/ffc13d029736f5b788a0de0caf90233b.jpg"
+    },
+    {
+      "id": "9781593279010",
+      "title": "Parallel Love (รักคู่ขนาน) เล่ม 5 (เล่มจบ)",
+      "author": "ศรีฟ้า",
+      "publisher": "Bangkok Book",
+      "maincatagory": "dramatic",
+      "subcatagory": [
+        "เส้นขนาน",
+        "รักผิดจังหวะ",
+        "เศร้า"
+      ],
+      "description": "เรื่องราวตอนจบของความรักแบบเส้นขนานของพวกเขาสองคน ...",
+      "booklink": "",
+      "img": "https://cdn.pixabay.com/photo/2016/11/18/16/16/teddy-bear-1835598__480.jpg"
+    },
+    {
+      "id": "97815932790011",
+      "title": "ดาวบริวาร Between U เล่ม 1",
+      "author": "เจ้าวาฬน้อย",
+      "publisher": "Lily Love",
+      "maincatagory": "girllove",
+      "subcatagory": [
+        "แฟนตาซี",
+        "เทพนิยาย",
+        "ดราม่า",
+        "อบอุ่นหัวใจ"
+      ],
+      "description": "เรื่องราวความรักระหว่างเทพทั้งสององค์ ที่ไม่มีความเข้ากันเลยซักนิด แต่ชะตากรรมฟ้ากรั่นแกล้งให้ต้องพบกันอยู่ร่ำไป จากความเกลียดชัง แปรเปลี่ยนเป็นความรัก และรักครั้งนี้จะสมหวังหรือไม่ โปรดติดตามในดาวบริวาร Between U",
+      "booklink": "",
+      "img": "book/image/girllove/Girl_love_2.png"
+    },
+    {
+      "id": "9781593279012",
+      "title": "ดาวบริวาร Between U เล่ม 2",
+      "author": "เจ้าวาฬน้อย",
+      "publisher": "Lily Love",
+      "maincatagory": "girllove",
+      "subcatagory": [
+        "แฟนตาซี",
+        "เทพนิยาย",
+        "ดราม่า",
+        "อบอุ่นหัวใจ"
+      ],
+      "description": "เรื่องราวความรักระหว่างเทพทั้งสององค์ ที่ไม่มีความเข้ากันเลยซักนิด แต่ชะตากรรมฟ้ากรั่นแกล้งให้ต้องพบกันอยู่ร่ำไป จากความเกลียดชัง แปรเปลี่ยนเป็นความรัก และรักครั้งนี้จะสมหวังหรือไม่ โปรดติดตามในดาวบริวาร Between U",
+      "booklink": "",
+      "img": "https://i.pinimg.com/736x/25/d5/cc/25d5cc1b27009bcbd9d7c46530ed7945.jpg"
+    },
+    {
+      "id": "9781593279013",
+      "title": "ดาวบริวาร Between U เล่ม 3",
+      "author": "เจ้าวาฬน้อย",
+      "publisher": "Lily Love",
+      "maincatagory": "girllove",
+      "subcatagory": [
+        "แฟนตาซี",
+        "เทพนิยาย",
+        "ดราม่า",
+        "อบอุ่นหัวใจ"
+      ],
+      "description": "เรื่องราวความรักระหว่างเทพทั้งสององค์ ที่ไม่มีความเข้ากันเลยซักนิด แต่ชะตากรรมฟ้ากรั่นแกล้งให้ต้องพบกันอยู่ร่ำไป จากความเกลียดชัง แปรเปลี่ยนเป็นความรัก และรักครั้งนี้จะสมหวังหรือไม่ โปรดติดตามในดาวบริวาร Between U",
+      "booklink": "",
+      "img": "https://i.pinimg.com/236x/2a/96/cc/2a96ccd1174aa08f85462390275bd5a5.jpg"
+    },
+    {
+      "id": "9781593279014",
+      "title": "ดาวบริวาร Between U เล่ม 4",
+      "author": "เจ้าวาฬน้อย",
+      "publisher": "Lily Love",
+      "maincatagory": "girllove",
+      "subcatagory": [
+        "แฟนตาซี",
+        "เทพนิยาย",
+        "ดราม่า",
+        "อบอุ่นหัวใจ"
+      ],
+      "description": "เรื่องราวความรักระหว่างเทพทั้งสององค์ ที่ไม่มีความเข้ากันเลยซักนิด แต่ชะตากรรมฟ้ากรั่นแกล้งให้ต้องพบกันอยู่ร่ำไป จากความเกลียดชัง แปรเปลี่ยนเป็นความรัก และรักครั้งนี้จะสมหวังหรือไม่ โปรดติดตามในดาวบริวาร Between U",
+      "booklink": "",
+      "img": "https://i.pinimg.com/originals/63/1a/29/631a2937b4608d3a1b19f4b4a6a8300d.jpg"
+    },
+    {
+      "id": "9781593279015",
+      "title": "ดาวบริวาร Between U เล่ม 5",
+      "author": "เจ้าวาฬน้อย",
+      "publisher": "Lily Love",
+      "maincatagory": "girllove",
+      "subcatagory": [
+        "แฟนตาซี",
+        "เทพนิยาย",
+        "ดราม่า",
+        "อบอุ่นหัวใจ"
+      ],
+      "description": "เรื่องราวความรักระหว่างเทพทั้งสององค์ ที่ไม่มีความเข้ากันเลยซักนิด แต่ชะตากรรมฟ้ากรั่นแกล้งให้ต้องพบกันอยู่ร่ำไป จากความเกลียดชัง แปรเปลี่ยนเป็นความรัก และรักครั้งนี้จะสมหวังหรือไม่ โปรดติดตามในดาวบริวาร Between U",
+      "booklink": "",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgLGTJ0eK8yxwjROTYWrav5atjZF-BkhhGSzR5CB77SU8kakG-U6qhKZiaPp7o72QfV-0&usqp=CAU"
+    },
+    {
+      "id": "9781593279016",
+      "title": "แมวน้อยจ้าวป่า เล่ม 1",
+      "author": "ทาสแมว V.2",
+      "publisher": "Global National Geographic (GNG)",
+      "maincatagory": "documentary",
+      "subcatagory": [
+        "แมว",
+        "สารคดี",
+        "ท่องโลก"
+      ],
+      "description": "เรื่องราวแมว ๆ ที่จะทำให้คุณรักมันมากขึ้น",
+      "booklink": "",
+      "img": "https://cdn.pixabay.com/photo/2023/02/11/15/59/ai-generated-7783224_960_720.jpg"
+    },
+    {
+      "id": "9781593279017",
+      "title": "แมวน้อยจ้าวป่า เล่ม 2 ",
+      "author": "ทาสแมว V.2",
+      "publisher": "Global National Geographic (GNG)",
+      "maincatagory": "documentary",
+      "subcatagory": [
+        "แมว",
+        "สารคดี",
+        "ท่องโลก"
+      ],
+      "description": "เรื่องราวแมว ๆ ที่จะทำให้คุณรักมันมากขึ้น เล่ม 2",
+      "booklink": "",
+      "img": "https://cdn.pixabay.com/photo/2023/03/01/19/10/cats-7823867_640.jpg"
+    },
+    {
+      "id": "9781593279018",
+      "title": "แมวน้อยจ้าวป่า เล่ม 3 (เล่มจบ)",
+      "author": "ทาสแมว V.2",
+      "publisher": "Global National Geographic (GNG)",
+      "maincatagory": "documentary",
+      "subcatagory": [
+        "แมว",
+        "สารคดี",
+        "ท่องโลก"
+      ],
+      "description": "เรื่องราวแมว ๆ ที่จะทำให้คุณรักมันมากขึ้น เล่ม 3",
+      "booklink": "",
+      "img": "https://cdn.pixabay.com/photo/2022/12/20/07/37/cat-7667234_1280.jpg"
+    },
+    {
+      "id": "9781593279019",
+      "title": "มหัศจรรย์จิ้งจอก เล่ม 1 ",
+      "author": "ทาสแมว V.2",
+      "publisher": "Global National Geographic (GNG)",
+      "maincatagory": "documentary",
+      "subcatagory": [
+        "จิ้งจอก",
+        "สาคดี",
+        "เรืองน่ารู้"
+      ],
+      "description": "จิ้งจอกสัตวที่สง่างามดุจดั่งตัวละครที่ถูกรังสรรค์โดยพระเจ้า",
+      "booklink": "",
+      "img": "https://img.kapook.com/u/surauch/movie6/grey.jpg"
+    },
+    {
+      "id": "9781593279020",
+      "title": "มหัศจรรย์จิ้งจอก เล่ม 2 ",
+      "author": "ทาสแมว V.2",
+      "publisher": "Global National Geographic (GNG)",
+      "maincatagory": "documentary",
+      "subcatagory": [
+        "จิ้งจอก",
+        "สาคดี",
+        "เรืองน่ารู้"
+      ],
+      "description": "จิ้งจอกสัตวที่สง่างามดุจดั่งตัวละครที่ถูกรังสรรค์โดยพระเจ้า",
+      "booklink": "",
+      "img": "https://www.infoquest.co.th/wp-content/uploads/2022/04/20220405_CANVA_Fox_%E0%B8%88%E0%B8%B4%E0%B9%89%E0%B8%87%E0%B8%88%E0%B8%AD%E0%B8%81-1024x576.png"
+    },
+    {
+      "id": "9781593279021",
+      "title": "ฉันจะเป็นราชาโฮคาเงะแห่งหมู่บ้านนาเม็กให้ได้เลย เล่ม 1",
+      "author": "ราชางูเห่าใต้สนแห้งกรัง",
+      "publisher": "Phoenix Publishing",
+      "maincatagory": "comedy",
+      "subcatagory": [
+        "ตลก",
+        "เบาสมอง",
+        "กาว",
+        "แฟนตาซี"
+      ],
+      "description": "เรื่องราวบ้า ๆ บอ ๆ ของกลุ่มคนสามคนที่พยายามจะตั้งร้านสารพัดรับจ้างขึ้นมา กับเรื่องราวปั่นประสาทที่จะทำให้สมองของคุณไหลออกมากองรวมกันที่พื้น",
+      "booklink": "",
+      "img": "https://i.pinimg.com/originals/51/86/6f/51866fe04cfceea530ee3d2b7f6ca8e5.jpg"
+    },
+    {
+      "id": "9781593279022",
+      "title": "ฉันจะเป็นราชาโฮคาเงะแห่งหมู่บ้านนาเม็กให้ได้เลย เล่ม 2",
+      "author": "ราชางูเห่าใต้สนแห้งกรัง",
+      "publisher": "Phoenix Publishing",
+      "maincatagory": "comedy",
+      "subcatagory": [
+        "ตลก",
+        "เบาสมอง",
+        "กาว",
+        "แฟนตาซี"
+      ],
+      "description": "เรื่องราวบ้า ๆ บอ ๆ ของกลุ่มคนสามคนที่พยายามจะตั้งร้านสารพัดรับจ้างขึ้นมา กับเรื่องราวปั่นประสาทที่จะทำให้สมองของคุณไหลออกมากองรวมกันที่พื้น",
+      "booklink": "",
+      "img": "https://f.ptcdn.info/733/054/000/ozntcwa1lSDaovmerPi-o.jpg"
+    },
+    {
+      "id": "9781593279023",
+      "title": "ฉันจะเป็นราชาโฮคาเงะแห่งหมู่บ้านนาเม็กให้ได้เลย เล่ม 3",
+      "author": "ราชางูเห่าใต้สนแห้งกรัง",
+      "publisher": "Phoenix Publishing",
+      "maincatagory": "comedy",
+      "subcatagory": [
+        "ตลก",
+        "เบาสมอง",
+        "กาว",
+        "แฟนตาซี"
+      ],
+      "description": "เรื่องราวบ้า ๆ บอ ๆ ของกลุ่มคนสามคนที่พยายามจะตั้งร้านสารพัดรับจ้างขึ้นมา กับเรื่องราวปั่นประสาทที่จะทำให้สมองของคุณไหลออกมากองรวมกันที่พื้น",
+      "booklink": "",
+      "img": "http://img-cdn.jg.jugem.jp/3cc/1685455/20110123_1796071.jpg"
+    },
+    {
+      "id": "9781593279024",
+      "title": "ฉันจะเป็นราชาโฮคาเงะแห่งหมู่บ้านนาเม็กให้ได้เลย เล่ม 4",
+      "author": "ราชางูเห่าใต้สนแห้งกรัง",
+      "publisher": "Phoenix Publishing",
+      "maincatagory": "comedy",
+      "subcatagory": [
+        "ตลก",
+        "เบาสมอง",
+        "กาว",
+        "แฟนตาซี"
+      ],
+      "description": "เรื่องราวบ้า ๆ บอ ๆ ของกลุ่มคนสามคนที่พยายามจะตั้งร้านสารพัดรับจ้างขึ้นมา กับเรื่องราวปั่นประสาทที่จะทำให้สมองของคุณไหลออกมากองรวมกันที่พื้น",
+      "booklink": "",
+      "img": "https://www.metalbridges.com/wp-content/uploads/2022/08/5-funny-comedy-anime-6.jpg"
+    },
+    {
+      "id": "9781593279025",
+      "title": "ฉันจะเป็นราชาโฮคาเงะแห่งหมู่บ้านนาเม็กให้ได้เลย เล่ม 5",
+      "author": "ราชางูเห่าใต้สนแห้งกรัง",
+      "publisher": "Phoenix Publishing",
+      "maincatagory": "comedy",
+      "subcatagory": [
+        "ตลก",
+        "เบาสมอง",
+        "กาว",
+        "แฟนตาซี"
+      ],
+      "description": "เรื่องราวบ้า ๆ บอ ๆ ของกลุ่มคนสามคนที่พยายามจะตั้งร้านสารพัดรับจ้างขึ้นมา กับเรื่องราวปั่นประสาทที่จะทำให้สมองของคุณไหลออกมากองรวมกันที่พื้น",
+      "booklink": "",
+      "img": "https://www.online-station.net/wp-content/uploads/2020/06/Funny-Anime_1200_628-1024x536.jpg"
+    },
+    {
+      "id": "9781593279026",
+      "title": "ลำนำบ้องข้าวหลาม เล่ม 1",
+      "author": "L5139",
+      "publisher": "Sanook",
+      "maincatagory": "comedy",
+      "subcatagory": [
+        "อาหาร",
+        "วัฒนธรรม",
+        "การศึกษา"
+      ],
+      "description": "บ้องไม่ได้มีไว้สูบ มีไว้ตีหัวxองxงอ่ะ",
+      "booklink": "",
+      "img": "https://incrediblewinestore.com/wp-content/uploads/2022/03/%E0%B8%82%E0%B9%89%E0%B8%B2%E0%B8%A7%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A1%E0%B8%AB%E0%B8%99%E0%B8%AD%E0%B8%87%E0%B8%A1%E0%B8%99-1024x768.jpg"
+    },
+    {
+      "id": "9781593279027",
+      "title": "ปกรณัมการเขียนโค้ด เล่ม 1 Java Script",
+      "author": "Marijn Haverbeke",
+      "publisher": "AI Creative Publisher",
+      "maincatagory": "horror",
+      "subcatagory": [
+        "js",
+        "coding",
+        "สยองขวัญ"
+      ],
+      "description": "JS Coding",
+      "booklink": "",
+      "img": "https://tse4.mm.bing.net/th?id=OIP.DN7ToydkJZEdVaJVK_NhvwHaHa&pid=Api&P=0"
+    },
+    {
+      "id": "9781593279028",
+      "title": "ปกรณัมการเขียนโค้ด เล่ม 2 Python",
+      "author": "Marijn Haverbeke",
+      "publisher": "AI Creative Publisher",
+      "maincatagory": "horror",
+      "subcatagory": [
+        "python",
+        "coding",
+        "สยองขวัญ"
+      ],
+      "description": "Python Coding",
+      "booklink": "",
+      "img": "https://tse1.mm.bing.net/th?id=OIP.PV3XpsQRvK_gB-TgkYxLxgHaEK&pid=Api&P=0"
+    },
+    {
+      "id": "9781593279029",
+      "title": "ปกรณัมการเขียนโค้ด เล่ม 3 Java",
+      "author": "Marijn Haverbeke",
+      "publisher": "AI Creative Publisher",
+      "maincatagory": "horror",
+      "subcatagory": [
+        "java",
+        "coding",
+        "สยองขวัญ"
+      ],
+      "description": "Java Coding",
+      "booklink": "",
+      "img": "https://techaeris.com/wp-content/uploads/2016/01/Java-logo-png.png"
+    },
+    {
+      "id": "9781593279030",
+      "title": "วิศวะมีเกียร์ แล้วมีเมียหรือยังวะ เล่ม 1",
+      "author": "สาววายในโลกหน้า",
+      "publisher": "BL Station",
+      "maincatagory": "boylove",
+      "subcatagory": [
+        "ชายรักชาย",
+        "คู่กัด",
+        "ตลก"
+      ],
+      "description": "เรื่องราววุ่น ๆ ของหนุ่มวิศวะผู้โชคโชนไปด้วยประสบการณ์ ที่ดันพบเข้ากับคู่อริจากอีกคณะ เจอหน้ากันทีไรเป็นอันตีกันทุกที...",
+      "booklink": "",
+      "img": "https://64.media.tumblr.com/e1a35865f2ee1afaeb5b9c8ba9d958bd/24eec016e3779d36-ea/s1280x1920/86065fdd1a0624fda6235216e45d5036b5f801b3.jpg"
+    },
+    {
+      "id": "9781593279031",
+      "title": "วิศวะมีเกียร์ แล้วมีเมียหรือยังวะ เล่ม 2",
+      "author": "สาววายในโลกหน้า",
+      "publisher": "BL Station",
+      "maincatagory": "boylove",
+      "subcatagory": [
+        "ชายรักชาย",
+        "คู่กัด",
+        "ตลก"
+      ],
+      "description": "เรื่องราววุ่น ๆ ของหนุ่มวิศวะผู้โชคโชนไปด้วยประสบการณ์ ที่ดันพบเข้ากับคู่อริจากอีกคณะ เจอหน้ากันทีไรเป็นอันตีกันทุกที...",
+      "booklink": "",
+      "img": "https://i.pinimg.com/originals/03/5b/a7/035ba76e8d561e51eb0bcd321a9f520f.jpg"
+    },
+    {
+      "id": "9781593279013",
+      "title": "วิศวะมีเกียร์ แล้วมีเมียหรือยังวะ เล่ม 3",
+      "author": "สาววายในโลกหน้า",
+      "publisher": "BL Station",
+      "maincatagory": "boylove",
+      "subcatagory": [
+        "ชายรักชาย",
+        "คู่กัด",
+        "ตลก"
+      ],
+      "description": "เรื่องราววุ่น ๆ ของหนุ่มวิศวะผู้โชคโชนไปด้วยประสบการณ์ ที่ดันพบเข้ากับคู่อริจากอีกคณะ เจอหน้ากันทีไรเป็นอันตีกันทุกที...",
+      "booklink": "",
+      "img": "https://i.pinimg.com/736x/7c/63/34/7c6334f4bcbd989aa925ee3e977a0efa.jpg"
+    },
+    {
+      "id": "9781593279014",
+      "title": "วิศวะมีเกียร์ แล้วมีเมียหรือยังวะ เล่ม 4",
+      "author": "สาววายในโลกหน้า",
+      "publisher": "BL Station",
+      "maincatagory": "boylove",
+      "subcatagory": [
+        "ชายรักชาย",
+        "คู่กัด",
+        "ตลก"
+      ],
+      "description": "เรื่องราววุ่น ๆ ของหนุ่มวิศวะผู้โชคโชนไปด้วยประสบการณ์ ที่ดันพบเข้ากับคู่อริจากอีกคณะ เจอหน้ากันทีไรเป็นอันตีกันทุกที...",
+      "booklink": "",
+      "img": "https://i.pinimg.com/736x/6d/c2/f1/6dc2f1237fdf191466e64af2f6a45900.jpg"
+    },
+    {
+      "id": "9781593279014",
+      "title": "วิศวะมีเกียร์ แล้วมีเมียหรือยังวะ เล่ม 5",
+      "author": "สาววายในโลกหน้า",
+      "publisher": "BL Station",
+      "maincatagory": "boylove",
+      "subcatagory": [
+        "ชายรักชาย",
+        "คู่กัด",
+        "ตลก"
+      ],
+      "description": "เรื่องราววุ่น ๆ ของหนุ่มวิศวะผู้โชคโชนไปด้วยประสบการณ์ ที่ดันพบเข้ากับคู่อริจากอีกคณะ เจอหน้ากันทีไรเป็นอันตีกันทุกที...",
+      "booklink": "",
+      "img": "https://64.media.tumblr.com/675ef1eed4d8042f27b1a43cfd7f7b8c/24eec016e3779d36-62/s1280x1920/fbcf71e8b2a97808ddd1606338ae5fce2e2b48d5.jpg"
+    }
+  ],
+  "borrows": [
+    {
+      "bookId": "9781593279000",
+      "userId": "meow",
+      "borrowdate": "2023-03-29T07:53:41.828Z",
+      "returndate": null,
+      "duedate": "2023-04-05T07:53:41.828Z",
+      "status": 1,
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "ทดสอบการโพสต์",
+      "description": "ทดสอบการสร้าง POST",
+      "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSukYTxzh_jgPTw8X_JNr-DkSuEaXOioy5_UQ&usqp=CAU",
+      "visible": 2,
+      "postDate": "2023-03-22T17:39:44.900Z",
+      "userId": "kasidatep"
+    },
+    {
+      "id": "welcome",
+      "title": "welcome to E-Library",
+      "description": "Tester @0.2.1",
+      "img": "https://spiderimg.amarujala.com/image/original/results.amarujala.com/2013/03/13/e-library-51400fd874d17.jpg",
+      "visible": 1,
+      "postDate": "2023-03-22T17:44:41.836Z",
+      "userId": "kasidatep"
+    },
+    {
+      "id": 3,
+      "title": "ต้องลุกให้ไวจึงไปได้ไกลกว่า",
+      "description": "สวัสดีครับ\nแม้จะเติบโตขึ้นเท่าใด เราก็ยังคงต้องผ่านเรื่องที่มันแย่ ๆ หรือขนาดที่เรียกมันว่า “เรื่องเฮงซวย” ได้อยู่ดี เพราะแต่ละวันที่ชีวิตดำเนินไป มันย่อมนำพาเราไปเจอสถานการณ์ทั้งดีและไม่ดีได้เสมอกัน\n\nเมื่อเจอช่วงเวลาเฮงซวย ไม่ว่าเหตุนั้นจะจากเราเองโดยตรง หรือไม่ได้เกิดเพราะเราก็ตาม เราก็ย่อมมีความรู้สึกแย่ ๆ แตกต่างกันไป ตั้งแต่ เบื่อหน่าย, เซ็ง, หงุดหงิด, เครียด, ผิดหวัง, เสียใจ, ทุกข์ระทม เหล่านี้ที่พยายามไล่เรียงไปจากเบาไปหนัก และเป็นไปได้ว่ามีหลาย ๆ ความรู้สึกรวมกัน\n\nซึ่งก็ทำให้คนเราอยู่ในหลากหลายภาวะ เช่น ผิดหวังต่อตนเอง/คนอื่น, โกรธ-เกลียด สิ่งหรือบุคคลที่ทำให้เกิดขึ้น, เสียใจตัดพ้อว่าเหตุใดต้องเป็นเรา หรือทำไมจึงต้องเกิด ภาวะเหล่านี้เมื่อเกิดขึ้นแล้วล้วนไม่ง่าย และมีช่วงเวลาของมันเสมอ ทั้งยังนำไปสู่ผลลัพธ์บางอย่างที่แตกต่างกัน เช่น เรามองบุคคลหนึ่งต่างออกไป อาจเป็น โกรธ เกลียด อยากชกหน้าสักหมัด ผิดหวัง สิ้นศรัทธา หรือเรามองบางเรื่องเปลี่ยนไป ไม่อยากทำ ไม่อยากข้องเกี่ยว หวาดกลัว หรือต่อต้านในเรื่องนั้น ๆ ไปเลย\n\nบนความหลากหลายและยากที่จะตัดสิน จึงไม่มีสิ่งใดที่จะบอกว่าในช่วงที่แย่ ควรทำอย่างไร และอะไรที่ถูกหรือผิด เพียงแต่สิ่งที่คิดได้และเห็นว่าน่าจะเป็นจริงที่สุดคืออย่างไรแล้วเราก็ล้วน “ต้องผ่านไป”\n\nแม้จะผิดหวัง เสียใจ รู้สึกแย่กับเรื่องนั้นนานแค่ไหน สุดท้ายมันก็คือ 1 เรื่องเท่ากัน เช่น เมื่อทำของชิ้นหนึ่งหายไป เราจะเสียใจ-เสียดาย 3 ชั่วโมง หรือ 3 วัน มันก็คือของ 1 ชิ้น\n\nเราจะเจ็บใจกับคำพูดใครไปเป็นวัน หรือแค่ 1 นาที มันก็คือ 1 คำพูด 1 ความรู้สึกอยู่ดี\n\nเมื่อคนเราจากเราไปจะเสียใจ 1 ปี หรือ 1 วัน มันก็คือเราเสียเขาไปแล้วอยู่ดี\n\nเราพลาดเป็นหนี้ 1 ล้าน จะรู้สึกแย่ 7 วัน หรือ 7 เดือน มันก็คือหนี้ก้อนเดิมอยู่ดี และกรณีนี้ยิ่งซึมอยู่อาจมีดอกเบี้ยที่เพิ่มขึ้นอีกด้วย",
+      "img": "https://i0.wp.com/sirichaiwatt.com/wp-content/uploads/2022/09/%E0%B8%95%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B8%A5%E0%B8%B8%E0%B8%81%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B9%84%E0%B8%A7.jpg?w=1201&ssl=1",
+      "visible": 2,
+      "postDate": "2023-03-22T18:01:51.685Z",
+      "userId": "kasidatep"
+    },
+    {
+      "id": 5,
+      "title": "ยินดีต้อนรับเข้าสู่ห้องสมุดออนไลน์ BOI_eLibrary",
+      "description": "ขอให้สนุกกับการอ่าน",
+      "img": "https://marketplace.canva.com/EAFKCfCSqs4/1/0/1600w/canva-%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%94%E0%B8%95%E0%B9%89%E0%B8%AD%E0%B8%99%E0%B8%A3%E0%B8%B1%E0%B8%9A-%E0%B8%A0%E0%B8%B2%E0%B8%9E%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%81%E0%B8%AD%E0%B8%9A-%E0%B8%94%E0%B8%AD%E0%B8%81%E0%B9%84%E0%B8%AE%E0%B9%80%E0%B8%94%E0%B8%99%E0%B9%80%E0%B8%A2%E0%B8%B5%E0%B8%A2-%E0%B8%AA%E0%B8%B5%E0%B8%9F%E0%B9%89%E0%B8%B2%E0%B9%81%E0%B8%A5%E0%B8%B0%E0%B8%AA%E0%B8%B5%E0%B8%82%E0%B8%B2%E0%B8%A7-MwBFZrrgsTs.jpg",
+      "visible": 2,
+      "postDate": "2023-03-22T18:07:35.157Z",
+      "userId": "kasidatep"
+    },
+    {
+      "id": 6,
+      "title": "Pizza 1112",
+      "description": "1112",
+      "img": "https://cache.dominos.com/wam/prod/market/TH/_th/images/promo/a7bc070d-3777-436f-bfd6-d350174a88f9.jpg",
+      "visible": 2,
+      "postDate": "2023-03-28T07:17:06.344Z",
+      "userId": "permm"
+    },
+    {
+      "id": 7,
+      "title": "Hi Post",
+      "description": "Editpost...",
+      "img": "h",
+      "visible": 1,
+      "postDate": "2023-03-28T07:19:02.473Z",
+      "userId": "permm"
+    },
+    {
+      "id": 8,
+      "title": "Pizza Post",
+      "description": "Call 1112",
+      "img": "https://www.prachachat.net/wp-content/uploads/2023/02/The-Pizza-Company-%E0%B9%80%E0%B8%94%E0%B8%AD%E0%B8%B0-%E0%B8%9E%E0%B8%B4%E0%B8%8B%E0%B8%8B%E0%B9%88%E0%B8%B2-%E0%B8%84%E0%B8%AD%E0%B8%A1%E0%B8%9B%E0%B8%B0%E0%B8%99%E0%B8%B5.jpg",
+      "visible": 1,
+      "userId": "pizz",
+      "postDate": "2023-03-28T07:56:36.286Z"
+    }
+  ],
+  "favorites": [
+    {
+      "userId": "kasidatep",
+      "bookId": "9781593279000"
+    },
+    {
+      "userId": "meao",
+      "bookId": "9781593279000"
+    },
+    {
+      "userId": "meao",
+      "bookId": "9781593279000"
+    },
+    {
+      "userId": "kasidatep",
+      "bookId": "9781593279001"
+    },
+    {
+      "userId": "kasidatep",
+      "bookId": "9781593279012"
+    }
+  ]
 }
-  

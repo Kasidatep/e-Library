@@ -1,7 +1,7 @@
 <script setup>
 import { ref, computed, provide, onMounted } from 'vue'
 import Navbar from './components/Navbar.vue';
-import {RouterView} from 'vue-router'
+import { RouterView } from 'vue-router'
 import { themeUpdate, getTheme } from './composables/theme'
 import { getPosts } from './composables/announcementAndPosts'
 import { getBooks } from './composables/booksFetch.js'
@@ -19,13 +19,15 @@ console.log(user)
 console.log(user.value)
 const login = async (userlogin) => {
   const usr = await userlogin
-  if(await usr?.id===undefined) {
-    createNotification("warning", "Something wrong", 2500) 
+  if (await usr?.id === undefined) {
+    createNotification("warning", "Something wrong", 2500)
     user.value = {}
   }
-  else {createNotification("success", "Login Success from App", 2500)
-  user.value = await userlogin
-  showLogIn.value = false}
+  else {
+    createNotification("success", "Login Success from App", 2500)
+    user.value = await userlogin
+    showLogIn.value = false
+  }
 }
 const logout = async (userlogout) => {
   createNotification("warning", "Logout Success", 2500)
@@ -35,14 +37,16 @@ const updateuser = async (userupdated) => {
   console.log(userupdated)
   user = await userupdated
 }
-const register = async (e)=>{
+const register = async (e) => {
   const usr = await e
-  if(await usr?.id===undefined) {
+  if (await usr?.id === undefined) {
     createNotification("warning", "Something wrong", 2500)
-}
-  else{ createNotification("success", "Register Success from App", 2500)
-  showLogIn.value=true
-  showRegister.value=false}
+  }
+  else {
+    createNotification("success", "Register Success from App", 2500)
+    showLogIn.value = true
+    showRegister.value = false
+  }
 }
 provide('theme', theme)
 const updateTheme = (e) => { theme.value = themeUpdate(e) }
@@ -78,20 +82,19 @@ const removeNotification = () => {
 const showProfile = () => {
   if (user.value?.id === undefined) {
     showLogIn.value = true
-  } 
+  }
 }
 </script>
  
 <template>
-
   <div :class="theme.bgbase">
     <div class="fixed w-96 right-5 left-auto z-50 mt-24">
-        <div class="flex-col min-h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
-            v-for="notification in notifications">
-            <div class="text-xl font-extrabold mx-5 mt-2 pt-2 ">{{ notification.type }}</div>
-            <hr class="mx-5 mt-2 opacity-20">
-            <div class="text-lg pl-5 mb-2 pr-2">{{ notification.message }}</div>
-        </div>
+      <div class="flex-col min-h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
+        v-for="notification in notifications">
+        <div class="text-xl font-extrabold mx-5 mt-2 pt-2 ">{{ notification.type }}</div>
+        <hr class="mx-5 mt-2 opacity-20">
+        <div class="text-lg pl-5 mb-2 pr-2">{{ notification.message }}</div>
+      </div>
     </div>
     <Navbar @changeTheme="updateTheme($event)" @goProfile="showProfile" />
     <div>
@@ -110,11 +113,11 @@ const showProfile = () => {
 
           <LogIn @login="login" @toRegister="() => { showRegister = !showRegister, showLogIn = false }"
             v-if="showLogIn" />
-          <Register @register="register"  v-if="showRegister" />
-          <Profile />
+          <Register @register="register" v-if="showRegister" />
+          <!-- <Profile /> -->
         </div>
       </div>
-     
+
       <RouterView @logout="logout" />
     </div>
 

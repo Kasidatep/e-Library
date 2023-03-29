@@ -58,7 +58,7 @@ onUpdated(() => {
             <textarea type="text" class="w-full rounded-lg pl-5 pt-2 h-48" v-model="description"
                 :class="theme.input"></textarea>
         </div>
-        <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
+        <div class="flex flex-col md:flex-row mt-3 mb-3 h-24 md:h-12">
             <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Image URL</div>
             <input type="url" v-model="imgUrl" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
         </div>
@@ -69,15 +69,16 @@ onUpdated(() => {
                 <input type="url" v-model="customUrl" class="w-full rounded-lg h-12 pl-5" :class="theme.input"
                     :disabled="isUpdate">
             </div>
-            <div class="flex  flex-col md:flex-row mt-3 w-full">
-                <div class="text-xl font-bold px-5 pt-2 w-72" :class="theme.text">Visible Status</div>
-                <div class="flex">
+            <div class="flex flex-col md:flex-row mt-3 w-full">
+                <div class="text-xl font-bold px-2 pt-2 w-48" :class="theme.text">Visible Status</div>
+                <div class="flex w-full">
                     <label for="vs_public" class="text-xl mr-5 pt-2 px-3 rounded-lg w-fit"
                         :style="isPublic ? 'border-color: yellow; border-width: 2px;' : ''" @click="isPublic = true"
-                        :class="theme.input">ALL USER</label>
+                        :class="theme.input">PUBLIC</label>
                     <label for="vs_private" class="text-xl pt-2 px-3 rounded-lg"
                         :style="isPublic ? '' : 'border-color: yellow; border-width: 2px;'" @click="isPublic = false"
-                        :class="theme.input">ONLY SIGN IN USER</label>
+                        :class="theme.input">MEMBER</label>
+                        <div class="text-md px-2 pt-2 w-48" :class="theme.text">* {{ isPublic?'All User can see':'Only member who login successfuly only' }}</div>
                     <input type="radio" id="vs_public" value="1" class="hidden" v-model="vs" :class="theme.input">
                     <input type="radio" id="vs_private" value="2" class="hidden" v-model="vs" :class="theme.input">
                 </div>

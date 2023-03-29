@@ -10,7 +10,7 @@ const getBorrowBook = async (userId) => {
     console.log(err)
   }
 }
-const getBorrowBookById = async (userId) => {
+const getBorrowBookByUserId = async (userId) => {
   try {
     const res = await fetch(`http://localhost:5000/borrows?_userId=${userId}`)
     if (res.ok) {
@@ -23,6 +23,20 @@ const getBorrowBookById = async (userId) => {
   }
 }
 
+const getBorrowBookById = async (id) => {
+  try {
+    const res = await fetch(`http://localhost:5000/borrows/${id}`)
+    if (res.ok) {
+      return await res.json();
+    }
+    else throw new Error('Error, cannot get book data')
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+
+
 const addBrBook = async (newBrBook) => {
   try {
     const res = await fetch('http://localhost:5000/borrows', {
@@ -32,36 +46,24 @@ const addBrBook = async (newBrBook) => {
       },
       body: JSON.stringify(newBrBook)
     })
-    if (res.status === 201) {
+    if ( res.status === 201) {
       console.log('add successfully')
+      return res.status
       // const addedBrBook = await res.json()
       // brBooks.value.push(addedBrBook)
       // console.log(brBooks.value)
-    } else throw new Error('cannot add!')
+    } else return res.status
   } catch (err) {
     console.log(err)
   }
 }
 
-// const deleteBorrowBook = async (id) => {
-//   try {
-//     const res = await fetch(`http://localhost:5000/borrows/${id}`, {
-//         method: 'DELETE'        })
-//     if (res.ok) {
-//         brBooks.value = brBooks.value.filter((br) => {
-//             return br.id !== id           
-//            })
-//     } else throw new error('Error, cannot delete data!')
-// } catch (error) {
-//     console.log(error)
-// }
-// }
-
-
 const updateBorrowBook = async (updateBrBook) => {
   const book = await getBorrowBookById(updateBrBook)
+  console.log(book)
   book.status = 2
   book.returnDate = new Date(Date.now())
+  console.log(book)
   try {
     const res = await fetch(`http://localhost:5000/borrows/${updateBrBook}`, {
       method: 'PUT',
@@ -78,8 +80,22 @@ const updateBorrowBook = async (updateBrBook) => {
     }
   }
 
+  // const deleteBorrowBook = async (id) => {
+//   try {
+//     const res = await fetch(`http://localhost:5000/borrows/${id}`, {
+//         method: 'DELETE'        })
+//     if (res.ok) {
+//         brBooks.value = brBooks.value.filter((br) => {
+//             return br.id !== id           
+//            })
+//     } else throw new error('Error, cannot delete data!')
+// } catch (error) {
+//     console.log(error)
+// }
+// }
+
  
 
 
-export { getBorrowBook, addBrBook, updateBorrowBook,getBorrowBookById }
+export { getBorrowBook, addBrBook, updateBorrowBook,getBorrowBookByUserId }
 

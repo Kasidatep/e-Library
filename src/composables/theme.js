@@ -9,6 +9,7 @@ const themeDark = {
     input: ['bg-gray-600', 'text-white'],
     nav: ['bg-gray-700', 'text-white'],
     profilebutton: ['bg-gray-800','bg-opacity-50', 'text-gray-300'],
+    itemlist: ['bg-gray-800','bg-opacity-50', 'text-gray-300'],
     activebutton: ['bg-puple-800','bg-opacity-50', 'text-white'],
     primarybutton: ['bg-rose-500','bg-opacity-50', 'text-white']
   }
@@ -24,6 +25,7 @@ const themeDark = {
     input: ['bg-gray-500', 'text-white'],
     nav: ['bg-gray-700', 'text-white'],
     profilebutton: ['bg-gray-900','bg-opacity-40', 'text-gray-300'],
+    itemlist: ['bg-gray-900','bg-opacity-40', 'text-gray-300'],
     activebutton: ['bg-rose-800','bg-opacity-50', 'text-white'],
     primarybutton: ['bg-rose-500','bg-opacity-50', 'text-white']
   }
@@ -39,6 +41,7 @@ const themeDark = {
     input: ['bg-emerald-300', 'text-black'],
     nav: ['bg-[#563F03]', 'text-white'],
     profilebutton: ['bg-[#563F03]','bg-opacity-70', 'text-white'],
+    itemlist: ['bg-[#563F03]','bg-opacity-70', 'text-white'],
     activebutton: ['bg-rose-500','bg-opacity-50', 'text-white'],
     primarybutton: ['bg-rose-500','bg-opacity-50', 'text-white']
   }
@@ -54,6 +57,7 @@ const themeDark = {
     input: ['bg-gray-300', 'text-black'],
     nav: ['bg-gray-700', 'text-white'],
     profilebutton: ['bg-gray-700','bg-opacity-70', 'text-white'],
+    itemlist: ['bg-gray-700','bg-opacity-30', 'text-black'],
     activebutton: ['bg-rose-500','bg-opacity-50', 'text-white'],
     primarybutton: ['bg-gray-700', 'text-white']
   }

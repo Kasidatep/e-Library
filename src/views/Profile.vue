@@ -9,7 +9,7 @@ import BorrowBookList from '../components/BorrowBookList.vue';
 import { getBooks, updateBookById, createBook, deleteBookById } from '../composables/booksFetch.js'
 import Edituser from '../components/Edituser.vue';
 import { clearUser } from '../composables/accountManagement'
-import { updateBorrowBook, getBorrowBookById } from '../composables/borrowBook.js'
+import { updateBorrowBook, getBorrowBookByUserId } from '../composables/borrowBook.js'
 
 const user = inject('user')
 const theme = inject('theme')
@@ -40,9 +40,8 @@ const updateBrBookById = async (id) => {
     console.log(borrows.value?.findIndex(br => br.id === id ))
     const status = await updateBorrowBook(id)
     if(status==200){
-        // borrows.value.splice(borrows.value.findIndex(b => b.id == id), 1, data)
-
-         borrows.value =  await getBorrowBookById(user.id) 
+         borrows.value =  await getBorrowBookByUserId(await user.value.id) 
+         console.log(await getBorrowBookByUserId(await user.value.id) )
          createNotification("success", "Night Successfully.", 2500)
     }
    else{
@@ -51,8 +50,6 @@ const updateBrBookById = async (id) => {
    }
    
 }
-
-
 
 const createNewBook = async (newBook) => {
     let bookObj = books.value?.find(book => book.id === newBook.id)
@@ -201,11 +198,10 @@ const deletePost = async (id) => {
 onMounted(async () => {
     posts.value = await getPosts()
     books.value = await getBooks()
-    borrows.value =await getBorrowBookById()
-    if(await user.value!==undefined){
-        borrows.value = await getBorrowBookById(user.value.id)
-    }
+    borrows.value =await getBorrowBookByUserId(await user.value.id)
 })
+
+
 
 const mapPosts = () => {
     let postsMap = []

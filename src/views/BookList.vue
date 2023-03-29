@@ -17,10 +17,12 @@ const checkUser=()=>{
     }
 } 
 
-const addBorrowBook = ($event) => {
-    checkUser()
-    // let date = new Date();
-    let brBooks= {
+const addBorrowBook = async ($event) => {
+    if(await user.value.id===undefined){
+         createNotification("warning", "Cannot Borrow book please Log In first!! ", 2500)
+        return false
+    }else{
+    let brBooks=  {
     "bookId": $event,
     "userId": user.value.id,
     "borrowdate": new Date(Date.now()),
@@ -28,8 +30,15 @@ const addBorrowBook = ($event) => {
     "duedate": new Date(Date.now()+(86400000*7)),
     "status": 1
     }
-    addBrBook(brBooks)
-    createNotification("success", "Congrats, "+ $event+ " Added!", 2500)
+    const status = await addBrBook(brBooks)
+    if(status == 201){
+        createNotification("success", "Congrats, "+ $event+ " Added!", 2500)
+    }else{
+        createNotification("warning", "Cannot Add!! Something wrong ", 2500)
+    }
+    
+    }
+    
 }
 
 const props = defineProps(['books'])
