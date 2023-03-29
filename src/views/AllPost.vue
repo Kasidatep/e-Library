@@ -27,15 +27,15 @@ onMounted(async () => {
             <div v-for="(post, index) in posts"
                 class="text-white bg-opacity-30 flex flex-col m-1 w-full md:w-6/8 lg:w-2/3 md:mx-auto mt-5 rounded-lg"
                 :class="theme.bgblock">
-                <img :src="post.img" alt="" class="m-2 rounded-lg" srcset="">
+                <img :src="post.img" alt="" class="m-2 rounded-lg " srcset="">
                 <div :class="theme.text" class="text-2xl px-5 font-semibold"> {{ post.title }} </div>
                 <div :class="theme.text" class="text-lg px-5 truncate "> {{ post.description }} </div>
                 <div class="flex h-10 mt-2">
                     <div class="mx-1 flex ">
-                        <img :src="post.user.image ?? './default/profile.png'" class="ml-5 h-8 w-8 rounded-full" />
+                        <img :src="post.user?.img ?? './default/profile.png'" class="ml-5 h-8 w-8 rounded-full " />
                         <div class="ml-2 h-8 w-fit flex flex-col md:flex-row justify-start align-middle">
                             <div class=" text-sm md:text-md my-auto" :class="theme.text">
-                                By.. {{ post.user.name }}
+                                By.. {{ post.user?.name }}
                             </div>
                             <div class="text-xs md:pl-2 md:text-md my-auto" :class="theme.text">
                                 At {{ getDateFormat(post.postDate) }}
