@@ -14,6 +14,14 @@ const password = ref('')
 const confpassword = ref('')
 const imgurl = ref('https://demofc003.trustthemes.net/wp-content/uploads/2017/03/brithshothaircat.jpg')
 
+// "แมวส้ม2"
+// "แมวส้ม2"
+// "แอดแมวส้ม"
+// "แมวส้ม@mail.com"
+// "ชูก้า ชูก้า รูน"
+// "librarian"
+// "1234"
+
 const register = () => {
     if (password.value !== confpassword.value) {
         return 'passnotmatch'
