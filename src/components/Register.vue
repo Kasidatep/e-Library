@@ -4,21 +4,26 @@ import { readUser, createUser, findUser, deleteUser, updateUser, checkUser, clea
 const emits = defineEmits(['toLogIn', 'register'])
 const theme = inject('theme')
 const props = defineProps(['post'])
-const uid = ref('Pizcom')
-const name = ref('Meow')
-const username = ref('meow')
-const email = ref('cat@mail.com')
-const phone = ref('meow')
+
+const name = ref('')
+const username = ref('')
+const email = ref('')
+const phone = ref('')
 const type = ref('user')
-const password = ref('cat')
-const confpassword = ref('cat')
+const password = ref('')
+const confpassword = ref('')
 const imgurl = ref('https://demofc003.trustthemes.net/wp-content/uploads/2017/03/brithshothaircat.jpg')
 
 const register = () => {
     if (password.value !== confpassword.value) {
-        createNotification("warning", "Password not match!!", 2500)
-    } else {
-        // createNotification("success", "Register Success from Register", 2500)
+        return 'passnotmatch'
+    }
+     if(username.value.length === 0 ){ 
+        return 'usernameisnull'
+    }if(password.value.length === 0 || confpassword.value.length ===0){
+        return 'passwordisnull' 
+    }
+     else {
         return createUser({ name: name.value, username: username.value, email: email.value, phone: phone.value, type: type.value, password: password.value, confpassword: confpassword.value, image: imgurl.value })
     }
 
@@ -56,31 +61,31 @@ const removeNotification = () => {
 
             <div class="flex flex-col md:flex-row mt-12 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Username</div>
-                <input type="text" v-model="username" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input type="text" placeholder="username" v-model="username" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Name</div>
-                <input type="text" v-model="name" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input type="text" placeholder="name" v-model="name" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">E-Mail</div>
-                <input type="email" v-model="email" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input type="email" placeholder="email" v-model="email" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Phone</div>
-                <input type="text" v-model="phone" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input type="text" placeholder="phone" v-model="phone" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Image Profile URL</div>
-                <input type="url" v-model="imgurl" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input type="url" placeholder="imageurl" v-model="imgurl" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Password</div>
-                <input type="password" v-model="password" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input type="password" placeholder="password" v-model="password" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Confirm Password</div>
-                <input type="password" v-model="confpassword" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input type="password" placeholder="confirmpassword" v-model="confpassword" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
             </div>
             
             <div class="flex mt-8 w-full justify-end cursor-pointer">

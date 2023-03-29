@@ -46,15 +46,6 @@
       "password": "1234"
     },
     {
-      "id": "Test",
-      "name": "test99",
-      "username": "username",
-      "email": "Test@mail.com",
-      "phone": "123456",
-      "type": "user",
-      "password": "test"
-    },
-    {
       "id": "pizz",
       "name": "pizza",
       "email": "pizza@mail.com",
@@ -64,11 +55,11 @@
       "image": "https://postimgs.org/apple-touch-icon.png"
     },
     {
-      "id": "pizza",
-      "username": "pizza",
-      "name": "pizza",
+      "id": "แมวส้ม",
+      "username": "แมวส้ม",
+      "name": "แมวส้ม",
       "email": "",
-      "phone": "1112",
+      "phone": "",
       "type": "user",
       "password": "1112",
       "image": "piz"
@@ -524,6 +515,20 @@
       "description": "เรื่องราววุ่น ๆ ของหนุ่มวิศวะผู้โชคโชนไปด้วยประสบการณ์ ที่ดันพบเข้ากับคู่อริจากอีกคณะ เจอหน้ากันทีไรเป็นอันตีกันทุกที...",
       "booklink": "",
       "img": "https://64.media.tumblr.com/675ef1eed4d8042f27b1a43cfd7f7b8c/24eec016e3779d36-62/s1280x1920/fbcf71e8b2a97808ddd1606338ae5fce2e2b48d5.jpg"
+    },
+    {
+      "id": "9781593279032",
+      "title": "สกิลสุดพิสดารกับมื้ออาหารในต่างโลก",
+      "author": "เร็ง เองูจิ",
+      "publisher": "โชเซ็ตสึกะ นิ นาโร",
+      "maincatagory": "comedy",
+      "subcatagory": [
+        "อาหาร",
+        "แฟนตาซี"
+      ],
+      "description": "มุโคดะ สึโยชิ ชายหนุ่มวัย 27 ปี ที่ถูกอัญเชิญมายังต่างโลกแบบงง ๆ ในฐานะผู้กล้า แต่ทว่าขณะที่ผู้กล้าคนอื่น ๆ นั้น มีสกิลสำหรับการต่อสู้ แต่เค้ากลับมีสกิลเน็ตซูเปอร์ ที่ใช้เงินในต่างโลกซื้อของจากซูเปอร์ที่ญี่ปุ่นได้ ซึ่งคิดว่าคงไม่สามารถช่วยต่อสู้อะไรได้ เค้าจึงขอออกเดินทางไปใช้ชีวิตข้างนอก และพยายามหนีออกจากประเทศนี้ที่กำลังจะก่อสงคราม ระหว่างเดินทางไปกับผู้คุ้มกัน เค้าก็ได้พบกับสัตว์อสูรระดับสูงในตำนานตนหนึ่ง สนใจในอาหารที่เค้าทำและได้ลิ้มลองรสชาติอย่างเอร็ดอร่อย ซึ่งอสูรตนนั้นถูกใจเป็นอย่างมากและได้ทำสัญญาเป็นอสูรรับใช้ของเค้า การเดินทางของมุโคดะ กับการใช้ชีวิตพร้อมสกิลทำอาหารในต่างโลกจึงได้เริ่มต้นขึ้น",
+      "booklink": "",
+      "img": "https://img-prod.api-onscene.com/cdn-cgi/image/format=auto%2Cwidth=1600%2Cheight=900/https://sls-prod.api-onscene.com/partner_files/trueidintrend/351764/Screenshot_2023-03-11-07-56-24-64_40deb401b9ffe8e1df2f1cc5ba480b12.jpg"
     }
   ],
   "borrows": [
@@ -696,6 +701,15 @@
       "visible": 1,
       "userId": "pizz",
       "postDate": "2023-03-28T07:56:36.286Z"
+    },
+    {
+      "id": 9,
+      "title": "แอดแมวส้มมาแล้วจ้า",
+      "description": "สวัสดีครับผม แอดแมวส้ม",
+      "img": "https://demofc003.trustthemes.net/wp-content/uploads/2017/03/brithshothaircat.jpg",
+      "visible": 1,
+      "userId": "แมวส้ม2",
+      "postDate": "2023-03-29T05:01:38.912Z"
     }
   ],
   "favorites": [

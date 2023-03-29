@@ -25,11 +25,16 @@ const page = ref(11)
 
 // User
 const updateuser = async (userupdated) => {
+    if(await userupdated === 'passnotmatch'){ 
+        createNotification("warning", "Password not match!!", 2500)
+     }
+    else {
     createNotification("success", "Update Success from Profile", 2500)
-    user.value = await userupdated 
+    console.log(await userupdated)
+    user.value = await userupdated }
 }
 
-const deleteuser = async (deleted)=>{
+const deleteuser = async ()=>{
     createNotification("success", "Delete Success Profile", 2500)
     // console.log( 'deleted '+ await deleted)
     user.value = {}
