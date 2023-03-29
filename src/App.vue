@@ -7,9 +7,7 @@ import { getPosts } from './composables/announcementAndPosts'
 import { getBooks } from './composables/booksFetch.js'
 import LogIn from './components/LogIn.vue';
 import Register from './components/Register.vue';
-import Edituser from './components/Edituser.vue';
 import { readUser, createUser, findUser, deleteUser, updateUser, checkUser, clearUser } from '../src/composables/accountManagement.js'
-
 const theme = ref(getTheme())
 const posts = ref()
 const user = ref({})
@@ -17,7 +15,7 @@ const showLogIn = ref(false)
 const showRegister = ref(false)
 console.log(user)
 console.log(user.value)
-const login = async (userlogin) => {
+const login = async (userlogin,keepuser) => {
   const usr = await userlogin
   if(await usr?.id===undefined) {
     createNotification("warning", "Username or Password is incorrect", 2500) 
@@ -26,12 +24,20 @@ const login = async (userlogin) => {
   else {
     createNotification("success", "Login Success from App", 2500)
     user.value = await userlogin
+    if(keepuser){
+      localStorage.setItem("boi-auth", user.value.id)
+      
+    }
+    theme.value = themeUpdate(localStorage.getItem(`boi-theme-${user.value.id}`))
     showLogIn.value = false
+    console.log(keepuser)
   }
 }
 const logout = async (userlogout) => {
-  createNotification("warning", "Logout Success", 2500)
+  createNotification("warning", "Logout Successfully", 2500)
   user.value = await userlogout
+  localStorage.removeItem("boi-auth");
+  theme.value = themeUpdate('dark')
 }
 
 const register = async (e)=>{
@@ -62,7 +68,11 @@ if (await usr === 'usernameinuse') {
   showRegister.value=false}
 }
 provide('theme', theme)
-const updateTheme = (e) => { theme.value = themeUpdate(e) }
+const updateTheme = (e) => { 
+  theme.value = themeUpdate(e)
+  console.log(e)
+  localStorage.setItem(`boi-theme-${user.value.id}`, e)
+}
 const isHomePage = ref(false)
 
 // Users
@@ -72,9 +82,16 @@ const isHomePage = ref(false)
 // Book Fetch ---------------------------------------------------------------------------------------------
 const books = ref([])
 onMounted(async () => {
-  books.value = await getBooks(),
-    posts.value = await getPosts()
-
+  books.value = await getBooks()
+  posts.value = await getPosts()
+  const username = localStorage.getItem("boi-auth")
+  user.value = await findUser(username)
+  console.log(username)
+  if(!(username==null)){
+    theme.value = themeUpdate(localStorage.getItem(`boi-theme-${username}`))
+  }
+  if(user.value?.id===undefined) showLogIn.value=true
+  
 })
 provide('user', user)
 // Notification -----------------------------------------------------------------------------------
@@ -109,7 +126,7 @@ const showProfile = () => {
         <div class="text-lg pl-5 mb-2 pr-2">{{ notification.message }}</div>
       </div>
     </div>
-    <Navbar @changeTheme="updateTheme($event)" @goProfile="showProfile" />
+    <Navbar  @changeTheme="updateTheme($event)" @goProfile="showProfile" />
     <div>
 
       <!--Pop Up -->

@@ -14,7 +14,7 @@ import HistoryBorrow from '../components/HistoryBorrow.vue';
 
 const user = inject('user')
 const theme = inject('theme')
-const emits = defineEmits([ 'showlogin', 'userstatus', 'logout'])
+const emits = defineEmits(['showlogin', 'userstatus', 'logout'])
 const isUser = computed(() => user.value.type == 'user')
 
 const posts = ref([])
@@ -26,16 +26,17 @@ const page = ref(11)
 
 // User
 const updateuser = async (userupdated) => {
-    if(await userupdated === 'passnotmatch'){ 
+    if (await userupdated === 'passnotmatch') {
         createNotification("warning", "Password not match!!", 2500)
-     }
+    }
     else {
-    createNotification("success", "Update Success from Profile", 2500)
-    console.log(await userupdated)
-    user.value = await userupdated }
+        createNotification("success", "Update Success from Profile", 2500)
+        console.log(await userupdated)
+        user.value = await userupdated
+    }
 }
 
-const deleteuser = async ()=>{
+const deleteuser = async () => {
     createNotification("success", "Delete Success Profile", 2500)
     // console.log( 'deleted '+ await deleted)
     user.value = {}
@@ -43,18 +44,18 @@ const deleteuser = async ()=>{
 
 const updateBrBookById = async (id) => {
     // borrows.value = await getBorrowBookById()  
-    console.log(borrows.value?.findIndex(br => br.id === id ))
+    console.log(borrows.value?.findIndex(br => br.id === id))
     const status = await updateBorrowBook(id)
-    if(status==200){
-         borrows.value =  await getBorrowBookByUserId(await user.value.id) 
-         console.log(await getBorrowBookByUserId(await user.value.id) )
-         createNotification("success", "Night Successfully.", 2500)
+    if (status == 200) {
+        borrows.value = await getBorrowBookByUserId(await user.value.id)
+        console.log(await getBorrowBookByUserId(await user.value.id))
+        createNotification("success", "Night Successfully.", 2500)
     }
-   else{
-    createNotification("warning", "Cannot Night!", 2500)
+    else {
+        createNotification("warning", "Cannot Night!", 2500)
 
-   }
-   
+    }
+
 }
 
 const createNewBook = async (newBook) => {
@@ -204,7 +205,7 @@ const deletePost = async (id) => {
 onMounted(async () => {
     posts.value = await getPosts()
     books.value = await getBooks()
-    borrows.value =await getBorrowBookByUserId(await user.value.id)
+    borrows.value = await getBorrowBookByUserId(await user.value.id)
 })
 
 
@@ -231,6 +232,8 @@ const createNotification = (type, message, timeout) => {
 const removeNotification = () => {
     notifications.value.shift()
 }
+
+const isOpen = ref(true)
 </script>
  
 <template>
@@ -244,10 +247,13 @@ const removeNotification = () => {
     </div>
     <div class="w-screen h-screen pt-36 flex justify-center" v-if="(user?.id == undefined)">
         <div class="text-3xl font-bold text-center w-fit h-fit px-24 py-8 rounded-lg" :class="theme.text, theme.bgblock">
-           Plese Log In First!!
+            Plese Log In First!!
         </div>
     </div>
-    <div class="w-full h-full pt-20 flex" v-if="!(user?.id == undefined)">
+    <div class="w-full h-full pt-20 flex  " v-if="!(user?.id == undefined)">
+        <div class="p-2 w-full text-center m-3 mr-4 ml-auto text-2xl rounded-md absolute md:hidden" :class="theme.profilebutton" @click="isOpen = true">
+                OPEN SUB MENU
+            </div>
         <div class="px-3 w-screen h-screen bg-opacity-70 fixed bg-blur pt-24 z-10" :class="theme.bgbase"
             v-if="isEditPost || isUpdateBook">
             <div class="w-full md:w-2/3 flex-col h-3/5 bg-opacity-90 justify-center mx-auto mt-auto mb-auto rounded-xl z-20  overflow-auto p-5"
@@ -261,8 +267,14 @@ const removeNotification = () => {
                 <CreateAndUpdateBook @createBook="updateBook" :book="bookUpdateItem" :isUpdate="true" v-if="isUpdateBook" />
             </div>
         </div>
-        <div class="w-[25%] h-screen fixed bg-opacity-40" :class="theme.bgblock">
-            <div class="flex flex-col h-fit overflow-y-scroll">
+
+
+        <div class="md:w-[25%] md:ml-24 w-full h-screen bg-opacity-90 md:bg-opacity-40 absolute  md:contents z-10"
+            :class="theme.bgblock, isOpen ? '' : 'hidden'">
+            <div class="p-2 w-fit m-3 mr-4 ml-auto text-2xl rounded-md md:hidden" :class="theme.profilebutton" @click="isOpen = false">
+                CLOSE
+            </div>
+            <div class="md:flex flex-col md:pl-16 h-fit">
                 <div class="pt-16 flex justify-center">
                     <img :src="user.image ?? '../default/profile.png'" class="h-56 w-56 bg-gray-700 rounded-full">
                 </div>
@@ -270,42 +282,42 @@ const removeNotification = () => {
                     {{ user?.name ?? 'Guest User' }}
                 </div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
-                    :class="theme.profilebutton" v-if="!isUser" @click="page=21">เพิ่มหนังสือใหม่</div>
+                    :class="theme.profilebutton" v-if="!isUser" @click="page = 21, isOpen = false">เพิ่มหนังสือใหม่</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
-                    :class="theme.profilebutton" v-if="!isUser" @click="page=22">สร้างโพสต์ใหม่</div>
+                    :class="theme.profilebutton" v-if="!isUser" @click="page = 22, isOpen = false">สร้างโพสต์ใหม่</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
-                    :class="theme.profilebutton" v-if="!isUser" @click="page=11">รายการหนังสือทั้งหมด</div>
+                    :class="theme.profilebutton" v-if="!isUser" @click="page = 11, isOpen = false">รายการหนังสือทั้งหมด</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
-                    :class="theme.profilebutton" v-if="!isUser" @click="page=23">รายการโพสต์ทั้งหมด</div>
+                    :class="theme.profilebutton" v-if="!isUser" @click="page = 23, isOpen = false">รายการโพสต์ทั้งหมด</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
-                    :class="theme.profilebutton" v-if="!isUser" @click="page=12">รายการหนังสือที่ถูกยืม</div>
+                    :class="theme.profilebutton" v-if="!isUser" @click="page = 12, isOpen = false">รายการหนังสือที่ถูกยืม</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
                     :class="theme.profilebutton" v-if="isUser">หนังสือที่ชอบ</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
-                    :class="theme.profilebutton" @click="page=12">รายการการยืม</div>
+                    :class="theme.profilebutton" @click="page = 12, isOpen = false">รายการการยืม</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
-                    :class="theme.profilebutton" v-if="isUser" @click="page=24">ประวัติการยืมของฉัน</div>
+                    :class="theme.profilebutton" v-if="isUser" @click="page = 24, isOpen = false">ประวัติการยืมของฉัน</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
-                    :class="theme.profilebutton" @click="page=13">แก้ไขข้อมูลผู้ใช้</div>
-                <div @click="$emit('logout', clearUser())"
+                    :class="theme.profilebutton" @click="page = 13, isOpen = false">แก้ไขข้อมูลผู้ใช้</div>
+                <div @click="$emit('logout', clearUser()), isOpen = false"
                     class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 bg-red-600 text-white">
                     ออกจากระบบ
                 </div>
             </div>
         </div>
-        <div class="w-[75%] h-full ml-[25%]">
-                <ItemLists v-if="page == 11" :items="books"
-                    :config="{ header: 'รายการหนังสือทั้งหมด', subname: 'หมวดหมู่', action1: 'แก้ไข', action2: 'ลบ', subvalue: 'maincatagory' }"
-                    @event1="updateBookId" @event2="deleteBook" />
-                <CreateAndUpdateBook v-if="page == 21" @createBook="createNewBook" />
-                <ItemLists v-if="page == 23" :items="mapPosts()"
-                    :config="{ header: 'รายการโพสต์ทั้งหมด', subname: 'Status', action1: 'แก้ไข', action2: 'ลบ', subvalue: 'value' }"
-                    @event1="editPostById" @event2="deletePost" />
-                <HistoryBorrow v-if="page==24"/>
-                <CreateAndUpdatePost v-if="page == 22" :isUpdate="false" @createPost="editpost" />
-                <BorrowBookList v-if="page == 12" @updateBorrowBook="updateBrBookById" :borrows="borrows" />
-                <Edituser v-if="page == 13" @updateuser="updateuser" @deleteuser="deleteuser"/>
-            
+        <div class="w-full h-full mt-6 md:mt-0 md:w-[75%] md:blur-none opacity-100" :class="isOpen ? 'blur opacity-30' : ''">
+            <ItemLists v-if="page == 11" :items="books"
+                :config="{ header: 'รายการหนังสือทั้งหมด', subname: 'หมวดหมู่', action1: 'แก้ไข', action2: 'ลบ', subvalue: 'maincatagory' }"
+                @event1="updateBookId" @event2="deleteBook" />
+            <CreateAndUpdateBook v-if="page == 21" @createBook="createNewBook" />
+            <ItemLists v-if="page == 23" :items="mapPosts()"
+                :config="{ header: 'รายการโพสต์ทั้งหมด', subname: 'Status', action1: 'แก้ไข', action2: 'ลบ', subvalue: 'value' }"
+                @event1="editPostById" @event2="deletePost" />
+            <HistoryBorrow v-if="page == 24" />
+            <CreateAndUpdatePost v-if="page == 22" :isUpdate="false" @createPost="editpost" />
+            <BorrowBookList v-if="page == 12" @updateBorrowBook="updateBrBookById" :borrows="borrows" />
+            <Edituser v-if="page == 13" @updateuser="updateuser" @deleteuser="deleteuser" />
+
         </div>
     </div>
 </template>

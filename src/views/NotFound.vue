@@ -4,9 +4,12 @@ const theme = inject('theme')
 </script>
 <template>
     <div class="w-full mx-auto">
-            <div class="flex mt-12 h-12">
-                <div class="text-lg font-bold " :class="theme.text">Your Page is Not Found</div>
+    
+        <div class="w-screen h-screen pt-36 flex justify-center">
+            <div class="text-3xl font-bold text-center w-fit h-fit px-24 py-8 rounded-lg" :class="theme.text, theme.bgblock">
+               Your Page is Not Found
             </div>
+        </div>  
     </div>
 </template>
 

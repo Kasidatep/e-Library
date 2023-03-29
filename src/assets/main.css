@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html  {
+  font-size: calc(60% + 0.8vmin);
+}
+
 *{
   font-family: 'Kanit', sans-serif;
   font-family: 'Noto Sans Thai', sans-serif;

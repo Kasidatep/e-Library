@@ -20,7 +20,7 @@ const shareLocation = window.location
         </div>
         <div class="flex relative w-screen h-screen justify-center z-0">
 
-            <div class=" mt-24 md:mt-40 mx-3 w-full md:w-3/5 rounded-t-3xl" :class="theme.bgbase">
+            <div class=" mt-24 md:mt-40 mx-3 w-full md:w-9/12 lg:w-3/5 rounded-t-3xl" :class="theme.bgbase">
                 <div class=" z-0 " v-if="(post.img?.length>10)">
                     <img :src="post.img" class="w-full h-fit rounded-t-3xl z-0" alt="">
                 </div>
