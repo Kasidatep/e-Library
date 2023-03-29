@@ -20,7 +20,7 @@ console.log(user.value)
 const login = async (userlogin) => {
   const usr = await userlogin
   if(await usr?.id===undefined) {
-    createNotification("warning", "Something wrong", 2500) 
+    createNotification("warning", "Username or Password is incorrect", 2500) 
     user.value = {}
   }
   else {createNotification("success", "Login Success from App", 2500)
@@ -31,16 +31,31 @@ const logout = async (userlogout) => {
   createNotification("warning", "Logout Success", 2500)
   user.value = await userlogout
 }
-const updateuser = async (userupdated) => {
-  console.log(userupdated)
-  user = await userupdated
-}
+
 const register = async (e)=>{
   const usr = await e
-  if(await usr?.id===undefined) {
-    createNotification("warning", "Something wrong", 2500)
+  console.log(await usr)
+  if(await usr === 'passnotmatch'){ 
+    createNotification("warning", "Password not match", 2500)
+    showLogIn.value = false
+    showRegister.value = true
+  }
+   if(await usr === 'usernameisnull') {
+    createNotification("warning", "Please entry username try again", 2500)
+    showLogIn.value = false
+    showRegister.value = true
 }
-  else{ createNotification("success", "Register Success from App", 2500)
+ if (await usr === 'passwordisnull'){
+    createNotification("warning", "Please entry password try again", 2500)
+    showLogIn.value = false
+    showRegister.value = true
+}
+if (await usr === 'usernameinuse') {
+    createNotification("warning", "Username already been taken", 2500)
+    showLogIn.value = false
+    showRegister.value = true
+  } 
+   if (await usr.username !== undefined && await usr.password !== undefined) { createNotification("success", "Register Success from App", 2500)
   showLogIn.value=true
   showRegister.value=false}
 }
@@ -110,7 +125,7 @@ const showProfile = () => {
 
           <LogIn @login="login" @toRegister="() => { showRegister = !showRegister, showLogIn = false }"
             v-if="showLogIn" />
-          <Register @register="register"  v-if="showRegister" />
+          <Register @register="register" @toLogIn="() => { showLogIn = !showLogIn, showRegister = false }" v-if="showRegister" />
           <Profile />
         </div>
       </div>

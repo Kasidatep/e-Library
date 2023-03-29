@@ -15,11 +15,14 @@ const type = ref(user.value.type)
 const password = ref(user.value.password)
 const confpassword = ref(user.value.password)
 const imgurl = ref(user.value.image)
-const update = () => {
+
+const update =async () => {
     if (password.value !== confpassword.value) {
-        createNotification("warning", "Password not match!!", 2500)
-    } else {
-        return updateUser({ username: username.value, name: name.value, email: email.value, phone: phone.value, type: type.value, password: password.value, image: imgurl.value })
+        // createNotification("warning", "Password not match!!", 2500)
+        return 'passnotmatch'
+    } 
+    else if(password.value === confpassword.value) {
+        return await updateUser({ username: username.value, name: name.value, email: email.value, phone: phone.value, type: type.value, password: password.value, image: imgurl.value })
     }
 
 }

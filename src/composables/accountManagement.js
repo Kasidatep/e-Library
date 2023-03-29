@@ -22,17 +22,13 @@ const readUser = async () => {
 const createUser = async (newUser) => {
   const user = await fetch('http://localhost:5000/users')
   const users = await user.json()
+  console.log(newUser)
   if (
-    users.some(
-      (user) =>
-        user.id === newUser.username ||
-        newUser.password != newUser.confpassword
-    )
-  ) {
-    console.log(
-      "This username has already been taken or password not match!"
-    );
-
+    users.some((user) => user.id === newUser.username) || 
+    newUser.password != newUser.confpassword ||
+    newUser.username.length === 0) 
+        {console.log("This username has already been taken or password not match!");
+        return 'usernameinuse'
   } else {
     try {
       const res = await fetch("http://localhost:5000/users", {
@@ -51,12 +47,14 @@ const createUser = async (newUser) => {
           image: newUser.image,
         }),
       });
-      if (res.status === 201) {
+      if (res.status === 201 
+        ) {
         console.log("create successfully");
         const created = await res.json();
         return created;
       }else {
         console.log("a rai mai ru");
+        return {}
       }
     } catch (err) {
       console.log(err);
@@ -146,11 +144,12 @@ const checkUser = async (id, password) => {
   const user = await fetch(`http://localhost:5000/users`)
   const users = await user.json()
   const checkuser = users.find(user => user.id === id && user.password === password)
+  if(checkuser === undefined){return false}else{
   try {
     const res = await fetch(`http://localhost:5000/users/${id}`)
-    // if(res.status === 404){
-    //   console.log("username or password is incorrect")
-    // }
+    if(res.status === 404){
+      console.log("username or password is incorrect")
+    }
     if (checkuser !== undefined && res.ok) {
       console.log('login successfully')
       const ress = await res.json()
@@ -162,7 +161,7 @@ const checkUser = async (id, password) => {
   }
   } catch (error) {
     console.log(error)
-  }
+  }}
 }
 const clearUser =()=>{
   console.log('logout!')
