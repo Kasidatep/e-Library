@@ -10,6 +10,7 @@ import { getBooks, updateBookById, createBook, deleteBookById } from '../composa
 import Edituser from '../components/Edituser.vue';
 import { clearUser } from '../composables/accountManagement'
 import { updateBorrowBook, getBorrowBookByUserId } from '../composables/borrowBook.js'
+import HistoryBorrow from '../components/HistoryBorrow.vue';
 
 const user = inject('user')
 const theme = inject('theme')
@@ -283,7 +284,7 @@ const removeNotification = () => {
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
                     :class="theme.profilebutton" @click="page=12">รายการการยืม</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
-                    :class="theme.profilebutton" v-if="isUser" @click="page=23">ประวัติการยืมของฉัน</div>
+                    :class="theme.profilebutton" v-if="isUser" @click="page=24">ประวัติการยืมของฉัน</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
                     :class="theme.profilebutton" @click="page=13">แก้ไขข้อมูลผู้ใช้</div>
                 <div @click="$emit('logout', clearUser())"
@@ -300,6 +301,7 @@ const removeNotification = () => {
                 <ItemLists v-if="page == 23" :items="mapPosts()"
                     :config="{ header: 'รายการโพสต์ทั้งหมด', subname: 'Status', action1: 'แก้ไข', action2: 'ลบ', subvalue: 'value' }"
                     @event1="editPostById" @event2="deletePost" />
+                <HistoryBorrow v-if="page==24"/>
                 <CreateAndUpdatePost v-if="page == 22" :isUpdate="false" @createPost="editpost" />
                 <BorrowBookList v-if="page == 12" @updateBorrowBook="updateBrBookById" :borrows="borrows" />
                 <Edituser v-if="page == 13" @updateuser="updateuser" @deleteuser="deleteuser"/>
