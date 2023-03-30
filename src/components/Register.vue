@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, onMounted, inject } from 'vue'
-import { readUser, createUser, findUser, deleteUser, updateUser, checkUser, clearUser } from '../composables/accountManagement'
+import { createUser} from '../composables/accountManagement'
 const emits = defineEmits(['toLogIn', 'register'])
 const theme = inject('theme')
 const props = defineProps(['post'])

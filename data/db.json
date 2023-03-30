@@ -1,6 +1,15 @@
 {
   "users": [
     {
+      "id": "admin",
+      "name": "Administrator",
+      "username": "admin",
+      "email": "",
+      "phone": "",
+      "type": "admin",
+      "password": "admin"
+    },
+    {
       "id": "Bret",
       "name": "Leanne Graham",
       "username": "Bret",
@@ -39,8 +48,8 @@
     {
       "id": "permm",
       "username": "permm",
-      "name": "Nawat04",
-      "email": "Test@mail.com",
+      "name": "Nawat Srisaard",
+      "email": "nawatsrisaard039@gmail.com",
       "phone": "123456",
       "type": "user",
       "password": "1234"
@@ -71,7 +80,7 @@
       "name": "BOI Dev",
       "email": "dev@mail.com",
       "phone": "-",
-      "type": "user",
+      "type": "librarian",
       "password": "cat",
       "image": ""
     },
@@ -843,6 +852,492 @@
       "duedate": "2023-04-05T12:56:21.663Z",
       "status": 1,
       "id": 32
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:31:40.284Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:31:40.284Z",
+      "status": 1,
+      "id": 33
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:31:41.173Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:31:41.173Z",
+      "status": 1,
+      "id": 34
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:31:41.728Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:31:41.728Z",
+      "status": 1,
+      "id": 35
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:31:42.216Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:31:42.216Z",
+      "status": 1,
+      "id": 36
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:31:42.460Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:31:42.460Z",
+      "status": 1,
+      "id": 37
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:31:42.676Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:31:42.676Z",
+      "status": 1,
+      "id": 38
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:31:42.912Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:31:42.913Z",
+      "status": 1,
+      "id": 39
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:31:44.140Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:31:44.140Z",
+      "status": 1,
+      "id": 40
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:31:44.412Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:31:44.412Z",
+      "status": 1,
+      "id": 41
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:31:44.617Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:31:44.617Z",
+      "status": 1,
+      "id": 42
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:31:45.004Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:31:45.004Z",
+      "status": 1,
+      "id": 43
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:45:58.322Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:45:58.322Z",
+      "status": 1,
+      "id": 44
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:45:59.523Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:45:59.523Z",
+      "status": 1,
+      "id": 45
+    },
+    {
+      "bookId": "9781593279003",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:46:00.770Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:46:00.770Z",
+      "status": 1,
+      "id": 46
+    },
+    {
+      "bookId": "9781593279004",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:46:02.159Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:46:02.159Z",
+      "status": 1,
+      "id": 47
+    },
+    {
+      "bookId": "9781593279003",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:46:04.009Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:46:04.009Z",
+      "status": 1,
+      "id": 48
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:46:05.744Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:46:05.744Z",
+      "status": 1,
+      "id": 49
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:46:07.137Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:46:07.137Z",
+      "status": 1,
+      "id": 50
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:46:07.328Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:46:07.328Z",
+      "status": 1,
+      "id": 51
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:46:07.552Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:46:07.552Z",
+      "status": 1,
+      "id": 52
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:46:07.771Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:46:07.771Z",
+      "status": 1,
+      "id": 53
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:46:10.285Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:46:10.285Z",
+      "status": 1,
+      "id": 54
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:46:10.475Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:46:10.475Z",
+      "status": 1,
+      "id": 55
+    },
+    {
+      "bookId": "9781593279003",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:47:12.351Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:47:12.351Z",
+      "status": 1,
+      "id": 56
+    },
+    {
+      "bookId": "9781593279005",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:51:19.904Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:51:19.904Z",
+      "status": 1,
+      "id": 57
+    },
+    {
+      "bookId": "9781593279005",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:51:20.876Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:51:20.876Z",
+      "status": 1,
+      "id": 58
+    },
+    {
+      "bookId": "9781593279005",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T15:51:21.482Z",
+      "returndate": null,
+      "duedate": "2023-04-06T15:51:21.482Z",
+      "status": 1,
+      "id": 59
+    },
+    {
+      "bookId": "9781593279004",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:00:46.008Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:00:46.008Z",
+      "status": 1,
+      "id": 60
+    },
+    {
+      "bookId": "9781593279004",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:00:47.394Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:00:47.394Z",
+      "status": 1,
+      "id": 61
+    },
+    {
+      "bookId": "9781593279004",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:00:48.658Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:00:48.658Z",
+      "status": 1,
+      "id": 62
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:11.442Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:11.442Z",
+      "status": 1,
+      "id": 63
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:11.692Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:11.692Z",
+      "status": 1,
+      "id": 64
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:11.916Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:11.916Z",
+      "status": 1,
+      "id": 65
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:12.134Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:12.134Z",
+      "status": 1,
+      "id": 66
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:12.364Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:12.364Z",
+      "status": 1,
+      "id": 67
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:12.580Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:12.580Z",
+      "status": 1,
+      "id": 68
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:13.823Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:13.823Z",
+      "status": 1,
+      "id": 69
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:14.100Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:14.100Z",
+      "status": 1,
+      "id": 70
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:14.376Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:14.376Z",
+      "status": 1,
+      "id": 71
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:14.614Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:14.614Z",
+      "status": 1,
+      "id": 72
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:14.798Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:14.798Z",
+      "status": 1,
+      "id": 73
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:15.069Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:15.069Z",
+      "status": 1,
+      "id": 74
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:15.378Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:15.378Z",
+      "status": 1,
+      "id": 75
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:15.635Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:15.635Z",
+      "status": 1,
+      "id": 76
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:15.834Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:15.834Z",
+      "status": 1,
+      "id": 77
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:16.038Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:16.038Z",
+      "status": 1,
+      "id": 78
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T16:14:16.290Z",
+      "returndate": null,
+      "duedate": "2023-04-06T16:14:16.290Z",
+      "status": 1,
+      "id": 79
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "admin",
+      "borrowdate": "2023-03-30T17:31:04.732Z",
+      "returndate": null,
+      "duedate": "2023-04-06T17:31:04.732Z",
+      "status": 1,
+      "id": 80
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "admin",
+      "borrowdate": "2023-03-30T17:31:05.692Z",
+      "returndate": null,
+      "duedate": "2023-04-06T17:31:05.692Z",
+      "status": 1,
+      "id": 81
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "admin",
+      "borrowdate": "2023-03-30T17:31:06.320Z",
+      "returndate": null,
+      "duedate": "2023-04-06T17:31:06.320Z",
+      "status": 1,
+      "id": 82
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T17:52:50.138Z",
+      "returndate": null,
+      "duedate": "2023-04-06T17:52:50.138Z",
+      "status": 1,
+      "id": 83
+    },
+    {
+      "bookId": "9781593279001",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T17:52:50.831Z",
+      "returndate": null,
+      "duedate": "2023-04-06T17:52:50.831Z",
+      "status": 1,
+      "id": 84
+    },
+    {
+      "bookId": "9781593279003",
+      "userId": "kasidatep",
+      "borrowdate": "2023-03-30T17:52:51.510Z",
+      "returndate": null,
+      "duedate": "2023-04-06T17:52:51.510Z",
+      "status": 1,
+      "id": 85
+    },
+    {
+      "bookId": "9781593279000",
+      "userId": "admin",
+      "borrowdate": "2023-03-30T18:01:33.749Z",
+      "returndate": null,
+      "duedate": "2023-04-06T18:01:33.749Z",
+      "status": 1,
+      "id": 86
     }
   ],
   "posts": [
@@ -905,9 +1400,9 @@
       "title": "Pizza Post",
       "description": "Call 1112",
       "img": "https://www.prachachat.net/wp-content/uploads/2023/02/The-Pizza-Company-%E0%B9%80%E0%B8%94%E0%B8%AD%E0%B8%B0-%E0%B8%9E%E0%B8%B4%E0%B8%8B%E0%B8%8B%E0%B9%88%E0%B8%B2-%E0%B8%84%E0%B8%AD%E0%B8%A1%E0%B8%9B%E0%B8%B0%E0%B8%99%E0%B8%B5.jpg",
-      "visible": 1,
-      "userId": "pizz",
-      "postDate": "2023-03-28T07:56:36.286Z"
+      "visible": 2,
+      "postDate": "2023-03-28T07:56:36.286Z",
+      "userId": "pizz"
     },
     {
       "id": 9,
@@ -921,24 +1416,24 @@
   ],
   "favorites": [
     {
+      "bookId": "9781593279001",
       "userId": "kasidatep",
-      "bookId": "9781593279000"
+      "id": 1
     },
     {
-      "userId": "meao",
-      "bookId": "9781593279000"
-    },
-    {
-      "userId": "meao",
-      "bookId": "9781593279000"
-    },
-    {
+      "bookId": "9781593279003",
       "userId": "kasidatep",
-      "bookId": "9781593279001"
+      "id": 2
     },
     {
+      "bookId": "9781593279006",
       "userId": "kasidatep",
-      "bookId": "9781593279012"
+      "id": 7
+    },
+    {
+      "bookId": "9781593279007",
+      "userId": "kasidatep",
+      "id": 8
     }
   ]
 }

@@ -38,6 +38,7 @@ const getBorrowBookById = async (id) => {
 
 
 const addBrBook = async (newBrBook) => {
+// cosnt getBr=await getBorrowBookByUserId(newBrBook)
   try {
     const res = await fetch('http://localhost:5000/borrows', {
       method: 'POST',
@@ -49,9 +50,7 @@ const addBrBook = async (newBrBook) => {
     if ( res.status === 201) {
       console.log('add successfully')
       return res.status
-      // const addedBrBook = await res.json()
-      // brBooks.value.push(addedBrBook)
-      // console.log(brBooks.value)
+
     } else return res.status
   } catch (err) {
     console.log(err)

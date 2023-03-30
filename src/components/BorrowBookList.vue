@@ -6,14 +6,13 @@ const props = defineProps(['borrows'])
 const theme = inject('theme')
 const user = inject('user')
 const emit= defineEmits(['updateBorrowBook'])
-const borrows = ref(props.borrows)
+// const borrows = ref(props.borrows)
+// onMounted(async () => {
+//     borrows.value = await getBorrowBook(user.value.id)
+//     // console.log(borrows.value)
+// })
 
-onMounted(async () => {
-    borrows.value = await getBorrowBook(user.value.id)
-    // console.log(borrows.value)
-})
-
-console.log("here a rai near")
+console.log(props.borrows?.[0])
 
 const getDateFormat = (d) => {
     const date = new Date(d)

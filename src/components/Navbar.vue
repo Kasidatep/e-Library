@@ -48,8 +48,8 @@ let isOpen = ref(false)
             <div class="flex justify-center items-center" :class="theme.text">
                 <img src="../assets/image/logo.png" class="w-[65px] brightness-200">
             </div>
-            <div class="w-fit h-fit p-3 mt-2 lg:hidden" @click="isOpen = !isOpen" :class="theme.text, theme.primarybutton">
-                MENU
+            <div class="w-24 text-center h-fit p-3 mt-2 lg:hidden cursor-pointer rounded" @click="isOpen = !isOpen" :class="theme.text, theme.primarybutton">
+                {{ !isOpen?'MENU':'HIDE' }}
             </div>
         </div>
         <div class="flex w-full justify-start p-2 flex-col lg:flex-row text-center lg:inline-flex"
@@ -60,11 +60,11 @@ let isOpen = ref(false)
                     หนังสือทั้งหมด
                 </RouterLink>
                 <RouterLink class="justify-self-center cursor-pointer px-2 py-3 my-2 mx-2 bg-opacity-30 rounded-lg"
-                    :class="theme.bgbase" v-if="!(user.id == undefined)" :to="{ name: 'profile', params: { id: user.id } }" @click="isOpen=false">
+                    :class="theme.bgbase" v-if="!(user?.id == undefined)" :to="{ name: 'profile', params: { id: user.id } }" @click="isOpen=false">
                     หนังสือของฉัน
                 </RouterLink>
                 <RouterLink class="justify-self-center cursor-pointer px-2 py-3 my-2  mx-2 bg-opacity-30 rounded-lg"
-                    :class="theme.bgbase" v-if="(user.id == undefined)" @click="$emit('goProfile'),isOpen=false"
+                    :class="theme.bgbase" v-if="(user?.id == undefined)" @click="$emit('goProfile'),isOpen=false"
                     :to="{ name: 'profile', params: { id: 'login' } }" >
                     หนังสือของฉัน
                 </RouterLink>
@@ -101,15 +101,15 @@ let isOpen = ref(false)
 
             </div>
             <div class="flex justify-center pt-2">
-                <RouterLink :to="{ name: 'profile', params: { id: user.id ?? 'login' } }" 
+                <RouterLink :to="{ name: 'profile', params: { id: user?.id ?? 'login' } }" 
                 class="w-fit  mr-10 border-2 border-black rounded-lg flex" @click="$emit('goProfile'), isOpen=false">
                 <div class="p-2 w-16">
-                    <img :src="user.image ?? '../default/profile.png'" class="w-12 h-12 rounded-full text-3xl lg:-mt-1">
+                    <img :src="user?.image ?? '../default/profile.png'" class="w-12 h-12 rounded-full text-3xl lg:-mt-1">
                 </div>
                 <!-- profile -->
                 <div class="my-auto w-fit text-left">
                     <div class="text-lg font-bold pr-1 w-24"> My profile</div>
-                    <div class="text-sm truncate pr-2"> {{ user.name ?? 'Log In' }}</div>
+                    <div class="text-sm truncate pr-2"> {{ user?.name ?? 'Log In' }}</div>
                 </div>
 
 

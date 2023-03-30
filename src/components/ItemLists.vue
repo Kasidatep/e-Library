@@ -11,7 +11,7 @@ const emits = defineEmits(['event1','event2'])
     <div class="pl-5 w-full pt-16">
         <h1 class=" font-bold text-4xl pt-10 mb-5" :class="theme.textheader">{{ config.header }} </h1>
         <div class="w-full pr-16 grid grid-flow-row">
-            <div class="h-fit rounded-[20px] mb-6" :class="theme.profilebutton">
+            <div class="h-fit rounded-[20px] mb-6" :class="theme.itemlist">
                 <div :class="theme.text" class="md:grid grid-cols-12 py-1 hidden">
                     <div class="text-2xl justify-self-center self-center px-4"></div>
                     <div class="col-span-6 text-xl pl-4 self-center">ชื่อ</div>

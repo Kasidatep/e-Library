@@ -44,8 +44,8 @@ defineEmits(['borrow'])
                 </div>
                 <div class="flex mt-4 justify-between">
                     <div class="box text-3xl h-10 w-fit rounded px-1 flex items-center ml-5 text-red-500 cursor-pointer" @click="like = !like">
-                        <PhHeartLight v-show="like"/>
-                        <PhHeartFill v-show="!like"/>
+                        <PhHeartFill  @click="$emit('addFav',data.id)" />
+                        <!-- <PhHeartFill v-show="!like" @click="$emit('delFav',data.id)"  /> -->
                     </div>
                     <button @click="$emit('borrow', data.id)"
                         class="box h-10 w-fit px-3 rounded font-semibold" :class="theme.button">

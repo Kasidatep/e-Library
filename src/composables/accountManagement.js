@@ -1,9 +1,7 @@
 // import userList from '../../data/db.json'
-// let user = userList.users
 
 
-
-const readUser = async () => {
+const getUser = async () => {
   try {
     const user = await fetch('http://localhost:5000/users')
     // if(res.status===201)
@@ -20,8 +18,7 @@ const readUser = async () => {
 }
 
 const createUser = async (newUser) => {
-  const user = await fetch('http://localhost:5000/users')
-  const users = await user.json()
+  const users = await getUser();
   console.log(newUser)
   if (
     users.some((user) => user.id === newUser.username) || 
@@ -63,11 +60,11 @@ const createUser = async (newUser) => {
 }
 
 const findUser = async (inputusername) => {
+  if (inputusername === null) { return false }
   try {
-    const user = await fetch(`http://localhost:5000/users`)
-    const users = await user.json()
+    const users = await getUser();
     const founduser = users.find(user => (user.id === inputusername || user.name === inputusername || user.username === inputusername))
-    if (user.ok && founduser !== undefined) {
+    if ( founduser !== undefined) {
       return founduser
     } else {
       console.log(`User with username ${inputusername} not found`)
@@ -101,8 +98,7 @@ const deleteUser = async (userid) => {
 }
 
 const updateUser = async (updateUser) => {
-  const user = await fetch(`http://localhost:5000/users`)
-  const users = await user.json()
+  const users = await getUser()
   const founduser = users.find(user => user.username === updateUser.username)
   try {
     if (founduser === undefined) {
@@ -141,8 +137,7 @@ const updateUser = async (updateUser) => {
 }
 
 const checkUser = async (id, password) => {
-  const user = await fetch(`http://localhost:5000/users`)
-  const users = await user.json()
+  const users = await getUser();
   const checkuser = users.find(user => user.id === id && user.password === password)
   if(checkuser === undefined){return false}else{
   try {
@@ -167,13 +162,36 @@ const clearUser =()=>{
   console.log('logout!')
   return {}
 }
+const updateType =async(userid)=>{
+  const usr = await findUser(userid)
+  
+  const typeObj = usr.type==='user'?{type: "librarian"}:{type: "user"}
+  try {
+      const res = await fetch(`http://localhost:5000/users/${userid}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(typeObj),
+      });
+      if (res.status === 200) {
+        console.log(`update user ${userid} successfully`);
+        const updated = await res.json();
+        console.log(updated);
+        return res.status
+      }
+    
+  }
+  catch (error) { console.log(error) }
+}
 
 export {
-  readUser,
+  getUser,
   createUser,
   deleteUser,
   findUser,
   checkUser,
   updateUser,
   clearUser,
+  updateType
 };

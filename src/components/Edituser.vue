@@ -1,6 +1,6 @@
 <script setup>
 import { ref, inject, onMounted } from 'vue'
-import { readUser, createUser, findUser, deleteUser, updateUser, checkUser, clearUser } from '../composables/accountManagement'
+import { deleteUser, updateUser } from '../composables/accountManagement'
 
 const emits = defineEmits([ 'updateuser','deleteuser'])
 const theme = inject('theme')

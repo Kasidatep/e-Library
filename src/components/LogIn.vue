@@ -1,6 +1,6 @@
 <script setup>
 import { ref, computed, onMounted, inject } from 'vue'
-import { readUser, createUser, findUser, deleteUser, updateUser, checkUser, clearUser } from '../composables/accountManagement'
+import { checkUser } from '../composables/accountManagement'
 const theme = inject('theme')
 const user = inject('user')
 const username = ref('')

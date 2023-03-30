@@ -1,4 +1,4 @@
-const data = {id:25, title:"Hello World", userId:"kasidatep", description:"KasP_Dev", visable:2} 
+
 let posts = [];
 const fetchPost = async () => {
     try {

@@ -1,6 +1,5 @@
 <script setup>
 import { ref, computed, inject, onMounted, onUpdated } from 'vue'
-import Catagories from '../components/Catagories.vue';
 import ItemLists from '../components/ItemLists.vue'
 import CreateAndUpdatePost from '../components/CreateAndUpdatePost.vue';
 import CreateAndUpdateBook from '../components/CreateAndUpdateBook.vue';
@@ -9,9 +8,11 @@ import BorrowBookList from '../components/BorrowBookList.vue';
 import { getBooks, updateBookById, createBook, deleteBookById } from '../composables/booksFetch.js'
 import Edituser from '../components/Edituser.vue';
 import { clearUser } from '../composables/accountManagement'
-import { updateBorrowBook, getBorrowBookByUserId } from '../composables/borrowBook.js'
+import { updateBorrowBook, getBorrowBookByUserId, getBorrowBook } from '../composables/borrowBook.js'
 import HistoryBorrow from '../components/HistoryBorrow.vue';
-
+import { deleteFavoriteBook, getFavoriteBookByUserId, getFavoriteBook } from '../composables/favoriteBook.js';
+import { useRouter } from 'vue-router'
+import EditType from '../components/EditType.vue'
 const user = inject('user')
 const theme = inject('theme')
 const emits = defineEmits(['showlogin', 'userstatus', 'logout'])
@@ -20,9 +21,12 @@ const isUser = computed(() => user.value.type == 'user')
 const posts = ref([])
 const books = ref([])
 const borrows = ref([])
+const favorites = ref([])
 const bookUpdateItem = ref({})
 const isUpdateBook = ref(false)
-const page = ref(11)
+const page = ref(12)
+
+const router = useRouter()
 
 // User
 const updateuser = async (userupdated) => {
@@ -42,12 +46,63 @@ const deleteuser = async () => {
     user.value = {}
 }
 
+//Favorite
+// const deleteFavoriteBookById = async(deleteId)=>{
+//     const status = await deleteFavoriteBook(deleteId)
+//     if (status == 200) {
+//         books.value = books.value.filter(book => book.id !== id)
+//         createNotification("success", "Delete Book" + id + " successfully.", 2500)
+//     } else {
+//         createNotification("warning", "Cannot Delete Book Id " + deleteId, 2500)
+//     }
+// }
+const MapFavorite = () => {
+    let favsMap = []
+    favorites.value.forEach(fav => {
+        favsMap.push({ id: fav.id, title: fav.book?.title, value: fav.book?.maincatagory })
+    })
+    return favsMap
+}
+
+const gotoBook = (id) => {
+
+    const book = favorites.value?.find((ids) => { return ids.id == id })
+    router.push({ name: 'onebook', params: { id: book?.bookId ?? ' ' } })
+    if (book !== undefined) {
+        router.push({ name: 'onebook', params: { id: book?.bookId ?? ' ' } })
+    } else {
+        router.push({ name: 'books' })
+    }
+
+    console.log(favorites.value[0])
+    console.log(book)
+}
+
+const deleteFavoriteBookById = async (id) => {
+    const status = await deleteFavoriteBook(id)
+    if (status == 200) {
+        favorites.value = favorites.value?.filter((fav) => {
+            return fav.id !== id
+        })
+        console.log(favorites.value)
+        console.log(await getFavoriteBookByUserId(await user.value?.id))
+        createNotification("success", "This Book are Deletedmin your Favorite List", 2500)
+    } else {
+        createNotification("Fail", "ลบ Fail.", 2500)
+
+    }
+}
+
+
+
 const updateBrBookById = async (id) => {
     // borrows.value = await getBorrowBookById()  
     console.log(borrows.value?.findIndex(br => br.id === id))
     const status = await updateBorrowBook(id)
     if (status == 200) {
-        borrows.value = await getBorrowBookByUserId(await user.value.id)
+        borrows.value = borrows.value?.filter((br) => {
+            return br.id != id
+        })
         console.log(await getBorrowBookByUserId(await user.value.id))
         createNotification("success", "Night Successfully.", 2500)
     }
@@ -154,7 +209,6 @@ const editpost = async (data, isUpdate) => {
     let noti = []
     if (data.title == null || data.title == "") noti.push('Title ')
     if (data.description == null || data.description == "") noti.push('Description ')
-    if (data.img == null || data.img == "") noti.push('Image post URLs ')
     if (noti.length > 0) {
         createNotification("warning", "Sorry, " + noti.join(",") + " can not empty.", 2500)
         return false
@@ -205,7 +259,8 @@ const deletePost = async (id) => {
 onMounted(async () => {
     posts.value = await getPosts()
     books.value = await getBooks()
-    borrows.value = await getBorrowBookByUserId(await user.value.id)
+    borrows.value = await getBorrowBook(await user.value?.id)
+    favorites.value = await getFavoriteBook(await user.value?.id)
 })
 
 
@@ -236,7 +291,7 @@ const removeNotification = () => {
 const isOpen = ref(true)
 </script>
  
-<template>
+<template :class="theme.bgbase">
     <div class="fixed w-96 right-5 left-auto z-0 mt-24">
         <div class="flex-col min-h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
             v-for="notification in notifications">
@@ -245,21 +300,22 @@ const isOpen = ref(true)
             <div class="text-lg pl-5 mb-2 pr-2">{{ notification.message }}</div>
         </div>
     </div>
-    <div class="w-screen h-screen pt-36 flex justify-center" v-if="(user?.id == undefined)">
+    <div class="w-screen h-full pt-36 flex justify-center" v-if="(user?.id == undefined)">
         <div class="text-3xl font-bold text-center w-fit h-fit px-24 py-8 rounded-lg" :class="theme.text, theme.bgblock">
             Plese Log In First!!
         </div>
     </div>
-    <div class="w-full h-full pt-20 flex  " v-if="!(user?.id == undefined)">
-        <div class="p-2 w-full text-center m-3 mr-4 ml-auto text-2xl rounded-md absolute md:hidden" :class="theme.profilebutton" @click="isOpen = true">
-                OPEN SUB MENU
-            </div>
+    <div class="w-full h-full min-h-screen pt-20 flex  " v-if="!(user?.id == undefined)">
+        <div class="p-2 w-full text-center mt-0 mr-4 ml-auto text-2xl rounded-md absolute md:hidden cursor-pointer"
+            :class="theme.profilebutton" @click="isOpen = true">
+            OPEN SUB MENU
+        </div>
         <div class="px-3 w-screen h-screen bg-opacity-70 fixed bg-blur pt-24 z-10" :class="theme.bgbase"
             v-if="isEditPost || isUpdateBook">
             <div class="w-full md:w-2/3 flex-col h-3/5 bg-opacity-90 justify-center mx-auto mt-auto mb-auto rounded-xl z-20  overflow-auto p-5"
                 :class="theme.bgblock">
                 <div class="flex justify-end -mb-20 cursor-pointer">
-                    <div class="border-2 h-fit p-2 rounded-full z-10" :class="theme.text"
+                    <div class="border-2 h-fit p-2 rounded-full z-10 cursor-pointer" :class="theme.text"
                         @click="() => { isEditPost = false, isUpdateBook = false }">ClOSE</div>
                 </div>
                 <CreateAndUpdatePost :post="postEditItem" :isUpdate="true" @createPost="editpost($event, true)"
@@ -269,9 +325,10 @@ const isOpen = ref(true)
         </div>
 
 
-        <div class="md:w-[25%] md:ml-24 w-full h-screen bg-opacity-90 md:bg-opacity-40 absolute  md:contents z-10"
+        <div class="md:w-[25%] md:ml-24 w-full min-h-screen h-full bg-opacity-90 md:bg-opacity-40 absolute  md:contents z-10"
             :class="theme.bgblock, isOpen ? '' : 'hidden'">
-            <div class="p-2 w-fit m-3 mr-4 ml-auto text-2xl rounded-md md:hidden" :class="theme.profilebutton" @click="isOpen = false">
+            <div class="p-2 w-fit m-3 mr-4 ml-auto text-2xl rounded-md md:hidden cursor-pointer"
+                :class="theme.profilebutton" @click="isOpen = false">
                 CLOSE
             </div>
             <div class="md:flex flex-col md:pl-16 h-fit">
@@ -286,17 +343,21 @@ const isOpen = ref(true)
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
                     :class="theme.profilebutton" v-if="!isUser" @click="page = 22, isOpen = false">สร้างโพสต์ใหม่</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
-                    :class="theme.profilebutton" v-if="!isUser" @click="page = 11, isOpen = false">รายการหนังสือทั้งหมด</div>
+                    :class="theme.profilebutton" v-if="!isUser" @click="page = 11, isOpen = false">จัดการหนังสือทั้งหมด
+                </div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
-                    :class="theme.profilebutton" v-if="!isUser" @click="page = 23, isOpen = false">รายการโพสต์ทั้งหมด</div>
+                    :class="theme.profilebutton" v-if="!isUser" @click="page = 23, isOpen = false">จัดการโพสต์ทั้งหมด</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
-                    :class="theme.profilebutton" v-if="!isUser" @click="page = 12, isOpen = false">รายการหนังสือที่ถูกยืม</div>
+                    :class="theme.profilebutton" v-if="!isUser" @click="page = 12, isOpen = false">รายการหนังสือที่ถูกยืม
+                </div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
-                    :class="theme.profilebutton" v-if="isUser">หนังสือที่ชอบ</div>
+                    :class="theme.profilebutton" @click="page = 25, isOpen = false">หนังสือที่ชอบ</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
-                    :class="theme.profilebutton" @click="page = 12, isOpen = false">รายการการยืม</div>
+                    :class="theme.profilebutton" @click="page = 12, isOpen = false">การยืมของฉัน</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
-                    :class="theme.profilebutton" v-if="isUser" @click="page = 24, isOpen = false">ประวัติการยืมของฉัน</div>
+                    :class="theme.profilebutton" @click="page = 24, isOpen = false">ประวัติการยืมของฉัน</div>
+                <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
+                    :class="theme.profilebutton" v-if="user.type=='admin'" @click="page = 90, isOpen = false">อัพเดตสิทธิผู้ใช้</div>
                 <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
                     :class="theme.profilebutton" @click="page = 13, isOpen = false">แก้ไขข้อมูลผู้ใช้</div>
                 <div @click="$emit('logout', clearUser()), isOpen = false"
@@ -305,7 +366,8 @@ const isOpen = ref(true)
                 </div>
             </div>
         </div>
-        <div class="w-full h-full mt-6 md:mt-0 md:w-[75%] md:blur-none opacity-100" :class="isOpen ? 'blur opacity-30' : ''">
+        <div class="w-full min-h-screen h-full mt-6 md:mt-0 md:w-[75%] md:blur-none md:opacity-100"
+            :class="isOpen ? 'blur opacity-30' : ''">
             <ItemLists v-if="page == 11" :items="books"
                 :config="{ header: 'รายการหนังสือทั้งหมด', subname: 'หมวดหมู่', action1: 'แก้ไข', action2: 'ลบ', subvalue: 'maincatagory' }"
                 @event1="updateBookId" @event2="deleteBook" />
@@ -314,10 +376,15 @@ const isOpen = ref(true)
                 :config="{ header: 'รายการโพสต์ทั้งหมด', subname: 'Status', action1: 'แก้ไข', action2: 'ลบ', subvalue: 'value' }"
                 @event1="editPostById" @event2="deletePost" />
             <HistoryBorrow v-if="page == 24" />
+
+            <ItemLists v-if="page == 25" :items="MapFavorite()"
+                :config="{ header: 'หนังสือที่ชอบของ ' + user.name, subname: 'หมวดหมู่', action1: 'เลิกชอบ', action2: 'อ่านหนังสือ', subvalue: 'value' }"
+                @event1="deleteFavoriteBookById" @event2="gotoBook" />
+
             <CreateAndUpdatePost v-if="page == 22" :isUpdate="false" @createPost="editpost" />
             <BorrowBookList v-if="page == 12" @updateBorrowBook="updateBrBookById" :borrows="borrows" />
             <Edituser v-if="page == 13" @updateuser="updateuser" @deleteuser="deleteuser" />
-
+            <EditType v-if="page ==90"/>
         </div>
     </div>
 </template>
