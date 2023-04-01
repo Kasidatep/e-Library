@@ -4,7 +4,7 @@ import { ref, onMounted, inject} from 'vue'
 
 const props = defineProps(['borrows'])
 const theme = inject('theme')
-const user = inject('user')
+const {user} = inject('user')
 const emit= defineEmits(['updateBorrowBook'])
 const borrows = ref(props.borrows)
 
@@ -25,7 +25,7 @@ const getDateFormat = (d) => {
 <template>
  
  <div class="pl-5 w-full pt-16">
-    <h1 class=" font-bold text-4xl pt-10 mb-5" :class="theme.textheader">ประวัติการยืมของ {{ user.name }} </h1>
+    <h1 class=" font-bold lg:text-4xl text-3xl pt-10 mb-5" :class="theme.textheader">ประวัติการยืมของ {{ user.name }} </h1>
         <div class="w-full pr-16 grid grid-flow-row">
             <div class="h-fit rounded-[20px] mb-6" :class="theme.itemlist">
                 <div :class="theme.text" class="grid grid-cols-12 py-1">
@@ -52,14 +52,13 @@ const getDateFormat = (d) => {
                             </div>
                         </div>
                     </div>
-                    <div class="col-span-1 text-lg justify-self-center self-center px-2 py-2 rounded-md font-semibold"
+                    <div class="col-span-1 text-lg justify-self-center self-center px-2 py-2 rounded-md font-semibold  cursor-pointer"
                         :class="theme.button" v-if="brBook.status==2" >คืนแล้ว  </div>
                         
-                        <div class="col-span-1 text-lg justify-self-center self-center px-1 py-2 rounded-md font-semibold"
+                        <div class="col-span-1 text-lg justify-self-center self-center px-1 py-2 rounded-md font-semibold cursor-pointer"
                         :class="theme.lable" v-if="brBook.status==1"  >ยังไม่คืน  </div>
 
-                        <div class="col-span-1 text-lg justify-self-center self-center px-2 py-2 rounded-md font-semibold" 
-                        :class="theme.button">อ่านหนังสือ</div>
+    
                 </div>
             </div>
         </div>

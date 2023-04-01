@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, provide, onMounted } from 'vue'
+import { ref, readonly , provide, onMounted } from 'vue'
 import Navbar from './components/Navbar.vue';
 import { RouterView } from 'vue-router'
 import { themeUpdate, getTheme } from './composables/theme'
@@ -7,7 +7,7 @@ import { getPosts } from './composables/announcementAndPosts'
 import { getBooks } from './composables/booksFetch.js'
 import LogIn from './components/LogIn.vue';
 import Register from './components/Register.vue';
-import { findUser } from '../src/composables/accountManagement.js'
+import { findUser,clearUser } from './composables/accountManagement.js'
 const theme = ref(getTheme())
 const posts = ref()
 const user = ref({})
@@ -69,11 +69,14 @@ const register = async (e) => {
     showRegister.value = false
   }
 }
-provide('theme', theme)
+provide('theme', readonly(theme))
 const updateTheme = (e) => {
   theme.value = themeUpdate(e)
   console.log(e)
   localStorage.setItem(`boi-theme-${user.value.id}`, e)
+  if(user.value.id !== undefined){ sessionStorage.setItem(`boi-theme-${user.value.id}`, e) 
+}else sessionStorage.setItem(`boi-theme`, e)
+  
 }
 const isHomePage = ref(false)
 
@@ -91,14 +94,29 @@ onMounted(async () => {
   const sesusername = sessionStorage.getItem("boi-auth")
   user.value = await findUser(username)
   user.value = await findUser(sesusername)
-
+console.log(username)
+console.log(sesusername)
   if (!(username == null)) {
+    console.log(sessionStorage.getItem(`boi-theme-${username}`))
     theme.value = themeUpdate(localStorage.getItem(`boi-theme-${username}`))
+    
   }
-  if (user.value?.id === undefined) showLogIn.value = true
+  if(sesusername !== null){
+    theme.value = themeUpdate(sessionStorage.getItem(`boi-theme-${sesusername}`))
+  }
+  
+  if (user.value?.id === undefined) {
+    showLogIn.value = true
+    
+  }
 
 })
-provide('user', user)
+const deleteData = ()=>{
+  console.log('working..')
+  user.value = clearUser()
+}
+provide('user',{user, deleteData})
+
 // Notification -----------------------------------------------------------------------------------
 let notifications = ref([])
 const createNotification = (type, message, timeout) => {
@@ -122,6 +140,8 @@ const showProfile = () => {
 </script>
  
 <template>
+
+
   <div :class="theme.bgbase">
     <div class="fixed w-96 right-5 left-auto z-50 mt-24">
       <div class="flex-col min-h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"

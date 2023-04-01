@@ -4,9 +4,8 @@ import { deleteUser, updateUser } from '../composables/accountManagement'
 
 const emits = defineEmits([ 'updateuser','deleteuser'])
 const theme = inject('theme')
-const user = inject('user')
+const {user} = inject('user')
 const props = defineProps(['post'])
-const uid = ref('Pizcom')
 const name = ref(user.value.name)
 const username = ref(user.value.username)
 const email = ref(user.value.email)
@@ -30,20 +29,6 @@ const update =async () => {
 //     createNotification("warning", "Delete Success from Edit", 2500)
 //     deleteUser(user.value.id)
 // }
-// Notification -----------------------------------------------------------------------------------
-const notifications = ref([])
-const createNotification = (type, message, timeout) => {
-    let theme = ["bg-black", "text-white"]
-    if (type == "warning") theme = ["bg-yellow-500", "text-black"]
-    if (type == "success") theme = ["bg-green-500", "text-black"]
-    if (type == "danger") theme = ["bg-red-500", "text-white"]
-    notifications.value.push({ type: type, message: message, theme: theme })
-    setTimeout(removeNotification, timeout)
-}
-
-const removeNotification = () => {
-    notifications.value.shift()
-}
 </script>
  
 <template>

@@ -9,7 +9,7 @@ import Close from '../components/icons/Close.vue'
 const showSearch = ref(false)
 defineEmits(['changeTheme', 'goProfile'])
 const selectedtheme = ref('dark')
-const user = inject('user')
+const {user} = inject('user')
 const theme = inject('theme')
 const allTheme = ['dark', 'bright', 'sepia', 'night']
 let currentTheme = 1
@@ -28,11 +28,12 @@ const nextTheme = () => {
 }
 
 onMounted(() => {
+    const sesusername = sessionStorage.getItem("boi-auth")
     if (!(user.value?.id === undefined)) {
         selectedtheme.value = (localStorage.getItem(`boi-theme-${user.value?.id}`)) !== null ? (localStorage.getItem(`boi-theme-${user.value?.id}`)) : 'dark'
-    } else {
-        selectedtheme.value = 'dark'
-        // selectedtheme.value = localStorage.getItem("boi-theme")
+    } 
+    if(user.value.id === undefined) {
+        selectedtheme.value = sessionStorage.getItem(`boi-theme-${sesusername}`)
     }
     console.log(selectedtheme.value)
 
@@ -54,19 +55,19 @@ let isOpen = ref(false)
         </div>
         <div class="flex w-full justify-start p-2 flex-col lg:flex-row text-center lg:inline-flex"
             :class="isOpen ? '' : 'hidden'">
-            <div class="flex flex-col lg:flex-row pl-4 text-2xl font-medium lg:w-full" :class="theme.nav">
+            <div class="flex flex-col lg:flex-row pl-4 2xl:text-2xl text-xl font-medium lg:w-full" :class="theme.nav">
                 <RouterLink class="justify-self-center cursor-pointer px-2 py-3 my-2 mx-2 bg-opacity-30 rounded-lg"
                     :class="theme.bgbase" :to="{ name: 'books' }" @click="isOpen=false">
                     หนังสือทั้งหมด
                 </RouterLink>
                 <RouterLink class="justify-self-center cursor-pointer px-2 py-3 my-2 mx-2 bg-opacity-30 rounded-lg"
                     :class="theme.bgbase" v-if="!(user?.id == undefined)" :to="{ name: 'profile', params: { id: user.id } }" @click="isOpen=false">
-                    หนังสือของฉัน
+                    จัดการหนังสือ
                 </RouterLink>
                 <RouterLink class="justify-self-center cursor-pointer px-2 py-3 my-2  mx-2 bg-opacity-30 rounded-lg"
                     :class="theme.bgbase" v-if="(user?.id == undefined)" @click="$emit('goProfile'),isOpen=false"
                     :to="{ name: 'profile', params: { id: 'login' } }" >
-                    หนังสือของฉัน
+                    รายการการยืม
                 </RouterLink>
                 <RouterLink class="justify-self-center cursor-pointer px-2 py-3 my-2  mx-2 bg-opacity-30 rounded-lg"
                     :class="theme.bgbase" :to="{ name: 'posts' }" @click="isOpen=false">
@@ -81,9 +82,9 @@ let isOpen = ref(false)
                         :class="(isOpen?'':'hidden'),theme.text, theme.input">
                 </div>
                 <!-- iconSearch -->
-                <div class="w-[5%] text-xl" @click="showSearch = !showSearch">
+                <!-- <div class="w-[5%] text-xl" @click="showSearch = !showSearch">
                     <MaterialSymbolsSearchSharp class="cursor-pointer" :class="theme.text" />
-                </div>
+                </div> -->
 
             </div>
 
@@ -104,7 +105,7 @@ let isOpen = ref(false)
                 <RouterLink :to="{ name: 'profile', params: { id: user?.id ?? 'login' } }" 
                 class="w-fit  mr-10 border-2 border-black rounded-lg flex" @click="$emit('goProfile'), isOpen=false">
                 <div class="p-2 w-16">
-                    <img :src="user?.image ?? '../default/profile.png'" class="w-12 h-12 rounded-full text-3xl lg:-mt-1">
+                    <img :src="user.image?.length>10 ?user?.image: '../default/profile.png'" class="w-12 h-12 rounded-full text-3xl lg:-mt-1">
                 </div>
                 <!-- profile -->
                 <div class="my-auto w-fit text-left">

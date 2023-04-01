@@ -23,7 +23,7 @@ const themeDark = {
     button: ['bg-emerald-500', 'text-white'],
     lable: ['bg-rose-500', 'text-white'],
     input: ['bg-gray-500', 'text-white'],
-    nav: ['bg-gray-700', 'text-white'],
+    nav: ['bg-gray-800', 'text-white'],
     profilebutton: ['bg-gray-900','bg-opacity-40', 'text-gray-300'],
     itemlist: ['bg-gray-900','bg-opacity-40', 'text-gray-300'],
     activebutton: ['bg-rose-800','bg-opacity-50', 'text-white'],

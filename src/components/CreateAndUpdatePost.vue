@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, onMounted, inject, onUpdated } from 'vue';
+import { ref, onMounted, inject, onUpdated } from 'vue';
 const emits = defineEmits(['createPost'])
 const theme = inject('theme')
 const props = defineProps(['post', 'isUpdate'])
@@ -11,6 +11,13 @@ const customUrl = ref(null)
 const isPublic = ref(true)
 const isAdvance = ref(false)
 const post = ref(null)
+
+const po = ref('')
+const img = ref('')
+const titles = ref('')
+const desc = ref('')
+const custom = ref('')
+
 const postEdit = ref({
     id: customUrl.value == null ? null : customUrl.value,
     title: title.value,
@@ -45,30 +52,31 @@ onUpdated(() => {
 })
 </script>
 <template>
-    <h1 class=" font-bold text-4xl pt-16" :class="theme.textheader">{{ isUpdate ? 'แก้ไขโพสต์' : 'สร้างโพสต์ใหม่' }} </h1>
+    
     <div class="flex flex-col m-5 z-10">
-        <div class="flex flex-col md:flex-row mt-5 h-24 md:h-12">
-            <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Title</div>
+        <h1 class=" font-bold lg:text-4xl text-3xl pt-16" :class="theme.textheader">{{ isUpdate ? 'แก้ไขโพสต์' : 'สร้างโพสต์ใหม่' }} </h1>
+        <div class="flex flex-col lg:flex-row mt-5 h-24 lg:h-12">
+            <div class="text-lg font-bold px-2 pt-2 w-48 mb-1" :class="theme.text">Title</div>
             <input type="text" v-model="title" placeholder="Enter post title..." class="w-full rounded-lg h-12 pl-5" :class="theme.input">
         </div>
-        <div class="flex flex-col md:flex-row mt-3 h-min">
-            <div class="text-lg font-bold px-2 pt-2 w-48"  :class="theme.text">Description</div>
-            <textarea type="text" class="w-full rounded-lg pl-5 pt-2 h-48" placeholder="Enter post Description..." v-model="description"
+        <div class="flex flex-col lg:flex-row mt-3 h-min">
+            <div class="text-lg font-bold px-2 pt-2 w-48 mb-1"  :class="theme.text">Description</div>
+            <textarea type="text" class="w-full rounded-lg pl-5 pt-2 h-48" placeholder="Enter post description..." v-model="description"
                 :class="theme.input"></textarea>
         </div>
-        <div class="flex flex-col md:flex-row mt-3 mb-3 h-24 md:h-12">
-            <div class="text-lg font-bold px-2 pt-2 w-48"  :class="theme.text">Image URL</div>
+        <div class="flex flex-col lg:flex-row mt-5 h-24 lg:h-12">
+            <div class="text-lg font-bold px-2 pt-2 w-48 mb-1"  :class="theme.text">Image URL</div>
             <input type="url" v-model="imgUrl" placeholder="Enter post images..." class="w-full rounded-lg h-12 pl-5" :class="theme.input">
         </div>
-        <hr class="opacity-30">
+        <hr class="opacity-30 mt-5">
         <div v-if="isAdvance">
-            <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
-                <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Custom URLs post</div>
+            <div class="flex flex-col lg:flex-row mt-5 h-24 lg:h-12">
+                <div class="text-lg font-bold px-2 pt-2 w-48 mb-1" :class="theme.text">Custom URLs post</div>
                 <input type="url" v-model="customUrl" class="w-full rounded-lg h-12 pl-5" placeholder="[If you not type anything system can generate auto]" :class="theme.input"
                     :disabled="isUpdate">
             </div>
             <div class="flex flex-col md:flex-row mt-3 w-full">
-                <div class="text-xl font-bold px-2 pt-2 w-48" :class="theme.text">Visible Status</div>
+                <div class="text-xl font-bold px-2 pt-2 w-48 mb-1" :class="theme.text">Visible Status</div>
                 <div class="flex w-full">
                     <label for="vs_public" class="text-xl mr-5 pt-2 px-3 rounded-lg w-fit"
                         :style="isPublic ? 'border-color: yellow; border-width: 2px;' : ''" @click="isPublic = true"

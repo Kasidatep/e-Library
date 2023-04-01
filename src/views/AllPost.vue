@@ -4,7 +4,7 @@ import { RouterLink } from 'vue-router'
 import { getPosts } from '../composables/announcementAndPosts'
 import { getDateFormat } from '../composables/dateFormat'
 const theme = inject(['theme'])
-const user = inject(['user'])
+const {user} = inject(['user'])
 const posts = ref([])
 
 onMounted(async () => {

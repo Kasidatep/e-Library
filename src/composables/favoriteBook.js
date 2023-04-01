@@ -24,11 +24,13 @@ const getFavoriteBook= async (userId)=>{
     }
 
 
-  const addFavoriteBookById = async (newFavoriteBook) => {
+
+    const addFavoriteBookById = async (newFavoriteBook) => {
       const getFav= await getFavoriteBookByUserId(newFavoriteBook.userId)
      const isFav = getFav.find((fav)=>fav.bookId===newFavoriteBook.bookId)
       if(isFav!==undefined){
-        await deleteFavoriteBook(isFav.id)
+        // await deleteFavoriteBook(isFav.id)
+        console.log(isFav)
       return 400
     }else{
     console.log(newFavoriteBook)

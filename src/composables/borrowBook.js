@@ -23,6 +23,19 @@ const getBorrowBookByUserId = async (userId) => {
   }
 }
 
+const getAllBorrowBook = async () => {
+  try {
+    const res = await fetch(`http://localhost:5000/borrows?_expand=book`)
+    if (res.ok) {
+      return await res.json();
+    }
+    else throw new Error('Error, cannot get book data')
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+
 const getBorrowBookById = async (id) => {
   try {
     const res = await fetch(`http://localhost:5000/borrows/${id}`)
@@ -96,5 +109,5 @@ const updateBorrowBook = async (updateBrBook) => {
  
 
 
-export { getBorrowBook, addBrBook, updateBorrowBook,getBorrowBookByUserId }
+export { getBorrowBook, addBrBook, updateBorrowBook,getBorrowBookByUserId,getAllBorrowBook}
 

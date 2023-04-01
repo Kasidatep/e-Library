@@ -15,10 +15,17 @@ const shareLocation = window.location
 </script>
 <template>
     <div class="w-screen h-screen overflow-x-hidden">
+        
         <div class="absolute w-screen h-[30rem] overflow-hidden object-center opacity-20">
-            <img :src="(post.img?.length>10)?post.img:'../default/coverpost.png'" class="w-full h-fit object-center  bg-transparen z-0 blur-sm" alt="">
+            <img :src="post?.img??'../default/coverpost.png'" class="w-full h-fit object-center  bg-transparen z-0 blur-sm" alt="">
         </div>
-        <div class="flex relative w-screen h-screen justify-center z-0">
+        <div class="flex relative w-screen h-screen justify-center z-0" v-if="post?.title==undefined">
+            <div class="pt-24 mt-24 md:mt-40 mx-3 w-full md:w-9/12 text-xl font-bold text-center rounded-t-3xl" :class="theme.bgbase, theme.text">
+                You dont't have permistion to access this contents.
+                </div>
+        </div>
+
+        <div class="flex relative w-screen h-screen justify-center z-0" v-if="post?.title!==undefined">
 
             <div class=" mt-24 md:mt-40 mx-3 w-full md:w-9/12 lg:w-3/5 rounded-t-3xl" :class="theme.bgbase">
                 <div class=" z-0 " v-if="(post.img?.length>10)">

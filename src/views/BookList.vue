@@ -4,7 +4,7 @@ import Catagories from '../components/Catagories.vue';
 import {getBooks} from '../composables/booksFetch.js'
 import { addBrBook } from '../composables/borrowBook.js'
 import { addFavoriteBookById,deleteFavoriteBook } from '../composables/favoriteBook';
-const user = inject('user')
+const {user} = inject('user')
 
 //chek User
 const checkUser=()=>{
@@ -34,7 +34,7 @@ const addFavoriteBook = async ($event) => {
         createNotification("success", "Congrats, "+ $event+ " Added!", 2500)
     }else if(status==400){
         console.log(status)
-        createNotification("warning", "This Book are Deletedmin your Favorite List", 2500)
+        createNotification("warning", "This Book are already in your Favorite List", 2500)
     }else{
 
     }

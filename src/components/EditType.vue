@@ -2,7 +2,7 @@
 
 import { ref, onMounted, inject } from 'vue'
 import { getUser, updateType } from '../composables/accountManagement'
-const user = inject('user')
+const {user} = inject('user')
 const theme = inject('theme')
 const allUser = ref([])
 const passad = ref('')
@@ -69,7 +69,7 @@ const getUserType = (type) => {
                 <div class="text-lg pl-5 pt-1">{{ notification.message }}</div>
             </div>
         </div>
-        <div class="z-20 w-full flex m-5 rounded-3xl" :class="theme.bgblock" v-show="showDialog">
+        <div class="fixed z-20 w-full flex m-5 rounded-3xl" :class="theme.bgblock" v-show="showDialog">
             <div class=" p-10 h-2/4 w-full">
                 <div class="flex flex-col w-full">
                     <div class="text-lg font-bold px-2 pt-2  mb-3" :class="theme.text">Type password to confirm your
@@ -85,8 +85,8 @@ const getUserType = (type) => {
             </div>
         </div>
         <div class="pl-5 w-full pt-16">
-            <h1 class=" font-bold text-4xl pt-10 mb-5" :class="theme.textheader">  การจัดการสิทธิผู้ใช้งาน </h1>
-        <div class="w-full pr-16 grid grid-flow-row">
+            <h1 class=" font-bold lg:text-4xl text-3xl pt-10 mb-5" :class="theme.textheader">  การจัดการสิทธิผู้ใช้งาน </h1>
+        <div class="w-full grid grid-flow-row">
             <div class="h-fit rounded-[20px] mb-6" :class="theme.itemlist">
                 <div :class="theme.text" class="md:grid grid-cols-12 py-1 hidden">
                     <div class="text-2xl justify-self-center self-center px-4"></div>
@@ -102,7 +102,7 @@ const getUserType = (type) => {
             </div>
         </div>
             <!---  -->
-            <div class="w-full pr-16 grid grid-flow-row" v-for="thisUser in allUser">
+            <div class="w-full grid grid-flow-row" v-for="thisUser in allUser">
             <div class="h-fit rounded-[20px] mb-4" :class="theme.profilebutton">
                 <div :class="theme.text" class="grid grid-cols-12 py-2">
                     <div class="col-span-12 md:col-span-5 text-xl pl-8 self-center overflow-hidden ">{{ thisUser.name }}</div>
@@ -114,7 +114,7 @@ const getUserType = (type) => {
                         </div>
                     </div>
                     <div class="col-span-5 md:col-span-4 grid-flow-row flex justify-end mr-3">
-                        <div class="col-span-5 w-full text-center mx-3 text-lg justify-self-center self-center px-2 py-2 rounded-md font-semibold "
+                        <div class="col-span-5 w-full text-center mx-3 text-lg justify-self-center self-center px-2 py-2 rounded-md font-semibold cursor-pointer"
                             v-if="thisUser.type !== 'admin'" :class="getUserType(thisUser.type).theme"
                             @click="setChangeType(thisUser.id)"> {{ getUserType(thisUser.type).msg }}</div>
                    

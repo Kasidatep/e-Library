@@ -3,7 +3,7 @@ import {getFavoriteBook,addFavoriteBookById} from '../composables/favoriteBook.j
 import { ref, onMounted, inject} from 'vue'
 
 const props=defineProps(['like','favorites'])
-const user = inject('user')
+const {user} = inject('user')
 const theme = inject('theme')
 const emit =defineEmits(['delFav'])
 // const favorites = ref(['favorite'])
@@ -14,7 +14,6 @@ const emit =defineEmits(['delFav'])
 //     console.log(favorites.value)
 // })
 
-console.log("เสือกควยไรคับ")
 console.log(props.favorites.value)
 
 </script>
@@ -24,8 +23,8 @@ console.log(props.favorites.value)
 <div>
     
   <div class="pl-5 w-full pt-16">
-    <h1 class=" font-bold text-4xl pt-10 mb-5" :class="theme.textheader">หนังสือที่ชอบของ {{ user.name }} </h1>
-        <div class="w-full pr-16 grid grid-flow-row">
+    <h1 class=" font-bold lg:text-4xl text-3xl pt-10 mb-5" :class="theme.textheader">หนังสือที่ชอบของ {{ user.name }} </h1>
+        <div class="w-full pr-5 grid grid-flow-row">
             <div class="h-fit rounded-[20px] mb-6" :class="theme.itemlist">
                 <div :class="theme.text" class="grid grid-cols-12 py-1">
                     <div class="text-2xl justify-self-center self-center px-4"></div>
@@ -50,10 +49,10 @@ console.log(props.favorites.value)
                             </div>
                         </div>
                     </div>
-                    <div class="col-span-1 text-lg justify-self-center self-center px-2 py-2 rounded-md font-semibold"
+                    <div class="col-span-1 text-lg justify-self-center self-center px-2 py-2 rounded-md font-semibold cursor-pointer"
                         :class="theme.button" @click="$emit('delFav',favorite?.id)" > เลิกชอบ </div> 
 
-                        <div class="col-span-1 text-lg justify-self-center self-center px-2 py-2 rounded-md font-semibold" 
+                        <div class="col-span-1 text-lg justify-self-center self-center px-2 py-2 rounded-md font-semibold cursor-pointer" 
                         :class="theme.button">อ่านหนังสือ</div>
                 </div>
             </div>

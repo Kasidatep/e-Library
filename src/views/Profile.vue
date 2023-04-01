@@ -6,14 +6,14 @@ import CreateAndUpdateBook from '../components/CreateAndUpdateBook.vue';
 import { getPosts, createPost, updatePostById, deletePostById } from '../composables/announcementAndPosts'
 import BorrowBookList from '../components/BorrowBookList.vue';
 import { getBooks, updateBookById, createBook, deleteBookById } from '../composables/booksFetch.js'
+
 import Edituser from '../components/Edituser.vue';
-import { clearUser } from '../composables/accountManagement'
-import { updateBorrowBook, getBorrowBookByUserId, getBorrowBook } from '../composables/borrowBook.js'
+import { updateBorrowBook, getBorrowBookByUserId, getBorrowBook, getAllBorrowBook } from '../composables/borrowBook.js'
 import HistoryBorrow from '../components/HistoryBorrow.vue';
 import { deleteFavoriteBook, getFavoriteBookByUserId, getFavoriteBook } from '../composables/favoriteBook.js';
 import { useRouter } from 'vue-router'
 import EditType from '../components/EditType.vue'
-const user = inject('user')
+const { user, deleteData } = inject('user')
 const theme = inject('theme')
 const emits = defineEmits(['showlogin', 'userstatus', 'logout'])
 const isUser = computed(() => user.value.type == 'user')
@@ -21,6 +21,7 @@ const isUser = computed(() => user.value.type == 'user')
 const posts = ref([])
 const books = ref([])
 const borrows = ref([])
+const allBorrows = ref([])
 const favorites = ref([])
 const bookUpdateItem = ref({})
 const isUpdateBook = ref(false)
@@ -42,20 +43,9 @@ const updateuser = async (userupdated) => {
 
 const deleteuser = async () => {
     createNotification("success", "Delete Success Profile", 2500)
-    // console.log( 'deleted '+ await deleted)
     user.value = {}
 }
 
-//Favorite
-// const deleteFavoriteBookById = async(deleteId)=>{
-//     const status = await deleteFavoriteBook(deleteId)
-//     if (status == 200) {
-//         books.value = books.value.filter(book => book.id !== id)
-//         createNotification("success", "Delete Book" + id + " successfully.", 2500)
-//     } else {
-//         createNotification("warning", "Cannot Delete Book Id " + deleteId, 2500)
-//     }
-// }
 const MapFavorite = () => {
     let favsMap = []
     favorites.value.forEach(fav => {
@@ -64,29 +54,13 @@ const MapFavorite = () => {
     return favsMap
 }
 
-const gotoBook = (id) => {
-
-    const book = favorites.value?.find((ids) => { return ids.id == id })
-    router.push({ name: 'onebook', params: { id: book?.bookId ?? ' ' } })
-    if (book !== undefined) {
-        router.push({ name: 'onebook', params: { id: book?.bookId ?? ' ' } })
-    } else {
-        router.push({ name: 'books' })
-    }
-
-    console.log(favorites.value[0])
-    console.log(book)
-}
-
 const deleteFavoriteBookById = async (id) => {
     const status = await deleteFavoriteBook(id)
     if (status == 200) {
         favorites.value = favorites.value?.filter((fav) => {
             return fav.id !== id
         })
-        console.log(favorites.value)
-        console.log(await getFavoriteBookByUserId(await user.value?.id))
-        createNotification("success", "This Book are Deletedmin your Favorite List", 2500)
+        createNotification("success", "This Book are Deleted in your Favorite List", 2500)
     } else {
         createNotification("Fail", "ลบ Fail.", 2500)
 
@@ -104,10 +78,10 @@ const updateBrBookById = async (id) => {
             return br.id != id
         })
         console.log(await getBorrowBookByUserId(await user.value.id))
-        createNotification("success", "Night Successfully.", 2500)
+        createNotification("success", "Return a book Successfully.", 2500)
     }
     else {
-        createNotification("warning", "Cannot Night!", 2500)
+        createNotification("warning", "Cannot Return a book!", 2500)
 
     }
 
@@ -260,6 +234,7 @@ onMounted(async () => {
     posts.value = await getPosts()
     books.value = await getBooks()
     borrows.value = await getBorrowBook(await user.value?.id)
+    allBorrows.value = await getAllBorrowBook()
     favorites.value = await getFavoriteBook(await user.value?.id)
 })
 
@@ -271,6 +246,37 @@ const mapPosts = () => {
         postsMap.push({ id: post.id, title: post.title, value: post.visible == 1 ? 'PUBLIC' : 'MEMBER' })
     })
     return postsMap
+}
+
+const MapAllBorrows = () => {
+    let allBorrow = []
+    allBorrows.value.forEach(i => {
+        allBorrow.push({ id: i.id, title: i.book?.title, value: i.status == 1 ? 'อยู่ในระหว่างการยืม' : 'คืนแล้ว' })
+    })
+    return allBorrow
+}
+
+const gotoBook = (id) => {
+    console.log(id)
+    let book = favorites.value?.find((ids) => { return ids.id == id })
+    if(book==undefined)  book = allBorrows.value?.find((ids) => { return ids.id == id })
+    router.push({ name: 'onebook', params: { id: book?.bookId ?? ' ' } })
+    if (book !== undefined) {
+        router.push({ name: 'onebook', params: { id: book?.bookId ?? ' ' } })
+    } else {
+        router.push({ name: 'books' })
+    }
+}
+
+const gotoRead = (id) => {
+    console.log(id)
+    const book = borrows.value?.find((ids) => { return ids.id == id })
+    // router.push({ name: 'onebook', params: { id: book?.bookId ?? ' ' } })
+    if (book !== undefined) {
+        window.location=book.book.booklink
+    } else {
+        createNotification("success", "Ohh, Cannot read " + data.title + " now, try again later.", 2500)
+    }
 }
 
 // Notification -----------------------------------------------------------------------------------
@@ -288,11 +294,12 @@ const removeNotification = () => {
     notifications.value.shift()
 }
 
+
 const isOpen = ref(true)
 </script>
  
 <template :class="theme.bgbase">
-    <div class="fixed w-96 right-5 left-auto z-0 mt-24">
+    <div class="fixed w-96 right-5 left-auto z-50 mt-24">
         <div class="flex-col min-h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
             v-for="notification in notifications">
             <div class="text-xl font-extrabold mx-5 mt-2 pt-2 ">{{ notification.type }}</div>
@@ -300,9 +307,9 @@ const isOpen = ref(true)
             <div class="text-lg pl-5 mb-2 pr-2">{{ notification.message }}</div>
         </div>
     </div>
-    <div class="w-screen h-full pt-36 flex justify-center" v-if="(user?.id == undefined)">
+    <div class="w-screen h-screen flex justify-center items-center" v-if="(user?.id == undefined)">
         <div class="text-3xl font-bold text-center w-fit h-fit px-24 py-8 rounded-lg" :class="theme.text, theme.bgblock">
-            Plese Log In First!!
+            Plese Log In First !!!
         </div>
     </div>
     <div class="w-full h-full min-h-screen pt-20 flex  " v-if="!(user?.id == undefined)">
@@ -332,36 +339,38 @@ const isOpen = ref(true)
                 CLOSE
             </div>
             <div class="md:flex flex-col md:pl-16 h-fit">
-                <div class="pt-16 flex justify-center">
-                    <img :src="user.image ?? '../default/profile.png'" class="h-56 w-56 bg-gray-700 rounded-full">
+                <div class="pt-16 flex justify-center mx-12">
+                    <img :src="user.image?.length>10 ?user?.image: '../default/profile.png'"
+                        class="h-48 w-48 bg-gray-700 rounded-full border-2">
                 </div>
-                <div class="text-3xl text-center mt-4 mb-4 uppercase" :class="theme.textheader">
+                <div class="lg:text-2xl text-xl text-center mt-4 mb-4 uppercase" :class="theme.textheader">
                     {{ user?.name ?? 'Guest User' }}
                 </div>
-                <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
+                <div class="cursor-pointer lg:text-2xl text-xl text-center rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
                     :class="theme.profilebutton" v-if="!isUser" @click="page = 21, isOpen = false">เพิ่มหนังสือใหม่</div>
-                <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
+                <div class="cursor-pointer lg:text-2xl text-xl text-center rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
                     :class="theme.profilebutton" v-if="!isUser" @click="page = 22, isOpen = false">สร้างโพสต์ใหม่</div>
-                <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
+                <div class="cursor-pointer lg:text-2xl text-xl text-center rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
                     :class="theme.profilebutton" v-if="!isUser" @click="page = 11, isOpen = false">จัดการหนังสือทั้งหมด
                 </div>
-                <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
+                <div class="cursor-pointer lg:text-2xl text-xl text-center rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
                     :class="theme.profilebutton" v-if="!isUser" @click="page = 23, isOpen = false">จัดการโพสต์ทั้งหมด</div>
-                <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
-                    :class="theme.profilebutton" v-if="!isUser" @click="page = 12, isOpen = false">รายการหนังสือที่ถูกยืม
+                <div class="cursor-pointer lg:text-2xl text-xl text-center  rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
+                    :class="theme.profilebutton" v-if="!isUser" @click="page = 27, isOpen = false">รายการหนังสือที่ถูกยืม
                 </div>
-                <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
+                <div class="cursor-pointer lg:text-2xl text-xl text-center rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 "
                     :class="theme.profilebutton" @click="page = 25, isOpen = false">หนังสือที่ชอบ</div>
-                <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
+                <div class="cursor-pointer lg:text-2xl text-xl text-center rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
                     :class="theme.profilebutton" @click="page = 12, isOpen = false">การยืมของฉัน</div>
-                <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
+                <div class="cursor-pointer lg:text-2xl text-xl text-center rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
                     :class="theme.profilebutton" @click="page = 24, isOpen = false">ประวัติการยืมของฉัน</div>
-                <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
-                    :class="theme.profilebutton" v-if="user.type=='admin'" @click="page = 90, isOpen = false">อัพเดตสิทธิผู้ใช้</div>
-                <div class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
+                <div class="cursor-pointer lg:text-2xl text-xl text-center rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
+                    :class="theme.profilebutton" v-if="user.type == 'admin'" @click="page = 90, isOpen = false">
+                    อัพเดตสิทธิผู้ใช้</div>
+                <div class="cursor-pointer lg:text-2xl text-xl text-center rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
                     :class="theme.profilebutton" @click="page = 13, isOpen = false">แก้ไขข้อมูลผู้ใช้</div>
-                <div @click="$emit('logout', clearUser()), isOpen = false"
-                    class="cursor-pointer text-3xl text-center mx-8 rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 bg-red-600 text-white">
+                <div @click="deleteData(), isOpen = false"
+                    class="cursor-pointer lg:text-2xl text-xl text-center  rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 bg-red-600 text-white">
                     ออกจากระบบ
                 </div>
             </div>
@@ -369,22 +378,29 @@ const isOpen = ref(true)
         <div class="w-full min-h-screen h-full mt-6 md:mt-0 md:w-[75%] md:blur-none md:opacity-100"
             :class="isOpen ? 'blur opacity-30' : ''">
             <ItemLists v-if="page == 11" :items="books"
-                :config="{ header: 'รายการหนังสือทั้งหมด', subname: 'หมวดหมู่', action1: 'แก้ไข', action2: 'ลบ', subvalue: 'maincatagory' }"
+                :config="{ header: 'รายการหนังสือทั้งหมด', subname: 'หมวดหมู่', action1: 'แก้ไข', action2: 'ลบ ', subvalue: 'maincatagory' }"
                 @event1="updateBookId" @event2="deleteBook" />
-            <CreateAndUpdateBook v-if="page == 21" @createBook="createNewBook" />
+
             <ItemLists v-if="page == 23" :items="mapPosts()"
-                :config="{ header: 'รายการโพสต์ทั้งหมด', subname: 'Status', action1: 'แก้ไข', action2: 'ลบ', subvalue: 'value' }"
+                :config="{ header: 'รายการโพสต์ทั้งหมด', subname: 'Status', action1: 'แก้ไข', action2: 'ลบ ', subvalue: 'value' }"
                 @event1="editPostById" @event2="deletePost" />
             <HistoryBorrow v-if="page == 24" />
 
             <ItemLists v-if="page == 25" :items="MapFavorite()"
                 :config="{ header: 'หนังสือที่ชอบของ ' + user.name, subname: 'หมวดหมู่', action1: 'เลิกชอบ', action2: 'อ่านหนังสือ', subvalue: 'value' }"
                 @event1="deleteFavoriteBookById" @event2="gotoBook" />
-
+            <CreateAndUpdateBook v-if="page == 21" @createBook="createNewBook" />
             <CreateAndUpdatePost v-if="page == 22" :isUpdate="false" @createPost="editpost" />
-            <BorrowBookList v-if="page == 12" @updateBorrowBook="updateBrBookById" :borrows="borrows" />
+            <ItemLists v-if="page == 27" :items="MapAllBorrows()"
+                :config="{ header: 'รายการการยืมทั้งหมด', subname: 'สถานะการยืม', action1: '', action2: 'รายละเอียดหนังสือ', subvalue: 'value' }"
+                @event1="updateBrBookById" @event2="gotoBook" />
+
+            <BorrowBookList v-if="page == 12" @updateBorrowBook="updateBrBookById" @gotoRead="gotoRead" :borrows="borrows"
+                :allBorrows="books" />
+
+
             <Edituser v-if="page == 13" @updateuser="updateuser" @deleteuser="deleteuser" />
-            <EditType v-if="page ==90"/>
+            <EditType v-if="page == 90" />
         </div>
     </div>
 </template>

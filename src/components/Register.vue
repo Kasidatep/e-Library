@@ -12,15 +12,15 @@ const phone = ref('')
 const type = ref('user')
 const password = ref('')
 const confpassword = ref('')
-const imgurl = ref('https://demofc003.trustthemes.net/wp-content/uploads/2017/03/brithshothaircat.jpg')
+const imgurl = ref('')
+const na = ref('')
+const usr = ref('')
+const em = ref('')
+const ph = ref('')
+const passwd = ref('')
+const cpasswd = ref('')
+const img = ref('')
 
-// "แมวส้ม2"
-// "แมวส้ม2"
-// "แอดแมวส้ม"
-// "แมวส้ม@mail.com"
-// "ชูก้า ชูก้า รูน"
-// "librarian"
-// "1234"
 
 const register = () => {
     if (password.value !== confpassword.value) {
@@ -36,20 +36,9 @@ const register = () => {
     }
 
 }
-// Notification -----------------------------------------------------------------------------------
-const notifications = ref([])
-const createNotification = (type, message, timeout) => {
-    let theme = ["bg-black", "text-white"]
-    if (type == "warning") theme = ["bg-yellow-500", "text-black"]
-    if (type == "success") theme = ["bg-green-500", "text-black"]
-    if (type == "danger") theme = ["bg-red-500", "text-white"]
-    notifications.value.push({ type: type, message: message, theme: theme })
-    setTimeout(removeNotification, timeout)
-}
-
-const removeNotification = () => {
-    notifications.value.shift()
-}
+onMounted(()=>{
+    usr.value.focus()
+})
 </script>
  
 <template>
@@ -69,31 +58,31 @@ const removeNotification = () => {
 
             <div class="flex flex-col md:flex-row mt-12 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Username</div>
-                <input type="text" placeholder="username" v-model="username" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input ref="usr" type="text" placeholder="username" v-model="username" class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="na.focus()">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Name</div>
-                <input type="text" placeholder="name" v-model="name" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input ref="na" type="text" placeholder="name" v-model="name" class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="em.focus()">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">E-Mail</div>
-                <input type="email" placeholder="email" v-model="email" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input ref="em" type="email" placeholder="email" v-model="email" class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="ph.focus()">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Phone</div>
-                <input type="text" placeholder="phone" v-model="phone" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input ref="ph" type="text" placeholder="phone" v-model="phone" class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="img.focus()">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Image Profile URL</div>
-                <input type="url" placeholder="imageurl" v-model="imgurl" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input ref="img" type="url" placeholder="imageurl" v-model="imgurl" class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="passwd.focus()">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Password</div>
-                <input type="password" placeholder="password" v-model="password" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input ref="passwd" type="password" placeholder="password" v-model="password" class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="cpasswd.focus()">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
                 <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Confirm Password</div>
-                <input type="password" placeholder="confirmpassword" v-model="confpassword" class="w-full rounded-lg h-12 pl-5" :class="theme.input">
+                <input ref="cpasswd" type="password" placeholder="confirmpassword" v-model="confpassword" class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="$emit('register', register()), $emit('toLogIn')">
             </div>
             
             <div class="flex mt-8 w-full justify-end cursor-pointer">
@@ -103,7 +92,8 @@ const removeNotification = () => {
                 </div>
 
                 <button class="px-8 py-3 rounded-lg text-2xl cursor-pointer hover:drop-shadow-xl z-20"
-                    @click="$emit('register', register()), $emit('toLogIn')" :class="theme.primarybutton">Register</button>
+                    @click="$emit('register', register()), $emit('toLogIn')" 
+                    :class="theme.primarybutton">Register</button>
             </div>
         </div>
     </div>
