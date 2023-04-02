@@ -3,8 +3,6 @@ import { ref, computed, onMounted, inject } from 'vue'
 import { createUser} from '../composables/accountManagement'
 const emits = defineEmits(['toLogIn', 'register'])
 const theme = inject('theme')
-const props = defineProps(['post'])
-
 const name = ref('')
 const username = ref('')
 const email = ref('')
