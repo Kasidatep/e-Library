@@ -6,7 +6,7 @@ const books = ref([])
 const emits = defineEmits(['createBook'])
 
 // create and update
-const isbn = ref('9781593279578')
+const isbn = ref('')
 const title = ref('')
 const author = ref('')
 const description = ref('')

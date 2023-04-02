@@ -13,8 +13,6 @@ onMounted(async () => {
     // console.log(borrows.value)
 })
 
-console.log("here a rai near")
-
 const getDateFormat = (d) => {
     const date = new Date(d)
     return date.getDay() + '/ ' + date.getUTCMonth() + '/ ' + date.getFullYear()

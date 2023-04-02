@@ -89,7 +89,6 @@ const updateBrBookById = async (id) => {
 
 const createNewBook = async (newBook) => {
     let bookObj = books.value?.find(book => book.id === newBook.id)
-    console.log(bookObj)
     let noti = []
     if (newBook.id === bookObj?.id) {
         createNotification("danger", "Sorry, ISBN already exits. Please enter new ISBN", 2500)
@@ -129,8 +128,8 @@ const createNewBook = async (newBook) => {
 const deleteBook = async (bookId) => {
     const status = await deleteBookById(bookId)
     if (status == 200) {
-        books.value = books.value.filter(book => book.id !== id)
-        createNotification("success", "Delete Book" + id + " successfully.", 2500)
+        books.value = books.value.filter(book => book.id !== bookId)
+        createNotification("success", "Delete Book" + bookId + " successfully.", 2500)
     } else {
         createNotification("warning", "Cannot Delete Book Id " + bookId, 2500)
     }
@@ -188,8 +187,6 @@ const editpost = async (data, isUpdate) => {
         return false
     }
     let status
-    // posts.value = await getPosts()
-
     if (isUpdate) {
         const isUpdatedObj = posts.value?.find(p => p.id == data?.id)
         data.postDate = isUpdatedObj.postDate
@@ -210,6 +207,7 @@ const editpost = async (data, isUpdate) => {
         }
     }
 }
+
 const postEditItem = ref({})
 const isEditPost = ref(false)
 const editPostById = async (postId) => {
@@ -220,7 +218,7 @@ const editPostById = async (postId) => {
 }
 
 const deletePost = async (id) => {
-    const post = await posts.value.find(post => post.id === id);
+    const post = posts.value.find(post => post.id === id);
     const status = await deletePostById(id)
     if (status == 200) {
         posts.value = posts.value.filter(i => i.id !== id)
@@ -237,8 +235,6 @@ onMounted(async () => {
     allBorrows.value = await getAllBorrowBook()
     favorites.value = await getFavoriteBook(await user.value?.id)
 })
-
-
 
 const mapPosts = () => {
     let postsMap = []
@@ -257,7 +253,6 @@ const MapAllBorrows = () => {
 }
 
 const gotoBook = (id) => {
-    console.log(id)
     let book = favorites.value?.find((ids) => { return ids.id == id })
     if(book==undefined)  book = allBorrows.value?.find((ids) => { return ids.id == id })
     router.push({ name: 'onebook', params: { id: book?.bookId ?? ' ' } })
@@ -269,7 +264,6 @@ const gotoBook = (id) => {
 }
 
 const gotoRead = (id) => {
-    console.log(id)
     const book = borrows.value?.find((ids) => { return ids.id == id })
     // router.push({ name: 'onebook', params: { id: book?.bookId ?? ' ' } })
     if (book !== undefined) {
@@ -293,7 +287,6 @@ const createNotification = (type, message, timeout) => {
 const removeNotification = () => {
     notifications.value.shift()
 }
-
 
 const isOpen = ref(true)
 </script>
@@ -387,7 +380,7 @@ const isOpen = ref(true)
             <HistoryBorrow v-if="page == 24" />
 
             <ItemLists v-if="page == 25" :items="MapFavorite()"
-                :config="{ header: 'หนังสือที่ชอบของ ' + user.name, subname: 'หมวดหมู่', action1: 'เลิกชอบ', action2: 'อ่านหนังสือ', subvalue: 'value' }"
+                :config="{ header: 'หนังสือที่ชอบของ ' + user.name, subname: 'หมวดหมู่', action1: 'เลิกชอบ', action2: 'รายละเอียด', subvalue: 'value' }"
                 @event1="deleteFavoriteBookById" @event2="gotoBook" />
             <CreateAndUpdateBook v-if="page == 21" @createBook="createNewBook" />
             <CreateAndUpdatePost v-if="page == 22" :isUpdate="false" @createPost="editpost" />

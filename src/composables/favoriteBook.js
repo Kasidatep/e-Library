@@ -43,7 +43,6 @@ const getFavoriteBook= async (userId)=>{
         body: JSON.stringify(newFavoriteBook)
       })
       if ( res.status === 201) {
-        console.log('add successfully')
         return res.status
 
       } else return res.status

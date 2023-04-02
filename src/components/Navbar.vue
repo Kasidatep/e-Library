@@ -1,11 +1,7 @@
 <script setup>
-import MaterialSymbolsSearchSharp from './icons/MaterialSymbolsSearchSharp.vue';
 import IcBaselineLightMode from './icons/IcBaselineLightMode.vue';
 import { RouterLink } from 'vue-router'
 import { inject, ref, onMounted } from 'vue'
-import LineRight from '../components/icons/LineRight.vue';
-import Close from '../components/icons/Close.vue'
-
 const showSearch = ref(false)
 defineEmits(['changeTheme', 'goProfile'])
 const selectedtheme = ref('dark')
@@ -35,7 +31,6 @@ onMounted(() => {
     if(user.value.id === undefined) {
         selectedtheme.value = sessionStorage.getItem(`boi-theme-${sesusername}`)
     }
-    console.log(selectedtheme.value)
 
     // selectedtheme.value = props.themeName
 })

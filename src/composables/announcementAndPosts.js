@@ -40,7 +40,6 @@ const updatePostById = async (id, data) => {
             },
             body: JSON.stringify(data)
         })
-        console.log("updated post"+ id)
         return res.status
     }
     catch (err) {

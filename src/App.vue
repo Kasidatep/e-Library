@@ -20,7 +20,7 @@ const login = async (userlogin, keepuser) => {
     user.value = {}
   }
   else {
-    createNotification("success", "Login Successfuuly.", 2500)
+    createNotification("success", "Login Successfully.", 2500)
     user.value = await userlogin
     if (keepuser) {
       localStorage.setItem("boi-auth", user.value.id)
@@ -94,8 +94,6 @@ onMounted(async () => {
   const sesusername = sessionStorage.getItem("boi-auth")
   user.value = await findUser(username)
   user.value = await findUser(sesusername)
-console.log(username)
-console.log(sesusername)
   if (!(username == null)) {
     console.log(sessionStorage.getItem(`boi-theme-${username}`))
     theme.value = themeUpdate(localStorage.getItem(`boi-theme-${username}`))
@@ -112,7 +110,6 @@ console.log(sesusername)
 
 })
 const deleteData = ()=>{
-  console.log('working..')
   user.value = clearUser()
 }
 provide('user',{user, deleteData})

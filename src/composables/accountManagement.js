@@ -9,7 +9,6 @@ const getUser = async () => {
       const users = await user.json()
       return users
     } else {
-      console.log('cannot get data')
       return false
     }
   } catch (error) {
@@ -19,7 +18,6 @@ const getUser = async () => {
 
 const createUser = async (newUser) => {
   const users = await getUser();
-  console.log(newUser)
   if (
     users.some((user) => user.id === newUser.username) || 
     newUser.password != newUser.confpassword ||
@@ -46,11 +44,9 @@ const createUser = async (newUser) => {
       });
       if (res.status === 201 
         ) {
-        console.log("create successfully");
         const created = await res.json();
         return created;
       }else {
-        console.log("a rai mai ru");
         return {}
       }
     } catch (err) {
@@ -67,7 +63,6 @@ const findUser = async (inputusername) => {
     if ( founduser !== undefined) {
       return founduser
     } else {
-      console.log(`User with username ${inputusername} not found`)
       return false
     }
   } catch (error) {
@@ -85,11 +80,9 @@ const deleteUser = async (userid) => {
                 }
               );
       if (res.ok) {
-        console.log('delete successfully')
         return {}
 
       } else {
-        console.log('cannot delete data!')
       }
     } catch (error) {
       console.log(error)
@@ -127,7 +120,6 @@ const updateUser = async (updateUser) => {
       if (res.status === 200) {
         console.log(`update user ${updateUser.username} successfully`);
         const updated = await res.json();
-        console.log(updated);
         return updated;
       }
     }
@@ -146,25 +138,20 @@ const checkUser = async (id, password) => {
       console.log("username or password is incorrect")
     }
     if (checkuser !== undefined && res.ok) {
-      console.log('login successfully')
       const ress = await res.json()
-      console.log(ress)
-
       return ress
-    } else { 
-      console.log('username or password is incorrect') 
+    } else {  
   }
   } catch (error) {
     console.log(error)
   }}
 }
 const clearUser =()=>{
-  console.log('logout!')
   return {}
 }
 const updateType =async(userid)=>{
   const usr = await findUser(userid)
-  
+
   const typeObj = usr.type==='user'?{type: "librarian"}:{type: "user"}
   try {
       const res = await fetch(`http://localhost:5000/users/${userid}`, {
@@ -175,9 +162,7 @@ const updateType =async(userid)=>{
         body: JSON.stringify(typeObj),
       });
       if (res.status === 200) {
-        console.log(`update user ${userid} successfully`);
         const updated = await res.json();
-        console.log(updated);
         return res.status
       }
     

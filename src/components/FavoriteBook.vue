@@ -9,13 +9,6 @@ const emit =defineEmits(['delFav'])
 // const favorites = ref(['favorite'])
 
 
-// onMounted(async () => {
-//     favorites.value = await getFavoriteBook(user.value.id)
-//     console.log(favorites.value)
-// })
-
-console.log(props.favorites.value)
-
 </script>
  
 <template>

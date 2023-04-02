@@ -8,9 +8,7 @@ const {user} = inject('user')
 
 //chek User
 const checkUser=()=>{
-    console.log(user)
     if(user.value.id===undefined){
-        console.log(user.value)
         createNotification("warning", "Cannot Borrow book please Log In first!! ", 2500)
     }else{
        
@@ -33,7 +31,6 @@ const addFavoriteBook = async ($event) => {
     if(status == 201){
         createNotification("success", "Congrats, "+ $event+ " Added!", 2500)
     }else if(status==400){
-        console.log(status)
         createNotification("warning", "This Book are already in your Favorite List", 2500)
     }else{
 
