@@ -1,23 +1,14 @@
 <script setup>
-import { getBorrowBook , updateBorrowBook} from '../composables/borrowBook.js'
 import { ref, onMounted, inject} from 'vue'
-import { useRouter } from 'vue-router'
-
+import { getDateFormat } from '../composables/dateFormat'
 const props = defineProps(['borrows','allBorrows'])
 const theme = inject('theme')
 const {user} = inject('user')
 const emit= defineEmits(['updateBorrowBook','gotoRead'])
-// const borrows = ref(props.borrows)
-// onMounted(async () => {
-//     borrows.value = await getBorrowBook(user.value.id)
-//     // console.log(borrows.value)
-// })
-
-const getDateFormat = (d) => {
-    const date = new Date(d)
-    return date.getDay() + '/ ' + date.getUTCMonth() + '/ ' + date.getFullYear()
+const isCanRead = (duedate)=>{
+    const current = new Date()
+    return duedate>current.toJSON()
 }
-
 
 </script>
  
@@ -33,7 +24,7 @@ const getDateFormat = (d) => {
                     <div class="col-span-4 lg:text-2xl text-xl pl-4 self-center">
                         <div class="mt-1 flex overflow-hidden ">
                             <div class="px-3 w-fit py-[0.5em] rounded-md mx-1" > 
-                               กำหนดการยืม
+                               ครบกำหนดการยืม
                             </div>
                         </div>
                     </div>
@@ -55,7 +46,7 @@ const getDateFormat = (d) => {
                         :class="theme.button" @click="$emit('updateBorrowBook',brBook.id)" > คืนหนังสือ </div>
 
                         <a :href="brBook.book?.bookLink" class="col-span-1 lg:text-lg text-md justify-self-center self-center px-2 py-2 rounded-md font-semibold cursor-pointer" 
-                        :class="theme.button" @click="$emit('gotoRead',brBook.id)" >อ่านหนังสือ</a>
+                        :class="theme.button" @click="$emit('gotoRead',brBook.id)" v-show="isCanRead(brBook.duedate)" >อ่านหนังสือ</a>
                 </div>
             </div>
         </div>

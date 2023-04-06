@@ -23,6 +23,19 @@ const getBorrowBookByUserId = async (userId) => {
   }
 }
 
+const getCurrentBorrowBookByUserId = async (userId, bookId) => {
+  try {
+    const res = await fetch(`http://localhost:5000/borrows?userId=${userId}&status=1&bookId=${bookId}`)
+    if (res.ok) {
+      return await res.json();
+    }
+    else throw new Error('Error, cannot get book data')
+  }
+  catch (err) {
+    console.log(err)
+  }
+}
+
 const getAllBorrowBook = async () => {
   try {
     const res = await fetch(`http://localhost:5000/borrows?_expand=book`)
@@ -51,7 +64,8 @@ const getBorrowBookById = async (id) => {
 
 
 const addBrBook = async (newBrBook) => {
-// cosnt getBr=await getBorrowBookByUserId(newBrBook)
+ const getBr =await getCurrentBorrowBookByUserId(newBrBook.userId,newBrBook.bookId)
+ if(await getBr.length > 0) return 304
   try {
     const res = await fetch('http://localhost:5000/borrows', {
       method: 'POST',
@@ -71,10 +85,8 @@ const addBrBook = async (newBrBook) => {
 
 const updateBorrowBook = async (updateBrBook) => {
   const book = await getBorrowBookById(updateBrBook)
-  console.log(book)
   book.status = 2
   book.returnDate = new Date(Date.now())
-  console.log(book)
   try {
     const res = await fetch(`http://localhost:5000/borrows/${updateBrBook}`, {
       method: 'PUT',

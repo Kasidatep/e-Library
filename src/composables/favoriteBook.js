@@ -30,10 +30,8 @@ const getFavoriteBook= async (userId)=>{
      const isFav = getFav.find((fav)=>fav.bookId===newFavoriteBook.bookId)
       if(isFav!==undefined){
         // await deleteFavoriteBook(isFav.id)
-        console.log(isFav)
       return 400
     }else{
-    console.log(newFavoriteBook)
     try {
       const res = await fetch('http://localhost:5000/favorites', {
         method: 'POST',

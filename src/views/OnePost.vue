@@ -24,6 +24,7 @@ const shareLocation = window.location
                 You dont't have permistion to access this contents.
                 </div>
         </div>
+        
 
         <div class="flex relative w-screen h-screen justify-center z-0" v-if="post?.title!==undefined">
 

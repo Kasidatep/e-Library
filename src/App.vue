@@ -72,7 +72,6 @@ const register = async (e) => {
 provide('theme', readonly(theme))
 const updateTheme = (e) => {
   theme.value = themeUpdate(e)
-  console.log(e)
   localStorage.setItem(`boi-theme-${user.value.id}`, e)
   if(user.value.id !== undefined){ sessionStorage.setItem(`boi-theme-${user.value.id}`, e) 
 }else sessionStorage.setItem(`boi-theme`, e)

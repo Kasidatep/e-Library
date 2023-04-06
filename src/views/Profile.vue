@@ -71,13 +71,11 @@ const deleteFavoriteBookById = async (id) => {
 
 const updateBrBookById = async (id) => {
     // borrows.value = await getBorrowBookById()  
-    console.log(borrows.value?.findIndex(br => br.id === id))
     const status = await updateBorrowBook(id)
     if (status == 200) {
         borrows.value = borrows.value?.filter((br) => {
             return br.id != id
         })
-        console.log(await getBorrowBookByUserId(await user.value.id))
         createNotification("success", "Return a book Successfully.", 2500)
     }
     else {
@@ -373,12 +371,10 @@ const isOpen = ref(true)
             <ItemLists v-if="page == 11" :items="books"
                 :config="{ header: 'รายการหนังสือทั้งหมด', subname: 'หมวดหมู่', action1: 'แก้ไข', action2: 'ลบ ', subvalue: 'maincatagory' }"
                 @event1="updateBookId" @event2="deleteBook" />
-
             <ItemLists v-if="page == 23" :items="mapPosts()"
                 :config="{ header: 'รายการโพสต์ทั้งหมด', subname: 'Status', action1: 'แก้ไข', action2: 'ลบ ', subvalue: 'value' }"
                 @event1="editPostById" @event2="deletePost" />
             <HistoryBorrow v-if="page == 24" />
-
             <ItemLists v-if="page == 25" :items="MapFavorite()"
                 :config="{ header: 'หนังสือที่ชอบของ ' + user.name, subname: 'หมวดหมู่', action1: 'เลิกชอบ', action2: 'รายละเอียด', subvalue: 'value' }"
                 @event1="deleteFavoriteBookById" @event2="gotoBook" />
@@ -390,8 +386,6 @@ const isOpen = ref(true)
 
             <BorrowBookList v-if="page == 12" @updateBorrowBook="updateBrBookById" @gotoRead="gotoRead" :borrows="borrows"
                 :allBorrows="books" />
-
-
             <Edituser v-if="page == 13" @updateuser="updateuser" @deleteuser="deleteuser" />
             <EditType v-if="page == 90" />
         </div>

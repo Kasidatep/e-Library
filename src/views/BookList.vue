@@ -72,7 +72,9 @@ const addBorrowBook = async ($event) => {
     const status = await addBrBook(brBooks)
     if(status == 201){
         createNotification("success", "Congrats, "+ $event+ " Added!", 2500)
-    }else{
+    }else if(status == 304){
+        createNotification("warning", "This book already exists in your borrows list", 2500)
+    }else {
         createNotification("warning", "Cannot Add!! Something wrong ", 2500)
     }
     

@@ -1,6 +1,7 @@
 <script setup>
 import { getBorrowBook , updateBorrowBook} from '../composables/borrowBook.js'
 import { ref, onMounted, inject} from 'vue'
+import { getDateFormat } from '../composables/dateFormat'
 
 const props = defineProps(['borrows'])
 const theme = inject('theme')
@@ -10,13 +11,7 @@ const borrows = ref(props.borrows)
 
 onMounted(async () => {
     borrows.value = await getBorrowBook(user.value.id)
-    // console.log(borrows.value)
 })
-
-const getDateFormat = (d) => {
-    const date = new Date(d)
-    return date.getDay() + '/ ' + date.getUTCMonth() + '/ ' + date.getFullYear()
-}
 
 </script>
  
@@ -32,7 +27,7 @@ const getDateFormat = (d) => {
                     <div class="col-span-3 text-2xl pl-4 self-center">
                         <div class="mt-1 flex overflow-hidden ">
                             <div class="px-3 w-fit py-[0.5em] rounded-md mx-1" > 
-                               ครบกำหนดการยืม
+                               วันที่ยืม
                             </div>
                         </div>
                     </div>
@@ -46,7 +41,7 @@ const getDateFormat = (d) => {
                     <div class="col-span-3 text-md pl-4 self-center">
                         <div class="mt-1 flex overflow-hidden ">
                             <div class="px-3 w-fit py-[0.5em] rounded-md mx-1 font-semibold" :class="theme.lable"> 
-                                {{ getDateFormat(brBook.duedate) }}
+                                {{ getDateFormat(brBook.borrowdate) }}
                             </div>
                         </div>
                     </div>

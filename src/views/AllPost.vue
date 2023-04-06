@@ -28,7 +28,7 @@ onMounted(async () => {
                 class="text-white bg-opacity-30 flex flex-col m-1 w-full md:w-6/8 lg:w-2/3 md:mx-auto mt-5 rounded-lg"
                 :class="theme.bgblock">
                 <img :src="post.img" alt="" class="m-2 rounded-lg " srcset="">
-                <div :class="theme.text" class="text-2xl px-5 font-semibold"> {{ post.title }} </div>
+                <RouterLink :to="{ name: 'onepost', params: { id: post.id ?? 'notfound' } }" :class="theme.text" class="text-2xl px-5 font-semibold"> {{ post.title }} </RouterLink>
                 <div :class="theme.text" class="text-lg px-5 truncate "> {{ post.description }} </div>
                 <div class="flex h-10 mt-2">
                     <div class="mx-1 flex ">

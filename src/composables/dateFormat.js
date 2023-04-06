@@ -1,4 +1,3 @@
 export const getDateFormat = (d) => {
-    const date = new Date(d)
-    return date.getDay() + '/' + date.getUTCMonth() + '/' + date.getFullYear()
+    return d.slice(8,10) + '/' + d.slice(5,7) + '/' + d.slice(0,4)
 }

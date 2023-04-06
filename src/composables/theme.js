@@ -34,14 +34,14 @@ const themeDark = {
     bgbase: "bg-[#B69A52]",
     textheader: "text-gray-50",
     text: "text-gray-50",
-    bgblock: "bg-[#563F03]",
+    bgblock: "bg-[#563F0370]",
     bgbutton: "bg-gray-100",
     button: ['bg-[#D4C398]', 'text-gray-800'],
     lable: ['bg-emerald-600', 'text-white'],
     input: ['bg-emerald-300', 'text-black'],
     nav: ['bg-[#563F03]', 'text-white'],
     profilebutton: ['bg-[#563F03]','bg-opacity-70', 'text-white'],
-    itemlist: ['bg-[#563F03]','bg-opacity-70', 'text-white'],
+    itemlist: ['bg-[#563F0370]','bg-opacity-70', 'text-white'],
     activebutton: ['bg-rose-500','bg-opacity-50', 'text-white'],
     primarybutton: ['bg-rose-500','bg-opacity-50', 'text-white']
   }
@@ -50,14 +50,14 @@ const themeDark = {
     bgbase: "bg-white",
     textheader: "text-gray-900",
     text: "text-black",
-    bgblock: "bg-gray-500",
+    bgblock: "bg-gray-300",
     bgbutton: "bg-gray-100",
     button: ['bg-emerald-600', 'text-white'],
     lable: ['bg-rose-500', 'text-white'],
     input: ['bg-gray-300', 'text-black'],
     nav: ['bg-gray-700', 'text-white'],
     profilebutton: ['bg-gray-700','bg-opacity-70', 'text-white'],
-    itemlist: ['bg-gray-700','bg-opacity-30', 'text-black'],
+    itemlist: ['bg-gray-400','bg-opacity-30', 'text-black'],
     activebutton: ['bg-rose-500','bg-opacity-50', 'text-white'],
     primarybutton: ['bg-gray-700', 'text-white']
   }

@@ -44,7 +44,7 @@ const update =async () => {
         <div class="w-full mx-auto">
             <div class="flex justify-between">
                 <h1 class=" font-bold text-4xl pt-16" :class="theme.textheader"> แก้ไขข้อมูลผู้ใช้ </h1>
-                <button class="px-3 mt-10 mr-5 py-3 h-fit rounded-lg text-lg cursor-pointer hover:drop-shadow-xl"
+                <button class="px-3 mt-10 mr-5 py-3 h-fit rounded-lg text-lg cursor-pointer hover:drop-shadow-xl" v-show="user.id!=='admin'"
                     @click="$emit('deleteuser', deleteUser(user.id))" :class="theme.primarybutton">DELETE ACCOUNT
                 </button>
             </div>
