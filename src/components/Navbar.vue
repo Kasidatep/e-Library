@@ -2,7 +2,7 @@
 import IcBaselineLightMode from './icons/IcBaselineLightMode.vue';
 import { RouterLink } from 'vue-router'
 import { inject, ref, onMounted } from 'vue'
-const showSearch = ref(false)
+
 defineEmits(['changeTheme', 'goProfile'])
 const selectedtheme = ref('dark')
 const {user} = inject('user')
@@ -24,15 +24,12 @@ const nextTheme = () => {
 }
 
 onMounted(() => {
-    const sesusername = sessionStorage.getItem("boi-auth")
     if (!(user.value?.id === undefined)) {
         selectedtheme.value = (localStorage.getItem(`boi-theme-${user.value?.id}`)) !== null ? (localStorage.getItem(`boi-theme-${user.value?.id}`)) : 'dark'
     } 
     if(user.value.id === undefined) {
-        selectedtheme.value = sessionStorage.getItem(`boi-theme-${sesusername}`)
+        selectedtheme.value = 'dark'
     }
-
-    // selectedtheme.value = props.themeName
 })
 
 let isOpen = ref(false)
@@ -70,18 +67,8 @@ let isOpen = ref(false)
                 </RouterLink>
             </div>
             <hr class="my-3" v-if="isOpen">
-            <!-- search -->
-            <div class="flex justify-center w-full lg:w-fit pt-5 pl-3 pr-2">
-                <div class="flex justify-center pr-4">
-                    <input type="search" placeholder="ค้นหาหนังสือ" class="flex justify-end rounded-md pl-3 h-9 w-64 lg:w-24"
-                        :class="(isOpen?'':'hidden'),theme.text, theme.input">
-                </div>
-                <!-- iconSearch -->
-                <!-- <div class="w-[5%] text-xl" @click="showSearch = !showSearch">
-                    <MaterialSymbolsSearchSharp class="cursor-pointer" :class="theme.text" />
-                </div> -->
 
-            </div>
+           
 
             <div class="pt-2 text-xl flex justify-center items-center mr-3">
                 <IcBaselineLightMode class="cursor-pointer mr-2" :class="theme.text"
@@ -102,7 +89,7 @@ let isOpen = ref(false)
                 <div class="p-2 w-16">
                     <img :src="user.image?.length>10 ?user?.image: '../default/profile.png'" class="w-12 h-12 rounded-full text-3xl lg:-mt-1">
                 </div>
-                <!-- profile -->
+        
                 <div class="my-auto w-fit text-left">
                     <div class="text-lg font-bold pr-1 w-24"> My profile</div>
                     <div class="text-sm truncate pr-2"> {{ user?.name ?? 'Log In' }}</div>

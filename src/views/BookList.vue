@@ -3,10 +3,9 @@ import { ref, onMounted, inject } from 'vue'
 import Catagories from '../components/Catagories.vue';
 import {getBooks} from '../composables/booksFetch.js'
 import { addBrBook } from '../composables/borrowBook.js'
-import { addFavoriteBookById,deleteFavoriteBook } from '../composables/favoriteBook';
+import { addFavoriteBookById } from '../composables/favoriteBook';
 const {user} = inject('user')
 
-//chek User
 const checkUser=()=>{
     if(user.value.id===undefined){
         createNotification("warning", "Cannot Borrow book please Log In first!! ", 2500)
@@ -16,7 +15,6 @@ const checkUser=()=>{
 } 
 
 
-//add Favorite Book
 const addFavoriteBook = async ($event) => {
     if(await user.value.id===undefined){
          createNotification("warning", " please Log In first!! ", 2500)
@@ -38,24 +36,7 @@ const addFavoriteBook = async ($event) => {
 }  
 }
 
-const deleteFavoriteBookById = async(deleteId)=>{
-    const status = await deleteFavoriteBook(deleteId)
-    if (status == 200) {
-        books.value = books.value.filter(book =>{
-            return  book.id !== id
-        })
-        createNotification("success", "Delete Book" + deleteId + " successfully.", 2500)
-    } else {
-        createNotification("warning", "Cannot Delete Book Id " + deleteId, 2500)
-    }
-}
 
-//---------------------------------------------------
-
-
-
-
-//add Borrow Book
 const addBorrowBook = async ($event) => {
     if(await user.value.id===undefined){
          createNotification("warning", "Cannot Borrow book please Log In first!! ", 2500)
@@ -89,7 +70,7 @@ onMounted(async () => {
   books.value = await getBooks()
  
 })
-// Notification -----------------------------------------------------------------------------------
+
 const notifications = ref([])
 const createNotification = (type, message, timeout) => {
     let theme = ["bg-black", "text-white"]
@@ -120,26 +101,26 @@ const removeNotification = () => {
 
             <h1 class="flex justify-center font-bold text-4xl" :class="theme.textheader"> หนังสือทั้งหมด </h1>
             <div class="grid grid-flow-row">
- <!-- Romance -->
- <Catagories title="Romance / รักโรแมนติก" catagory="romance" @borrow="addBorrowBook($event)" @addFav="addFavoriteBook($event)" @delFav="deleteFavoriteBookById($event)"  :books="books"  />
+ 
+ <Catagories title="Romance / รักโรแมนติก" catagory="romance" @borrow="addBorrowBook($event)" @addFav="addFavoriteBook($event)"  :books="books"  />
 
-<!-- Drama -->
-<Catagories title="Dramatic / ดราม่า" catagory="dramatic" @borrow="addBorrowBook($event)"  @addFav="addFavoriteBook($event)" @delFav="deleteFavoriteBookById($event)" :books="books"/>
 
-<!-- Boy Love -->
-<Catagories title="Boy Love / ชายรักชาย" catagory="boylove" @borrow="addBorrowBook($event)"  @addFav="addFavoriteBook($event)" @delFav="deleteFavoriteBookById($event)" :books="books"/>
+<Catagories title="Dramatic / ดราม่า" catagory="dramatic" @borrow="addBorrowBook($event)"  @addFav="addFavoriteBook($event)" :books="books"/>
 
-<!-- Girl Love-->
-<Catagories title="Girl Love / หญิงรักหญิง" catagory="girllove" @borrow="addBorrowBook($event)"  @addFav="addFavoriteBook($event)" @delFav="deleteFavoriteBookById($event)" :books="books"/>
 
-<!-- Fantasy -->
-<Catagories title="Horror / สยองขวัญ" catagory="horror" @borrow="addBorrowBook($event)"  @addFav="addFavoriteBook($event)" @delFav="deleteFavoriteBookById($event)" :books="books"/>
+<Catagories title="Boy Love / ชายรักชาย" catagory="boylove" @borrow="addBorrowBook($event)"  @addFav="addFavoriteBook($event)" :books="books"/>
 
-<!-- Comedy -->
-<Catagories title="Comedy / คอมเมดี้" catagory="comedy" @borrow="addBorrowBook($event)"  @addFav="addFavoriteBook($event)"  @delFav="deleteFavoriteBookById($event)" :books="books"/>
 
-<!-- Documentary -->
-<Catagories title="Documentary / สารคดี" catagory="documentary" @borrow="addBorrowBook($event)" @addFav="addFavoriteBook($event)" @delFav="deleteFavoriteBookById($event)" :books="books"/>
+<Catagories title="Girl Love / หญิงรักหญิง" catagory="girllove" @borrow="addBorrowBook($event)"  @addFav="addFavoriteBook($event)" :books="books"/>
+
+
+<Catagories title="Horror / สยองขวัญ" catagory="horror" @borrow="addBorrowBook($event)"  @addFav="addFavoriteBook($event)" :books="books"/>
+
+
+<Catagories title="Comedy / คอมเมดี้" catagory="comedy" @borrow="addBorrowBook($event)"  @addFav="addFavoriteBook($event)" :books="books"/>
+
+
+<Catagories title="Documentary / สารคดี" catagory="documentary" @borrow="addBorrowBook($event)" @addFav="addFavoriteBook($event)" :books="books"/>
             </div>
         </div>
     </div>

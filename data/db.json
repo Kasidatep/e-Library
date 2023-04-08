@@ -16,7 +16,8 @@
       "email": "bank@kasidate.me",
       "phone": "0123214542",
       "type": "librarian",
-      "password": "kasidate"
+      "password": "kasidate",
+      "image": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHCBIVFRISEhUSEhEYERERERIRERERERESGBQZGRgYGRgcIS4lHB4rIRgYJjgmKy8xNTU1GiQ7QDs0Py40NTEBDAwMDw8PEA8PED8dGB0xMTQ0NDQxMTE0MTExMTQxMTQ0MTE0MTExMTQxMTExMTExNDQ/MTExMTExMTExMTExMf/AABEIAOEA4QMBIgACEQEDEQH/xAAcAAACAgMBAQAAAAAAAAAAAAAAAgEDBAYHBQj/xABGEAACAgECAgYGBgYIBQUAAAABAgADEQQhEjEFBgcTQVEiYXGBkaEyQpOxssEUUoKSwtIXIyRicqLh8RZTVKPRFTNjc8P/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/EABQRAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhEDEQA/ANExDEmECMQxJkMwHOBXZXn2ypFCn0sctvERy7cxylbZPOBkDB25zGdMHElTjlJc58P9YFeIxxjlv4mGIQFxDEaGICYk4jYhiAmIYj4hiAuJGI+IYgJiTiNiGICYk4k4k4gJiGI2JOIC4kYj4hiAmIYj4hiAkI+IQM2EbEIERGQE785ZMexMb58YDWDAwDj1ecpJ8Nvb4yeGGICgSXUDkcwxJxAXEMScScQFxDEnEmAuIYjQxAXEMRoYgLiGI2IYgLiGI2IYgLiGI2JGIEYhiTiTiAuIYjYhiAuIYjYhiAuIRsQgZuJA3jMDjbnKd1P3wLZRcm/tjFsHI3B5yxwCM++Bi4hiPiGICYhiPiRiAoEMRsScQExIxLMSCIC4gRGxJxArxCNjG3hDECMQxGEMQFxDEbEnEBMSMSzEjEBcQxHxDEBMQxHxDEBMQxHxIxAXEI2IQMzExiJej+B5xbE8YFY9e8jJk4hiBGIYk4hiAYkYjAecCIC4hiTiGIEYkYj4kYgRiGI2JBECCsT7x90sUwZfLnArEciLGSBAk4kRhAMSMRsSMQIxDEbEMQFxDEnEnEBcQxJxDECMQk4hAfEcNn6XykYhiAuIYjYhiAuIYmRotI9rpXWOJ3YIi5ALMfbymz/0ddI/qU/bLt8oGoYhibj/AEc9I/q0fbf6SD2ddI/q0/bD/wAQNPxDE9/pvqnq9KgtvWsVlwgKWK54iCRt7FM8LEBcQxGxPb6G6q6vVIbaEVkDlOJ7FTLAAnGeY3G8DwsQxNss7PukVBbgQ4BYgXITt+c1UQEZPjFDeB/0MsI8p7nQ/VHWaqsW1InAWZRx2KhJU4OB7YGvsn+sUGbh/R70iM5WkgAnHfDPsG009/McjAlxGSbPoeomvtqS1FqCOi2JxWgMUYZUkY22ImJ0v1T1mlQW3IgTiCFkdXwx5ZHOB4hk4hZym2p2e9IlQeCvcA4NyZHtgaliGJ7/AE11T1elQW3ogQuKwUsV/SIJAxz+qZ4YX3nwA3JPqEBMQxNuXs86RIB4KxkA4Nyhh6j65j9J9SdZp6nvtFQrQZfFqlhvgADG5yRtA1nEMRsQxAXEI+IQJxDEbEMQFxDEbEMQNh7P9Pxa/Tf3DZYfYtbfmRO3TlvZNpc36i3b0KUr9eXfO3urM6lAITj3THXTXrqNQtd5WtbrErUV1EBFcgblSTymJ/xr0l/1LfZ0/wAkDau1zU/1elp8Wse0/sJwD8ZnMcTO6U6Tv1Lh9Q7WOFCKSFGFyTgBQB4mYWIDUUM7pWg4nd1RB5uzBVHxIn0B0L0cmnoqoTGEQKSPrPzdvexJ985l2Y9Ed5qG1DD0KB6OfG1wQvwHEfaVnWoEsuQR5gifNzLgkeRI+E+kVnztq6+F7F8rLF+DkQMfE7l1M0nBoNKhGCa+8IIwcuxf+KcO4SdhuTsB5k8p9F6agIlda8krSsexVCj7oHm9YdSadNqbR6QSi1h58QQ4+eJwDR0d49da/XdKx55dgo++dt7RbuDQXAbM7VVj15dSfkpnKeqeiFmu0icj3yufIhAX/hgdz06hMINlACqPIAYA+E0ntZ1HDpqawR6eo4iPEqiNn5ss3gjwbn4Gcw7W9TxWaWrxSu1z+2yqPwH4wNO6No7y2isb8d1Vf7zqPzn0QhzOG9QKOPXaYeCs9hz4cCMR88TuFJ2gaJ2tX4p01f617P7kQr/HPM7NOrfG36bavoIxGnUjZ7BsX9i8h68+U9Prd0Y+u1+n0q5FddHeXuOSI7nIB/XIQAD155AzetNQlaJXWoREUIiryVRsBAtnIu0XrEb7Tpq2/s9TYfhO1lw5nI5heQ9eT5Tbe0DrL+j19xU39ptU7qd6qzsW9RO4HvPhOPgQIxDEnEMQIhJxCAwhiA5xhAjEMRsQxA6h2UaYrp77D9e8KPIhEG/xcj3TenJwSNzg4HmcbTw+pek7vRaVcYLV963tcl/uYT3IHF7Oo/Sf0moDMTxMRdpz6RO/155XSXQ2p0+O/qsrBOAzDKE+QcZUn3zvsr1FCOjV2KrowKsjgFWB8CIHzvIM9brL0V+jam2gZ4FYNWTuSjAMu/jjOM+qX9UOixqdXTWwzWrd7YMZBRN8H1E8K++B1Tqb0X+j6SmsjDsve27DPG++D54HCv7M9PU65UsoqO72s4THgEQuxPq2A/amTNI/9Q73pqusH0KKba18u8KEufmF/YgbwJ8+9Kri/UDy1Fw/7jT6BnA+nk4dTq18tVqB/wB1oD9WtJ3mr0teM5vrYj+6jcbfJTO9TkHZppePWh/Cuqyz3kBB+M/CdfgaX2maO+6miuiuy3+tZ3Fas/CFUhc4/wAR+E8Ds+6A1NeqNt9NlaJS/AbEKZsYhQBkb+iXnU4rD/eBVxeB3Hn4icU7Q7ePX3EHiVBXWD5cKAkfFmnbGT/fwnz50zqWfUaiw78d9reogucfLEDa+yfT51Nz/qUED2u6j7lb5zq9B5+2c+7J6AKtTb4talfuROL/APT5Tf6TuYDU0orO6qA7lS7eLFVCr8APv85i9N9K16al77OSj0VBwXc/RQesn8z4TNTxnMe1d7O80yknue7sKqM47wMAxPmeErj2nzgaXr9bZfZZda3FY7cTHwHkoHgAMAeyUYkqJMBcQxGxJIgJiEbEICjnAxVbceyBO8C4Rq6mcqijLMwRR5sxwB8TF8BPa6pabj1mlTGR3qufYnpn8MDtenpCIlY5IiIPYqgD7pqvaP0i9WmRa3et3uRONHZHCqC5wRv4Ae+bbObdquoy+lqz9FLLCP8AGwVfwN8YB2b9M6h73ossssrNLWL3js7I6sg2Zt8EMduW06TOb9lvR7cd2pIIQJ3KN4MzMGbHsCr+9OkQOS9pwH6aMf8ATVZ9vHZ+WJ7/AGXdF8FdmqYb2EJX592hPEfe34BNW62O2p19qVjiY2Jp6wPFkAQ+7iDTrnR+kSmuulPoIiovrwOZ9Z3PvgPqrwiWWEEhEdyBuSFUnA+E5Z2f2O/SDWP9Nq9Q77HZmYE/MzrEkmBBnCutAxrNZ5fpNp+Lk/nO6zhnW0f23WD/AOdyIG4dk+nwNXZ4E1Vj3BmP4lnRDNQ7NqODRK3i9tjn1gEIPwTaNXqAldljfRRHdvYqlj90DSOke0Tu7bal0wsCWOiv35Ti4WIJK8B8R5zcuidYb6KrynAbEV+Di4+ENuBxYGdseE4NlnOfru3+Zj/5M7/o6BWldY5JWlY9iqB+UDF6X1PdUX2D6lNj49YQkY98+f8Ag28x4g8xO19oV3BobsbF2rrHvcE/IGcXceex8D5wOu9QNB3ehqZfrmy1h4+kxA/yqs9bpbpD9Hou1GOLgTiC+ZyAB8SJkdFaXuqaKuTJVWnqYqgB+c1/tHvC6J15F7akI9jcf8EDatNarqtinKMqup81YZB+Bmp9ofRxt0pdRlqbFs9fAQVf3ekD+zMjqBr+80VakgtUWpPnwrun+UqPdNis0y2JZW+6OjVt/hYEH74Hz+8hZZ0jpHqsel/po7Vt5EqcZ9h5xEEBsQxJ4TDECMSI+JMDCU7yGbePw7ypxvAzPATbuzeni1nF4JRY+fIkqg+TmacG2E3LqN0zpdMbnvdkZxWqYR3HCOIt9EHxI+EDrQnl9JdAaTUMHuqV3ChQxZ1PCCSBsRkbn4zz1679HY/95vsL/wCST/xt0d/zz9hqP5IHvaahEVUrVURRhUQBVUeoCef1j6XXTad7SRx44alPN7CPRHu5n1Azx9Z1/wBGi5r7y5vBVQ1j3s+MD3Gc+6f6ct1dnHZ6KjIrrUnhRfzJ8TA97s16MNl76p91rBCk/WucHJ9ylv3hOnzROqvWPo7TaauprGWw5e7+qtbNjc9wpBAAA9gnr3dd9AEZktLuFYqndXAu2NlyVAGT5mBhdYOvI0970JSLeAKHc293hyMlQOE5wCN/PMyOrPXAau009ya2FbWcXecYwrKMY4R+t8pyq+13drHPE7Mzux8WY5JnvdR+kqtNqTZc3Ahpevi4XfDFkI2UE/VMDsE4p12Qfpur/wDsB95RTOlHrt0d/wA8/Yaj+Sc16xaqm7W2WqxbTvZWWYKysUCIr4BAOdmgdV6AoNem01ZADJRWrgYxxcILfMmYPXjVcGhvHi/BUPY7DP8AlDSk9eOjSMraw8CO4v5fuzVuu/WjT6muurTuz4t43JR0XhCsAPSAJ3bPuga71co49Tpq+YOoqz/hDgn5AzuoM4j1W1dNOrpuvJWteNsqrNhijBcgb4yfCdK/426O3/rz9hqM/ggeV2p3DutNX4ta9mPUi8P8c570Zp+O+isjKvfUhH90uoPyzNg679N16q2s0sWrSsqCUZMuzZbY78gvwnm9WtVXVqabbiVrRmZiFL4PAwXYbnciB2Z/ivzE592qakcGlqySC72ZHhwgKM/vGe9Z116PG4uY+ruL/wCSc9659MV6nUCylmapakrAZSm+WZiFO45ge6B6vZnrOC6ygnayviT12Jv+Et+7OqKcCcE6H1ZpuqvT6lisy/3eTD3gke+dSs689H8u9b7C/wDkgaf2j6Dg1S2gYW2sMT4GxPRb5cHxmnl9wJ0Drp07odTp1Wty16OGTNVqZU7OvEygAYwf2RNAVPSzAykklRBeUCYEcEIQgY7pvMewbzJofOx90TUV7wKkbkJfaeXtmOo3l1vh7YGUvKSZC8hBzgQJECJFbSwQFEMQxiNAXEnEkQxAjEMScQxAxraiDxLz8R5zHZhnI948jPRxMW+nO45/fAlDkD1Rn85TQcEgy6z6PsgMssxMepszLUQEZJg2pvtznpETGuTMDEVvEbHyl6HPPnKymfUfvllZ89jABzhbtylmJWzbwHTOJaolamWqIE8MmHFCBiOituuxjVPxbHnK3rwcjl4SOE8xzgTbXhhC8cpajcWPMSNSvKBYOQhbykkbCV3HYQJQbQreGcCFYzAv5yBtKwxEtBBgQRJEkQECJMmBgGIjrHWTAwXXxH+0ZDkES62vxHvHnMcbHI5QK0fHxmfWdpgsvOZmmORAtiOkY84xEDGZRK2Xz9xl1m35yhzj2QBT4eMgpmRnxl1TQHrrwJDvvLHaKqQDMI+IQKXq8jj1StfJhj1zMYA89j5ypxjZhkecCg0lfSXcSxvTAPjHVSPo7jylTMAcj3iBdYNpjjciZT7rkSild4E3jaImRHv8BLkTaBTxAyOUd6fKUloGQr5jzGSXo0B4NCS0BUjYkLLAIETHup5mZEmB5yLuRLtNzIkaivhORyiVv6QMDLcbx1iWRq4CWpMNhjbw+6ekVmHqK4FCbSxNpVLM7QLAcmXHaUJ5yxt4B3gkyruTCBlOsryRz9JfnMpllLoRCqQnih90GUNz2aGN9tj8jG4gdm2PgYRSpKnB5TIrSI6HGDuPORVZ4QFYZeZDDAiUrkky14CZ2mPwAmW28tpFI84FTIRJV5lsJjMm+0C1DHZZjpkTJU5gViWLFYRxAgiTAwMCHTIxPOdcGemJjamvxgK7ZWNpnlAPhLNPzgZsS1MiW+EAIHlOmDIEzNRXMQiA6mXUTHEsDwMvAkzE70wgeliQVjYhiBiXV4lHt3E9C1Miee6EHEB0YjluPKO9atuNjKVOOUuQg+owF074ODGuO8S9Dz+cmscUCAhaX8AxLFTEpufECp7MbGQgzFwTvHU4gWMolaEiSz5jIIFhGYCQpjkQEHODc5KCBEAWOy5GJWktUwMHu8NiSVwRL705NEt3AMDJHKSsVD6MmqAOmZhWpiejiY+orgYOICORAiAuISYQPWhCEioMxdX4SYSjDjDmJMIRln6Mo030oQgZj8pgWc4QgWaeK/MwhATxlw5QhAFlwhCAqeMloQgIsdYQgTZymKeUIQMmnlHphCBaIr8oQgec/ORCEAhCED//2Q=="
     },
     {
       "id": "jrpond",
@@ -34,7 +35,7 @@
       "username": "L5139",
       "email": "chanathip.L5139@mail.kmutt.ac.th",
       "phone": null,
-      "type": "user",
+      "type": "librarian",
       "password": "",
       "image": ""
     },
@@ -88,8 +89,8 @@
       "maincatagory": "romance",
       "subcatagory": [
         "เศร้า",
-        "ตลก",
-        "ต่างวัย"
+        "  ตลก",
+        "  ต่างวัย"
       ],
       "description": "เรื่องราวภาคต่อของรักอื่นหมื่นแสน",
       "booklink": "https://pdfhost.io/v/Zf9Qc4RY8_key_points_to_consider_before_investing_in_hotels_in_Dubai_for_sale",
@@ -527,8 +528,9 @@
       "borrowdate": "2023-04-06T07:45:10.837Z",
       "returndate": null,
       "duedate": "2023-04-13T07:45:10.837Z",
-      "status": 1,
-      "id": 4
+      "status": 2,
+      "id": 4,
+      "returnDate": "2023-04-06T09:27:17.915Z"
     },
     {
       "bookId": "9781593279005",
@@ -536,8 +538,9 @@
       "borrowdate": "2023-04-06T07:45:12.095Z",
       "returndate": null,
       "duedate": "2023-04-13T07:45:12.095Z",
-      "status": 1,
-      "id": 5
+      "status": 2,
+      "id": 5,
+      "returnDate": "2023-04-06T09:27:22.768Z"
     },
     {
       "bookId": "9781593276000",
@@ -710,8 +713,9 @@
       "borrowdate": "2023-04-06T08:23:18.473Z",
       "returndate": null,
       "duedate": "2023-04-13T08:23:18.473Z",
-      "status": 1,
-      "id": 23
+      "status": 2,
+      "id": 23,
+      "returnDate": "2023-04-06T09:27:06.707Z"
     },
     {
       "bookId": "9781593279003",
@@ -876,6 +880,25 @@
       "duedate": "2023-04-13T08:39:37.661Z",
       "status": 1,
       "id": 40
+    },
+    {
+      "bookId": "9781593279006",
+      "userId": "kasidatep",
+      "borrowdate": "2023-04-07T11:34:51.200Z",
+      "returndate": null,
+      "duedate": "2023-04-14T11:34:51.200Z",
+      "status": 2,
+      "id": 41,
+      "returnDate": "2023-04-07T11:37:59.044Z"
+    },
+    {
+      "bookId": "9781593279004",
+      "userId": "geist",
+      "borrowdate": "2023-04-08T05:57:10.395Z",
+      "returndate": null,
+      "duedate": "2023-04-15T05:57:10.395Z",
+      "status": 1,
+      "id": 42
     }
   ],
   "posts": [
@@ -914,14 +937,18 @@
       "visible": 2,
       "postDate": "2023-03-22T18:07:35.157Z",
       "userId": "kasidatep"
+    },
+    {
+      "id": 6,
+      "title": "Library : Anoucement",
+      "description": "ทดสอบการโพสต์",
+      "img": null,
+      "visible": 1,
+      "postDate": "2023-04-06T09:28:51.017Z",
+      "userId": "kasidatep"
     }
   ],
   "favorites": [
-    {
-      "bookId": "9781593279003",
-      "userId": "kasidatep",
-      "id": 14
-    },
     {
       "bookId": "9781593279004",
       "userId": "admin",
@@ -941,6 +968,31 @@
       "bookId": "9781593279009",
       "userId": "admin",
       "id": 18
+    },
+    {
+      "bookId": "9781593279036",
+      "userId": "kasidatep",
+      "id": 19
+    },
+    {
+      "bookId": "9781593279035",
+      "userId": "kasidatep",
+      "id": 20
+    },
+    {
+      "bookId": "9781593279005",
+      "userId": "geist",
+      "id": 23
+    },
+    {
+      "bookId": "9781593279003",
+      "userId": "geist",
+      "id": 24
+    },
+    {
+      "bookId": "9781593279004",
+      "userId": "geist",
+      "id": 25
     }
   ]
 }

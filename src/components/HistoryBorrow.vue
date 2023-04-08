@@ -1,5 +1,5 @@
 <script setup>
-import { getBorrowBook , updateBorrowBook} from '../composables/borrowBook.js'
+import { getBorrowBook } from '../composables/borrowBook.js'
 import { ref, onMounted, inject} from 'vue'
 import { getDateFormat } from '../composables/dateFormat'
 

@@ -33,9 +33,8 @@ const login = async (userlogin, keepuser) => {
     showLogIn.value = false
   }
 }
-const logout = async (userlogout) => {
+const logout =  () => {
   createNotification("warning", "Logout Successfully", 2500)
-  user.value = await userlogout
   localStorage.removeItem("boi-auth");
   sessionStorage.removeItem("boi-auth")
   theme.value = themeUpdate('dark')
@@ -77,13 +76,7 @@ const updateTheme = (e) => {
 }else sessionStorage.setItem(`boi-theme`, e)
   
 }
-const isHomePage = ref(false)
 
-// Users
-
-
-
-// Book Fetch ---------------------------------------------------------------------------------------------
 const books = ref([])
 onMounted(async () => {
   books.value = await getBooks()
@@ -110,10 +103,10 @@ onMounted(async () => {
 })
 const deleteData = ()=>{
   user.value = clearUser()
+  logout()
 }
 provide('user',{user, deleteData})
 
-// Notification -----------------------------------------------------------------------------------
 let notifications = ref([])
 const createNotification = (type, message, timeout) => {
   let theme = ["bg-black", "text-white"]
@@ -150,7 +143,7 @@ const showProfile = () => {
     <Navbar @changeTheme="updateTheme($event)" @goProfile="showProfile" />
     <div>
 
-      <!--Pop Up -->
+
       <div class="w-screen h-screen bg-opacity-70 fixed bg-blur pt-24 z-30" :class="theme.bgbase"
         v-if="showLogIn || showRegister">
         <div
@@ -166,11 +159,10 @@ const showProfile = () => {
             v-if="showLogIn" />
           <Register @register="register" @toLogIn="() => { showLogIn = !showLogIn, showRegister = false }"
             v-if="showRegister" />
-          <Profile />
         </div>
       </div>
 
-      <RouterView @logout="logout" />
+      <RouterView />
     </div>
 
   </div>

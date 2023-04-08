@@ -20,7 +20,7 @@ onMounted(async () => {
 
 </script>
 <template>
-    <div class="flex justify-center w-full pt-32">
+    <div class="flex justify-center w-full min-h-screen pt-32">
         <div class="w-full md:w-[70%] px-5">
             <div class="text-3xl font-bold w-full text-center" :class="theme.textheader">All Post</div>
 
@@ -32,7 +32,7 @@ onMounted(async () => {
                 <div :class="theme.text" class="text-lg px-5 truncate "> {{ post.description }} </div>
                 <div class="flex h-10 mt-2">
                     <div class="mx-1 flex ">
-                        <img :src="post.user?.img ?? './default/profile.png'" class="ml-5 h-8 w-8 rounded-full " />
+                        <img :src="post.user?.image ?? './default/profile.png'" class="ml-5 h-8 w-8 rounded-full " />
                         <div class="ml-2 h-8 w-fit flex flex-col md:flex-row justify-start align-middle">
                             <div class=" text-sm md:text-md my-auto" :class="theme.text">
                                 By.. {{ post.user?.name }}

@@ -12,13 +12,13 @@ const isPublic = ref(true)
 const isAdvance = ref(false)
 const post = ref(null)
 
-const po = ref('')
-const img = ref('')
-const titles = ref('')
-const desc = ref('')
-const custom = ref('')
-const vstyping =ref('')
-const k1 = ref('')
+const po = ref(null)
+const img = ref(null)
+const titles = ref(null)
+const desc = ref(null)
+const custom = ref(null)
+const vstyping =ref(null)
+
 
 const postEdit = ref({
     id: customUrl.value == null ? null : customUrl.value,
@@ -60,17 +60,17 @@ onUpdated(() => {
     <div class="flex flex-col m-5 z-10">
         <h1 class=" font-bold lg:text-4xl text-3xl pt-16" :class="theme.textheader">{{ isUpdate ? 'แก้ไขโพสต์' : 'สร้างโพสต์ใหม่' }} </h1>
         <div class="flex flex-col lg:flex-row mt-5 h-24 lg:h-12">
-            <div class="text-lg font-bold px-2 pt-2 w-48 mb-1" :class="theme.text">Title</div>
+            <div class="text-lg font-bold px-2 pt-2 w-48 mb-1" :class="theme.text">Title*</div>
             <input ref="titles" type="text" v-model="title" placeholder="Enter post title..." class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="desc.focus()">
         </div>
         <div class="flex flex-col lg:flex-row mt-3 h-min">
-            <div class="text-lg font-bold px-2 pt-2 w-48 mb-1"  :class="theme.text">Description</div>
+            <div class="text-lg font-bold px-2 pt-2 w-48 mb-1"  :class="theme.text">Description*</div>
             <textarea ref="desc" type="text" class="w-full rounded-lg pl-5 pt-2 h-48" placeholder="Enter post description..." v-model="description " 
             @keyup.enter="img.focus()"
                 :class="theme.input"></textarea>
         </div>
         <div class="flex flex-col lg:flex-row mt-5 h-24 lg:h-12">
-            <div class="text-lg font-bold px-2 pt-2 w-48 mb-1"  :class="theme.text">Image URL</div>
+            <div class="text-lg font-bold px-2 pt-2 w-48 mb-1"  :class="theme.text">Image URL*</div>
             <input ref="img" type="url" v-model="imgUrl" placeholder="Enter post images..." class="w-full rounded-lg h-12 pl-5" :class="theme.input" 
             @keyup.enter="isAdvance === false ? $emit('createPost', postEdit, isUpdate) : custom.focus()">
         </div>

@@ -1,9 +1,9 @@
 <script setup>
-import { ref, computed, inject } from 'vue'
+import { computed, inject } from 'vue'
 import { findByCatagory } from '../composables/bookFunction'
 import PhHeartFill from './icons/PhHeartFill.vue';
-import PhHeartLight from './icons/PhHeartLight.vue';
-const like = ref(true)
+
+
 const theme = inject('theme')
 const props = defineProps({
     title: {
@@ -22,7 +22,7 @@ const props = defineProps({
 const datas = computed(() => {
     return findByCatagory(props.catagory, props.books)
 })
-defineEmits(['borrow'])
+defineEmits(['borrow','addFav'])
 </script>
 <template>
     <div class="pt-16 w-full container ">
@@ -45,10 +45,8 @@ defineEmits(['borrow'])
                         </div>
                     </div>
                     <div class="flex mt-4 justify-between items-end">
-                        <div class="box text-3xl h-10 w-fit rounded px-1 flex items-center ml-5 text-red-500 cursor-pointer"
-                            @click="like = !like">
+                        <div class="box text-3xl h-10 w-fit rounded px-1 flex items-center ml-5 text-red-500 cursor-pointer">
                             <PhHeartFill @click="$emit('addFav', data.id)" />
-                            <!-- <PhHeartFill v-show="!like" @click="$emit('delFav',data.id)"  /> -->
                         </div>
                         <button @click="$emit('borrow', data.id)" class="box h-10 w-fit px-3 rounded font-semibold c"
                             :class="theme.button">

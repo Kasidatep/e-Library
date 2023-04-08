@@ -12,7 +12,7 @@ const getFavoriteBook= async (userId)=>{
   }
   const getFavoriteBookByUserId= async (userId)=>{
     try {
-        const res = await fetch(`http://localhost:5000/favorites?_userId=${userId}`)
+        const res = await fetch(`http://localhost:5000/favorites?userId=${userId}`)
         if (res.ok) {
           return await res.json();
         }
@@ -29,7 +29,6 @@ const getFavoriteBook= async (userId)=>{
       const getFav= await getFavoriteBookByUserId(newFavoriteBook.userId)
      const isFav = getFav.find((fav)=>fav.bookId===newFavoriteBook.bookId)
       if(isFav!==undefined){
-        // await deleteFavoriteBook(isFav.id)
       return 400
     }else{
     try {

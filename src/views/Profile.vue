@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, inject, onMounted, onUpdated } from 'vue'
+import { ref, computed, inject, onMounted } from 'vue'
 import ItemLists from '../components/ItemLists.vue'
 import CreateAndUpdatePost from '../components/CreateAndUpdatePost.vue';
 import CreateAndUpdateBook from '../components/CreateAndUpdateBook.vue';
@@ -8,9 +8,9 @@ import BorrowBookList from '../components/BorrowBookList.vue';
 import { getBooks, updateBookById, createBook, deleteBookById } from '../composables/booksFetch.js'
 
 import Edituser from '../components/Edituser.vue';
-import { updateBorrowBook, getBorrowBookByUserId, getBorrowBook, getAllBorrowBook } from '../composables/borrowBook.js'
+import { updateBorrowBook, getBorrowBook, getAllBorrowBook } from '../composables/borrowBook.js'
 import HistoryBorrow from '../components/HistoryBorrow.vue';
-import { deleteFavoriteBook, getFavoriteBookByUserId, getFavoriteBook } from '../composables/favoriteBook.js';
+import { deleteFavoriteBook, getFavoriteBook } from '../composables/favoriteBook.js';
 import { useRouter } from 'vue-router'
 import EditType from '../components/EditType.vue'
 const { user, deleteData } = inject('user')
@@ -29,20 +29,20 @@ const page = ref(12)
 
 const router = useRouter()
 
-// User
+
 const updateuser = async (userupdated) => {
     if (await userupdated === 'passnotmatch') {
         createNotification("warning", "Password not match!!", 2500)
     }
     else {
-        createNotification("success", "Update Success from Profile", 2500)
+        createNotification("success", "Update Success ", 2500)
         console.log(await userupdated)
         user.value = await userupdated
     }
 }
 
 const deleteuser = async () => {
-    createNotification("success", "Delete Success Profile", 2500)
+    createNotification("success", "Delete Success ", 2500)
     user.value = {}
 }
 
@@ -66,8 +66,6 @@ const deleteFavoriteBookById = async (id) => {
 
     }
 }
-
-
 
 const updateBrBookById = async (id) => {
     // borrows.value = await getBorrowBookById()  
@@ -164,8 +162,6 @@ const updateBookId = (bookId) => {
 }
 
 
-
-// ---- Post --------------------------------------------
 
 const editpost = async (data, isUpdate) => {
     if (user.value?.id === undefined) {
@@ -271,7 +267,6 @@ const gotoRead = (id) => {
     }
 }
 
-// Notification -----------------------------------------------------------------------------------
 const notifications = ref([])
 const createNotification = (type, message, timeout) => {
     let theme = ["bg-black", "text-white"]
@@ -360,7 +355,7 @@ const isOpen = ref(true)
                     อัพเดตสิทธิผู้ใช้</div>
                 <div class="cursor-pointer lg:text-2xl text-xl text-center rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300"
                     :class="theme.profilebutton" @click="page = 13, isOpen = false">แก้ไขข้อมูลผู้ใช้</div>
-                <div @click="deleteData(), isOpen = false"
+                <div @click="deleteData(), isOpen = false, page = 12" 
                     class="cursor-pointer lg:text-2xl text-xl text-center  rounded-lg py-3 my-2 uppercase hover:bg-opacity-80 hover:-translate-y-1 ease-in-out duration-300 bg-red-600 text-white">
                     ออกจากระบบ
                 </div>
@@ -368,26 +363,25 @@ const isOpen = ref(true)
         </div>
         <div class="w-full min-h-screen h-full mt-6 md:mt-0 md:w-[75%] md:blur-none md:opacity-100"
             :class="isOpen ? 'blur opacity-30' : ''">
-            <ItemLists v-if="page == 11" :items="books"
+            <ItemLists v-show="page == 11" :items="books"
                 :config="{ header: 'รายการหนังสือทั้งหมด', subname: 'หมวดหมู่', action1: 'แก้ไข', action2: 'ลบ ', subvalue: 'maincatagory' }"
                 @event1="updateBookId" @event2="deleteBook" />
-            <ItemLists v-if="page == 23" :items="mapPosts()"
+            <ItemLists v-show="page == 23" :items="mapPosts()"
                 :config="{ header: 'รายการโพสต์ทั้งหมด', subname: 'Status', action1: 'แก้ไข', action2: 'ลบ ', subvalue: 'value' }"
                 @event1="editPostById" @event2="deletePost" />
-            <HistoryBorrow v-if="page == 24" />
-            <ItemLists v-if="page == 25" :items="MapFavorite()"
+            <HistoryBorrow v-show="page == 24" />
+            <ItemLists v-show="page == 25" :items="MapFavorite()"
                 :config="{ header: 'หนังสือที่ชอบของ ' + user.name, subname: 'หมวดหมู่', action1: 'เลิกชอบ', action2: 'รายละเอียด', subvalue: 'value' }"
                 @event1="deleteFavoriteBookById" @event2="gotoBook" />
             <CreateAndUpdateBook v-if="page == 21" @createBook="createNewBook" />
             <CreateAndUpdatePost v-if="page == 22" :isUpdate="false" @createPost="editpost" />
-            <ItemLists v-if="page == 27" :items="MapAllBorrows()"
+            <ItemLists v-show="page == 27" :items="MapAllBorrows()"
                 :config="{ header: 'รายการการยืมทั้งหมด', subname: 'สถานะการยืม', action1: '', action2: 'รายละเอียดหนังสือ', subvalue: 'value' }"
                 @event1="updateBrBookById" @event2="gotoBook" />
 
-            <BorrowBookList v-if="page == 12" @updateBorrowBook="updateBrBookById" @gotoRead="gotoRead" :borrows="borrows"
-                :allBorrows="books" />
+            <BorrowBookList v-if="page == 12" @updateBorrowBook="updateBrBookById" @gotoRead="gotoRead" :borrows="borrows" />
             <Edituser v-if="page == 13" @updateuser="updateuser" @deleteuser="deleteuser" />
-            <EditType v-if="page == 90" />
+            <EditType v-if="page == 90 ,user.type === 'admin'" />
         </div>
     </div>
 </template>

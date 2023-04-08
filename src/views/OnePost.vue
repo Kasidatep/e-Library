@@ -1,14 +1,17 @@
 <script setup>
 import { ref, onMounted, inject } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter} from 'vue-router'
 import { getPostById } from '../composables/announcementAndPosts'
 import { getDateFormat } from '../composables/dateFormat'
 const theme = inject(['theme'])
+const {user} = inject(['user'])
 const route = useRoute()
+const router = useRouter()
 const id = route.params.id
 const post = ref({})
 onMounted(async () => {
     post.value = await getPostById(id)
+    if(post.value?.visible == '2' && user.value?.id==undefined) router.push({ name: 'posts'})
 }) 
 
 const shareLocation = window.location
@@ -21,7 +24,7 @@ const shareLocation = window.location
         </div>
         <div class="flex relative w-screen h-screen justify-center z-0" v-if="post?.title==undefined">
             <div class="pt-24 mt-24 md:mt-40 mx-3 w-full md:w-9/12 text-xl font-bold text-center rounded-t-3xl" :class="theme.bgbase, theme.text">
-                You dont't have permistion to access this contents.
+                Content not available on this page. Please check the URL or try to logging in first<br><br> <a href="mailto:project203@kasidate.me" class="underline">Contact support</a> if you need further assistance
                 </div>
         </div>
         
@@ -36,7 +39,7 @@ const shareLocation = window.location
                 </div>
 
                 <div class="flex justify-center">
-                    <img :src="post.user?.img ?? '../default/profile.png'" class="ml-5 h-8 w-8 rounded-full " />
+                    <img :src="post.user?.image ?? '../default/profile.png'" class="ml-5 h-8 w-8 rounded-full " />
                     <div class="ml-2 h-6 w-fit flex flex-col md:flex-row justify-start align-middle text-sm md:text-md my-auto"
                         :class="theme.text">
                         By.. {{ post.user?.name }} | At {{ getDateFormat(post.postDate) }}

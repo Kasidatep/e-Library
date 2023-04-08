@@ -1,10 +1,7 @@
-// import userList from '../../data/db.json'
-
 
 const getUser = async () => {
   try {
     const user = await fetch('http://localhost:5000/users')
-    // if(res.status===201)
     if (user.ok) {
       const users = await user.json()
       return users
@@ -22,7 +19,7 @@ const createUser = async (newUser) => {
     users.some((user) => user.id === newUser.username) || 
     newUser.password != newUser.confpassword ||
     newUser.username.length === 0) 
-        {console.log("This username has already been taken or password not match!");
+        {
         return 'usernameinuse'
   } else {
     try {
@@ -118,7 +115,6 @@ const updateUser = async (updateUser) => {
         }
       );
       if (res.status === 200) {
-        console.log(`update user ${updateUser.username} successfully`);
         const updated = await res.json();
         return updated;
       }
@@ -162,7 +158,6 @@ const updateType =async(userid)=>{
         body: JSON.stringify(typeObj),
       });
       if (res.status === 200) {
-        const updated = await res.json();
         return res.status
       }
     

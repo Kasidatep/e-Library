@@ -1,11 +1,11 @@
 <script setup>
-import { ref, computed, onMounted, inject } from 'vue'
+import { ref, onMounted, inject } from 'vue'
 import { checkUser } from '../composables/accountManagement'
 const theme = inject('theme')
 const username = ref('')
 const password = ref('')
-const usr = ref('')
-const passwd = ref('')
+const usr = ref(null)
+const passwd = ref(null)
 const emits = defineEmits(['login', 'toRegister'])
 const keepuser = ref(false)
 onMounted(() => {
@@ -33,7 +33,7 @@ onMounted(() => {
         
         <div class="flex mt-8 justify-end cursor-pointer">
             <div class=" py-3 mr-5 text-md cursor-pointer hover:drop-shadow-xl" :class="theme.text">
-Don't have an account yet?
+                Don't have an account yet?
             <a class="font-extrabold underline decoration-2" @click="$emit('toRegister')">Register</a></div>
             <button class="px-3 py-3 rounded-lg text-lg cursor-pointer hover:drop-shadow-xl z-10 w-fit"
                 @click="$emit('login', checkUser(username, password),keepuser)" 

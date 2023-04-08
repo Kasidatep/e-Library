@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, onMounted, inject } from 'vue'
+import { ref, onMounted, inject } from 'vue'
 import { createUser} from '../composables/accountManagement'
 const emits = defineEmits(['toLogIn', 'register'])
 const theme = inject('theme')
@@ -11,13 +11,13 @@ const type = ref('user')
 const password = ref('')
 const confpassword = ref('')
 const imgurl = ref('')
-const na = ref('')
-const usr = ref('')
-const em = ref('')
-const ph = ref('')
-const passwd = ref('')
-const cpasswd = ref('')
-const img = ref('')
+const na = ref(null)
+const usr = ref(null)
+const em = ref(null)
+const ph = ref(null)
+const passwd = ref(null)
+const cpasswd = ref(null)
+const img = ref(null)
 
 
 const register = () => {
@@ -55,7 +55,7 @@ onMounted(()=>{
 
 
             <div class="flex flex-col md:flex-row mt-12 h-24 md:h-12">
-                <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Username</div>
+                <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Username*</div>
                 <input ref="usr" type="text" placeholder="username" v-model="username" class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="na.focus()">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
@@ -75,11 +75,11 @@ onMounted(()=>{
                 <input ref="img" type="url" placeholder="imageurl" v-model="imgurl" class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="passwd.focus()">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
-                <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Password</div>
+                <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Password*</div>
                 <input ref="passwd" type="password" placeholder="password" v-model="password" class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="cpasswd.focus()">
             </div>
             <div class="flex flex-col md:flex-row mt-3 h-24 md:h-12">
-                <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Confirm Password</div>
+                <div class="text-lg font-bold px-2 pt-2 w-48" :class="theme.text">Confirm Password*</div>
                 <input ref="cpasswd" type="password" placeholder="confirmpassword" v-model="confpassword" class="w-full rounded-lg h-12 pl-5" :class="theme.input" @keyup.enter="$emit('register', register()), $emit('toLogIn')">
             </div>
             

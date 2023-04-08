@@ -38,7 +38,6 @@ const setChangeType = async (id) => {
     whoChange.value = id
 }
 
-// Notification -----------------------------------------------------------------------------------
 const notifications = ref([])
 const createNotification = (type, message, timeout) => {
     let theme = ["bg-black", "text-white"]
@@ -60,17 +59,8 @@ const getUserType = (type) => {
 </script>
  
 <template>
-    <div>
-        <div class="fixed w-96 right-5 left-auto z-50 mt-24">
-            <div class="flex-col min-h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
-                v-for="notification in notifications">
-                <div class="text-xl font-extrabold mx-5 mt-2 pt-2 ">{{ notification.type }}</div>
-                <hr class="mx-5 mt-2 opacity-20">
-                <div class="text-lg pl-5 pt-1">{{ notification.message }}</div>
-            </div>
-        </div>
-        <div class="fixed z-20 w-full flex m-5 rounded-3xl" :class="theme.bgblock" v-show="showDialog">
-            <div class=" p-10 h-2/4 w-full">
+     <div class=" z-20 absolute top-5 w-full m-5 rounded-3xl" :class="theme.bgblock" v-show="showDialog">
+            <div class=" p-10 h-2/4 w-full ">
                 <div class="flex flex-col w-full">
                     <div class="text-lg font-bold px-2 pt-2  mb-3" :class="theme.text">Type password to confirm your
                         action!!</div>
@@ -84,6 +74,16 @@ const getUserType = (type) => {
                 </div>
             </div>
         </div>
+    <div>
+        <div class="fixed w-96 right-5 left-auto z-50 mt-24">
+            <div class="flex-col min-h-24 rounded-2xl bg-opacity-70 border-2 mt-5 z-20" :class="notification.theme"
+                v-for="notification in notifications">
+                <div class="text-xl font-extrabold mx-5 mt-2 pt-2 ">{{ notification.type }}</div>
+                <hr class="mx-5 mt-2 opacity-20">
+                <div class="text-lg pl-5 pt-1">{{ notification.message }}</div>
+            </div>
+        </div>
+       
         <div class="pl-5 w-full pt-16">
             <h1 class=" font-bold lg:text-4xl text-3xl pt-10 mb-5" :class="theme.textheader">  การจัดการสิทธิผู้ใช้งาน </h1>
         <div class="w-full grid grid-flow-row">
@@ -101,8 +101,7 @@ const getUserType = (type) => {
                 </div>
             </div>
         </div>
-            <!---  -->
-            <div class="w-full grid grid-flow-row" v-for="thisUser in allUser">
+\            <div class="w-full grid grid-flow-row" v-for="thisUser in allUser">
             <div class="h-fit rounded-[20px] mb-4" :class="theme.profilebutton">
                 <div :class="theme.text" class="grid grid-cols-12 py-2">
                     <div class="col-span-12 md:col-span-5 text-xl pl-8 self-center overflow-hidden ">{{ thisUser.name }}</div>

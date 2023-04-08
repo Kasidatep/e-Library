@@ -13,10 +13,15 @@ onMounted(async () => {
 <template>
     <div class="w-screen h-screen overflow-x-hidden">
         <div class="absolute w-screen h-[30rem] overflow-hidden object-center opacity-20">
-            <img :src="(book.img?.length > 10) ? book.img : '../default/coverpost.png'"
+            <img :src="(book?.img?.length > 10) ? book?.img : '../default/coverpost.png'"
                 class="w-full h-fit object-center  bg-transparen z-0 blur-sm" alt="">
         </div>
-        <div class="flex relative  justify-center z-0">
+        <div class="flex relative w-screen h-screen justify-center z-0" v-if="book?.title==undefined">
+            <div class="pt-24 mt-24 md:mt-40 mx-3 w-full md:w-9/12 text-xl font-bold text-center rounded-t-3xl" :class="theme.bgbase, theme.text">
+                Content not available on this page. Please check the URL or try to logging in first<br><br> <a href="mailto:project203@kasidate.me" class="underline">Contact support</a> if you need further assistance
+                </div>
+        </div>
+        <div class="flex relative  justify-center z-0"  v-if="book?.title!==undefined">
             <div class=" mt-24 md:mt-40 mx-3 w-full md:w-3/5 rounded-t-3xl grid 2xl:grid-cols-2  grid-rows-1 container "
                 :class="theme.bgbase">
                 <div class=" z-0 2xl:grid self-center justify-self-center hidden " v-if="(book.img?.length > 10)">

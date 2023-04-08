@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, inject} from 'vue'
+import {inject} from 'vue'
 import { getDateFormat } from '../composables/dateFormat'
 const props = defineProps(['borrows','allBorrows'])
 const theme = inject('theme')

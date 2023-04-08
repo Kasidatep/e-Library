@@ -1,18 +1,16 @@
 <script setup>
-import {getFavoriteBook,addFavoriteBookById} from '../composables/favoriteBook.js'
-import { ref, onMounted, inject} from 'vue'
+import {inject} from 'vue'
 
 const props=defineProps(['like','favorites'])
 const {user} = inject('user')
 const theme = inject('theme')
 const emit =defineEmits(['delFav'])
-// const favorites = ref(['favorite'])
+
 
 
 </script>
  
 <template>
-    <div>สวัสดี</div>
 <div>
     
   <div class="pl-5 w-full pt-16">
