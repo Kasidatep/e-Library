@@ -2,7 +2,7 @@
 let posts = [];
 const fetchPost = async () => {
     try {
-        const res = await fetch('http://localhost:5000/posts?_expand=user')
+        const res = await fetch('http://e-library.kasidate.me:5000/posts?_expand=user')
         if (res.status === 200) {
             return await res.json()
         }
@@ -16,7 +16,7 @@ const fetchPost = async () => {
 const createPost = async (data) => {
     data.postDate = new Date(Date.now())
     try {
-        const res = await fetch('http://localhost:5000/posts', {
+        const res = await fetch('http://e-library.kasidate.me:5000/posts', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -32,7 +32,7 @@ const createPost = async (data) => {
 
 const updatePostById = async (id, data) => {
     try {
-        const res = await fetch('http://localhost:5000/posts/'+id, {
+        const res = await fetch('http://e-library.kasidate.me:5000/posts/'+id, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -48,7 +48,7 @@ const updatePostById = async (id, data) => {
 
 const deletePostById = async (id) => {
     try {
-        const res = await fetch('http://localhost:5000/posts/'+id, {
+        const res = await fetch('http://e-library.kasidate.me:5000/posts/'+id, {
             method: 'DELETE'
         })
         return res.status
@@ -60,7 +60,7 @@ const deletePostById = async (id) => {
 
 const getPostById = async (id) => {
     try {
-        const res = await fetch('http://localhost:5000/posts/'+id+'?_expand=user')
+        const res = await fetch('http://e-library.kasidate.me:5000/posts/'+id+'?_expand=user')
         if (res.status === 200) {
             return await res.json()
         }

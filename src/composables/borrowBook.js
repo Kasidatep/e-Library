@@ -1,6 +1,6 @@
 const getBorrowBook = async (userId) => {
   try {
-    const res = await fetch(`http://localhost:5000/borrows?_expand=book&userId=${userId}`)
+    const res = await fetch(`http://e-library.kasidate.me:5000/borrows?_expand=book&userId=${userId}`)
     if (res.ok) {
       return await res.json();
     }
@@ -12,7 +12,7 @@ const getBorrowBook = async (userId) => {
 }
 const getBorrowBookByUserId = async (userId) => {
   try {
-    const res = await fetch(`http://localhost:5000/borrows?_userId=${userId}`)
+    const res = await fetch(`http://e-library.kasidate.me:5000/borrows?_userId=${userId}`)
     if (res.ok) {
       return await res.json();
     }
@@ -25,7 +25,7 @@ const getBorrowBookByUserId = async (userId) => {
 
 const getCurrentBorrowBookByUserId = async (userId, bookId) => {
   try {
-    const res = await fetch(`http://localhost:5000/borrows?userId=${userId}&status=1&bookId=${bookId}`)
+    const res = await fetch(`http://e-library.kasidate.me:5000/borrows?userId=${userId}&status=1&bookId=${bookId}`)
     if (res.ok) {
       return await res.json();
     }
@@ -38,7 +38,7 @@ const getCurrentBorrowBookByUserId = async (userId, bookId) => {
 
 const getAllBorrowBook = async () => {
   try {
-    const res = await fetch(`http://localhost:5000/borrows?_expand=book`)
+    const res = await fetch(`http://e-library.kasidate.me:5000/borrows?_expand=book`)
     if (res.ok) {
       return await res.json();
     }
@@ -51,7 +51,7 @@ const getAllBorrowBook = async () => {
 
 const getBorrowBookById = async (id) => {
   try {
-    const res = await fetch(`http://localhost:5000/borrows/${id}`)
+    const res = await fetch(`http://e-library.kasidate.me:5000/borrows/${id}`)
     if (res.ok) {
       return await res.json();
     }
@@ -67,7 +67,7 @@ const addBrBook = async (newBrBook) => {
  const getBr =await getCurrentBorrowBookByUserId(newBrBook.userId,newBrBook.bookId)
  if(await getBr.length > 0) return 304
   try {
-    const res = await fetch('http://localhost:5000/borrows', {
+    const res = await fetch('http://e-library.kasidate.me:5000/borrows', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'
@@ -88,7 +88,7 @@ const updateBorrowBook = async (updateBrBook) => {
   book.status = 2
   book.returnDate = new Date(Date.now())
   try {
-    const res = await fetch(`http://localhost:5000/borrows/${updateBrBook}`, {
+    const res = await fetch(`http://e-library.kasidate.me:5000/borrows/${updateBrBook}`, {
       method: 'PUT',
       headers: {
         "Content-Type": "application/json",

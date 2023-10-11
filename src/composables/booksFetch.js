@@ -1,6 +1,6 @@
 const getBooks = async () => {
     try {
-        const res = await fetch("http://localhost:5000/books");
+        const res = await fetch("http://e-library.kasidate.me:5000/books");
         if (res.ok) {
             return await res.json();
         }
@@ -13,7 +13,7 @@ const getBooks = async () => {
 
 const getBookById = async (id) => {
     try {
-        const res = await fetch("http://localhost:5000/books/"+id);
+        const res = await fetch("http://e-library.kasidate.me:5000/books/"+id);
         if (res.ok) {
             return await res.json();
         }
@@ -27,7 +27,7 @@ const getBookById = async (id) => {
 
 const createBook = async (newBook) => {
     try {
-        const res = await fetch('http://localhost:5000/books', {
+        const res = await fetch('http://e-library.kasidate.me:5000/books', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -43,7 +43,7 @@ const createBook = async (newBook) => {
 
 const updateBookById = async (updateBook) => {
     try {
-        const res = await fetch(`http://localhost:5000/books/${updateBook.id}`, {
+        const res = await fetch(`http://e-library.kasidate.me:5000/books/${updateBook.id}`, {
             method: 'PUT',
             headers: {
                 "Content-Type": "application/json",
@@ -59,7 +59,7 @@ const updateBookById = async (updateBook) => {
 
 const deleteBookById = async (deleteId) => {
     try {
-        const res = await fetch(`http://localhost:5000/books/${deleteId}`, {
+        const res = await fetch(`http://e-library.kasidate.me:5000/books/${deleteId}`, {
             method: 'DELETE'
         })
         return res.status

@@ -1,6 +1,6 @@
 const getFavoriteBook= async (userId)=>{
   try {
-      const res = await fetch(`http://localhost:5000/favorites?_expand=book&userId=${userId}`)
+      const res = await fetch(`http://e-library.kasidate.me:5000/favorites?_expand=book&userId=${userId}`)
       if (res.ok) {
         return await res.json();
       }
@@ -12,7 +12,7 @@ const getFavoriteBook= async (userId)=>{
   }
   const getFavoriteBookByUserId= async (userId)=>{
     try {
-        const res = await fetch(`http://localhost:5000/favorites?userId=${userId}`)
+        const res = await fetch(`http://e-library.kasidate.me:5000/favorites?userId=${userId}`)
         if (res.ok) {
           return await res.json();
         }
@@ -32,7 +32,7 @@ const getFavoriteBook= async (userId)=>{
       return 400
     }else{
     try {
-      const res = await fetch('http://localhost:5000/favorites', {
+      const res = await fetch('http://e-library.kasidate.me:5000/favorites', {
         method: 'POST',
         headers: {
           'content-type': 'application/json'
@@ -50,7 +50,7 @@ const getFavoriteBook= async (userId)=>{
 }
 const deleteFavoriteBook= async(deleteId)=>{
 try {
-  const res = await fetch(`http://localhost:5000/favorites/${deleteId}`, {
+  const res = await fetch(`http://e-library.kasidate.me:5000/favorites/${deleteId}`, {
       method: 'DELETE'
   })
   return res.status
