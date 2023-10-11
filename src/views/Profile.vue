@@ -381,7 +381,7 @@ const isOpen = ref(true)
 
             <BorrowBookList v-if="page == 12" @updateBorrowBook="updateBrBookById" @gotoRead="gotoRead" :borrows="borrows" />
             <Edituser v-if="page == 13" @updateuser="updateuser" @deleteuser="deleteuser" />
-            <EditType v-if="page == 90 ,user.type === 'admin'" />
+            <EditType v-if="page == 90 && user.type === 'admin'" />
         </div>
     </div>
 </template>
